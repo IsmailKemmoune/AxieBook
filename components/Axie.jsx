@@ -91,7 +91,7 @@ export default function Axie() {
   };
   return (
     <>
-      <Head>
+      {/* <Head>
         <script
           src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
           //   integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
@@ -103,7 +103,7 @@ export default function Axie() {
           //   crossorigin="anonymous"
         ></script>
         <script src="pixi-spine.js"></script>
-      </Head>
+      </Head> */}
       <div>
         <input
           placeholder="Axie ID"
