@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 // import { data } from "autoprefixer";
 import Image from "next/image";
-import Axie from "../components/Axie";
+import AxieImage from "./AxieImage";
+import AxieForm from "./AxieForm";
 import axios from "axios";
 
 export default function Card() {
@@ -30,19 +31,26 @@ export default function Card() {
     }
   };
 
+  // const axieArray = []
+  // const axieDetails = {
+  //   id: "",
+  //   name: "",
+  //   class: "",
+  //   parts: [
+  //     {
+  //       name: "",
+  //       type: "",
+  //     }
+  //   ],
+  // };
+
   return (
-    <div className="flex flex-col items-center justify-center bg-primary w-3/5 h-80 rounded-md drop-shadow-lg">
-      {/* <div className="w-50 border-2 border-secondary rounded mb-5">
-        <img src={axieImage} alt="axie image" />
+    <div className="card flex flex-col items-center justify-center w-3/5 bg-primary rounded-md drop-shadow-lg h-96">
+      <AxieImage />
+      <hr />
+      {/* <div className="h-96 pt-10">
+        <AxieForm />
       </div> */}
-      {/* <p>{axieName}</p> */}
-      {/* <input
-        placeholder="Axie ID"
-        onChange={getInputData}
-        value={inputId}
-      ></input>
-      <button onClick={() => getAxieInfo(inputId)}>Search</button> */}
-      <Axie />
     </div>
   );
 }

@@ -1,5 +1,4 @@
 // import pi
-import Head from "next/head";
 import { useState } from "react";
 import * as PIXI from "pixi.js";
 // import { loader } from "pixi.js";
@@ -85,10 +84,6 @@ export default function Axie() {
       });
   }
 
-  const getInputData = (e) => {
-    const { value } = e.target;
-    setInputId(value);
-  };
   return (
     <>
       {/* <Head>
@@ -104,14 +99,7 @@ export default function Axie() {
         ></script>
         <script src="pixi-spine.js"></script>
       </Head> */}
-      <div>
-        <input
-          placeholder="Axie ID"
-          onChange={getInputData}
-          value={inputId}
-        ></input>
-        <button onClick={getAxie}>Search</button>
-      </div>
+      <div></div>
     </>
   );
 }
