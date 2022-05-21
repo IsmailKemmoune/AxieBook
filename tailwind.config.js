@@ -16,6 +16,17 @@ module.exports = {
         transparent: "transparent",
         black: "#000",
         white: "#fff",
+        classes: {
+          plant: "#96CB00",
+          aqua: "#35C2DE",
+          beast: "#F59B14",
+          bird: "#FA59A0",
+          reptile: "#9967FB",
+          mech: "#71898E",
+          dusk: "#029FAE",
+          bug: "#FF433E",
+          dawn: "#7183E3",
+        },
         gray: {
           100: "#5B6372",
           200: "#3c424d",
@@ -44,6 +55,19 @@ module.exports = {
         15: "3.75rem",
         128: "32rem",
         144: "36rem",
+      },
+      minWidth: {
+        "1/2": "50%",
+        post: "64rem",
+      },
+      boxShadow: {
+        post: "#25233b -5px 5px, #211f34 -10px 10px, #1d1b2e -15px 15px",
+        default: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+      },
+      gridTemplateColumns: {
+        post: {
+          manager: "2fr 1fr",
+        },
       },
     },
   },

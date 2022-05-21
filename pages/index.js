@@ -1,11 +1,13 @@
-import Card from "../components/Card";
-import BodyParts from "../components/BodyParts";
+import ManagerPost from "../components/ManagerPost";
+import Sidebar from "../components/Sidebar";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen">
-      <Card />
-      <BodyParts />
+    <div className="bg-primary h-screen grid ">
+      <Sidebar />
+      <div className="flex flex-col items-center justify-center">
+        <ManagerPost />
+      </div>
     </div>
   );
 }

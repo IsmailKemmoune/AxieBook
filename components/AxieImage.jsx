@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { BiExpandAlt } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
+import useAxios from "../custom_hooks/useAxios";
+
 export default function AxieImage() {
   const [inputId, setInputId] = useState("");
   const [axieImages, setAxieImages] = useState([]);
+  const { data, loading, error } = useAxios(
+    `https://assets.axieinfinity.com/axies/${inputId}/axie/axie-full-transparent.png`
+  );
 
   const getInputData = (e) => {
     const { value } = e.target;
     setInputId(value);
   };
 
+  console.log(data);
   const getAxiePicture = () => {
     setInputId("");
     if (!inputId) {
@@ -32,18 +38,21 @@ export default function AxieImage() {
     }
   };
 
-  //   console.log(axieImages);
+  // console.log(axieImages);
   const deleteAxie = (axieId) => {
     setAxieImages((prevAxieImages) =>
       prevAxieImages.filter((img) => img.id != axieId)
     );
-    console.log(axieId);
-    console.log(axieImages);
   };
+
+  // const expandAxie = (axieId) => {};
 
   let imagesElement = axieImages.map((axie) => {
     return (
-      <div className="group axie-img w-48 h-60 bg-secondary m-5 rounded-md flex flex-col justify-evenly items-center border-2 border-secondary hover:border-2 hover:border-shades-300 hover:shadow-2xl transition duration-200 ease-linear">
+      <div
+        key={axie.id}
+        className="group axie-img w-48 h-60 bg-secondary m-5 rounded-md flex flex-col justify-evenly items-center border-2 border-secondary hover:border-2 hover:border-shades-300 hover:shadow-2xl transition duration-200 ease-linear"
+      >
         <div className="hidden group-hover:block flex items-center content-around transition duration-200 ease-linear">
           <button className="cursor-pointer mr-4">
             <AiOutlineDelete
@@ -52,12 +61,15 @@ export default function AxieImage() {
             />
           </button>
           <button className="cursor-pointer">
-            <BiExpandAlt className="text-white hover:text-expand transition duration-200 ease-linear" />
+            <BiExpandAlt
+              className="text-white hover:text-expand transition duration-200 ease-linear"
+              onClick={() => expandAxie(axie.id)}
+            />
           </button>
         </div>
         <div>
           <img
-            key={axie.id}
+            id={axie.id}
             src={axie.img}
             alt="Axie Image"
             className="w-full h-full object-contain"
@@ -66,7 +78,7 @@ export default function AxieImage() {
       </div>
     );
   });
-  //   console.log("elements :", imagesElement);
+
   return (
     <div className="bg-primary flex flex-col items-center">
       <div className="flex">{imagesElement}</div>

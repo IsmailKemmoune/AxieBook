@@ -7,3 +7,7 @@
     @apply font-primary;
   }
 }
+
+#__next {
+  height: 100vh;
+}
