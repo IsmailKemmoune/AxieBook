@@ -13,8 +13,8 @@ import ManagerPostInfo from "./ManagerPostInfo";
 
 export default function ManagerPost() {
   return (
-    <div className="bg-shades-200 my-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear min-w-post max-w-6xl">
-      <div className="pl-6 py-4 bg-secondary flex shadow-lg">
+    <div className="group bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear min-w-post max-w-6xl hover:cursor:pointer">
+      <div className="hidden group-active:block pl-6 py-4 bg-secondary flex shadow-lg">
         <div className="bg-white rounded-full h-12 w-12 mr-4"></div>
         <div>
           <h1 className="text-white text-lg">Meta team available</h1>
@@ -34,7 +34,7 @@ export default function ManagerPost() {
           <ManagerPostInfo text="Every 15 days" />
         </div>
       </div>
-      <div className="p-6">
+      <div className="hidden group-active:block p-6">
         <h2 className="text-secondary text-xl pb-3">Description</h2>
         <p className="text-white font-light">
           Vestibulum scelerisque tristique quam sed condimentum. Vestibulum

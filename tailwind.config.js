@@ -65,9 +65,7 @@ module.exports = {
         default: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
       },
       gridTemplateColumns: {
-        post: {
-          manager: "2fr 1fr",
-        },
+        layout: "300px 1fr",
       },
     },
   },
