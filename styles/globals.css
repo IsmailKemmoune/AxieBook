@@ -8,6 +8,36 @@
   }
 }
 
+.scroll-div::-webkit-scrollbar {
+  width: 0.3vw;
+}
+.scroll-div::-webkit-scrollbar-track {
+  background-color: #1c1b29;
+}
+
+.scroll-div::-webkit-scrollbar-thumb {
+  background-color: #545267;
+  border-radius: 20px;
+}
+.scroll-div::-webkit-scrollbar-thumb:hover {
+  background-color: #3e3d54;
+}
+
+html::-webkit-scrollbar {
+  width: 0.3vw;
+}
+html::-webkit-scrollbar-track {
+  background-color: #1c1b29;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #545267;
+  border-radius: 20px;
+  padding: 3px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #3e3d54;
+}
 body {
   height: 100vh;
 }
