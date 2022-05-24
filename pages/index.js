@@ -10,10 +10,11 @@ const glassmorphism = {
   justifyContent: "center",
   padding: "25px 0px",
   position: "sticky",
-  top: "0",
+  width: "100%",
+  top: "-0.5px",
   zIndex: "10",
   color: "white",
-  fontSize: "20px",
+  fontSize: "18px",
   fontWeight: "600",
   backgroundColor: "rgba(0, 0, 0, 0.65)",
   backdropFilter: "blur(12px)",
@@ -41,7 +42,8 @@ const defaultNav = {
   justifyContent: "center",
   padding: "25px 0px",
   position: "sticky",
-  top: "0",
+  width: "100%",
+  top: "-0.5px",
   zIndex: "10",
   color: "white",
   backgroundColor: "Black",
@@ -71,13 +73,23 @@ export default function Home() {
         > */}
           <ul className="flex ">
             <Link href="/postCreation">
-              <li className="mr-14 cursor-pointer">Find scholar</li>
+              <li className="mr-14 cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
+                Find scholar
+              </li>
             </Link>
-            <li className="mr-14 cursor-pointer">Find manager</li>
-            <li className="mr-14 cursor-pointer">Join Discord</li>
+            <Link href="/postCreation">
+              <li className="mr-14 cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
+                Find manager
+              </li>
+            </Link>
+            <Link href="/postCreation">
+              <li className="mr-14 cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
+                Join Discord
+              </li>
+            </Link>
           </ul>
         </nav>
-        <div className="grid grid-cols-[1fr_10px_1fr] gap-3">
+        <div className="grid grid-cols-[1fr_10px_1fr] gap-3 h-full">
           <div>
             <ManagerPost />
             <ManagerPost />
