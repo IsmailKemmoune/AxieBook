@@ -18,13 +18,15 @@ export default function ScholarPost() {
         <div className="pl-6 py-4 bg-secondary flex shadow-lg">
           <div className="bg-white rounded-full h-12 w-12 mr-4"></div>
           <div>
-            <h1 className="text-white text-lg">Meta team available</h1>
-            <p className="text-white text-sm italic font-extralight">1H ago</p>
+            <h1 className="text-white text-lg">
+              High MMR player looking for scholar
+            </h1>
+            <p className="text-white text-sm italic font-extralight">2H ago</p>
           </div>
         </div>
       )}
       <div className="grid gap-x-4 grid-cols-[10px_60%_1fr]">
-        <div className="bg-shades-300"></div>
+        <div className="bg-scholar"></div>
         <div className="p-6">
           <h2 className="text-secondary text-xl pb-3">Description</h2>
           <p className="text-white font-light">

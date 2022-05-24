@@ -6,16 +6,17 @@ import useAxios from "../custom_hooks/useAxios";
 export default function AxieImage() {
   const [inputId, setInputId] = useState("");
   const [axieImages, setAxieImages] = useState([]);
-  const { data, loading, error } = useAxios(
-    `https://assets.axieinfinity.com/axies/${inputId}/axie/axie-full-transparent.png`
-  );
+  // const { data, loading, error } = useAxios(
+  //   `https://assets.axieinfinity.com/axies/${inputId}/axie/axie-full-transparent.png`
+  // );
 
+  // console.log(data);
   const getInputData = (e) => {
     const { value } = e.target;
     setInputId(value);
   };
 
-  console.log(data);
+  // console.log(data);
   const getAxiePicture = () => {
     setInputId("");
     if (!inputId) {

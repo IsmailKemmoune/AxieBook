@@ -10,7 +10,7 @@ export default function ManagerPostInfo({ text, children }) {
     <div className="flex items-center mb-2 mt-12">
       {/* <RiSplitCellsHorizontal className="text-secondary mr-2 text-3xl" /> */}
       {children}
-      <p className="text-white">{text}</p>
+      <p className="text-white italic">{text}</p>
     </div>
   );
 }
