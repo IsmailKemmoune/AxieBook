@@ -1,4 +1,4 @@
-import React from "react";
+import AxieForm from "./AxieForm";
 import AxieImage from "./AxieImage";
 
 export default function Card({ setModalOn }) {
@@ -6,9 +6,9 @@ export default function Card({ setModalOn }) {
     <div className="card flex flex-col items-center justify-center w-3/5 bg-primary rounded-md drop-shadow-lg h-96">
       <AxieImage setModalOn={setModalOn} />
       <hr />
-      {/* <div className="h-96 pt-10">
+      <div className="h-96 pt-10">
         <AxieForm />
-      </div> */}
+      </div>
     </div>
   );
 }

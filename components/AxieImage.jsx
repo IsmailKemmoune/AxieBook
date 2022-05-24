@@ -3,6 +3,11 @@ import { BiExpandAlt } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import Image from "next/image";
 
+const toBase64 = (str) =>
+  typeof window === "undefined"
+    ? Buffer.from(str).toString("base64")
+    : window.btoa(str);
+
 const axieLoader = ({ src }) => {
   return `https://assets.axieinfinity.com/axies/${src}/axie/axie-full-transparent.png`;
 };
@@ -29,7 +34,7 @@ export default function AxieImage({ setModalOn }) {
           {
             img: `https://assets.axieinfinity.com/axies/${inputId}/axie/axie-full-transparent.png`,
             id: `${inputId}`,
-            available: false,
+            // available: false,
           },
         ]);
       } else alert("you cant have more than 3 Axies in 1 team");
@@ -71,14 +76,14 @@ export default function AxieImage({ setModalOn }) {
         </div>
         <div className="relative fixed">
           <Image
-            placeholder="blur"
-            loading="eager"
+            // placeholder="blur"
+            // loading="eager"
             blurDataURL="/assets/skeleton.png"
             width="1280px"
             height="960px"
             loader={axieLoader}
             src={axie.id}
-            alt={axie.id}
+            alt="Axie image"
             quality={100}
           />
         </div>

@@ -5,11 +5,6 @@ import { GiHealthPotion } from "react-icons/gi";
 import { FiPercent } from "react-icons/fi";
 import ManagerPostInfo from "./ManagerPostInfo";
 import { useState } from "react";
-//MdSplitscreen
-//IoIosFlash
-//BsCalendarRange
-//GiHealthPotion
-//BsChevronCompactDown
 
 export default function ManagerPost() {
   const [postToggle, setPostToggle] = useState(false);
@@ -27,7 +22,8 @@ export default function ManagerPost() {
           </div>
         </div>
       )}
-      <div className="grid gap-x-5 grid-cols-[60%_40%]">
+      <div className="grid grid-cols-[10px_60%_1fr]">
+        <div className="bg-manager"></div>
         <div className="flex p-5">
           <ManagerPostAxieImage />
           <ManagerPostAxieImage />
@@ -49,17 +45,20 @@ export default function ManagerPost() {
         </div>
       </div>
       {postToggle && (
-        <div className="p-6">
-          <h2 className="text-secondary text-xl pb-3">Description</h2>
-          <p className="text-white font-light">
-            Vestibulum scelerisque tristique quam sed condimentum. Vestibulum
-            porttitor justo a ornare dapibus. Suspendisse potenti. Proin
-            tincidunt aliquam eros, at tincidunt risus euismod nec. Cras vel
-            justo eget orci tempor scelerisque. Vivamus hendrerit facilisis leo,
-            eget sollicitudin nibh malesuada ut. Sed interdum nibh eu sapien
-            imperdiet, et vulputate mauris tempus. Mauris maximus et felis at
-            sollicitudin. Suspendisse id ante massa.
-          </p>
+        <div className="grid grid-cols-[10px_1fr]">
+          <div className="bg-manager"></div>
+          <div className="p-6">
+            <h2 className="text-secondary text-xl pb-3">Description</h2>
+            <p className="text-white font-light">
+              Vestibulum scelerisque tristique quam sed condimentum. Vestibulum
+              porttitor justo a ornare dapibus. Suspendisse potenti. Proin
+              tincidunt aliquam eros, at tincidunt risus euismod nec. Cras vel
+              justo eget orci tempor scelerisque. Vivamus hendrerit facilisis
+              leo, eget sollicitudin nibh malesuada ut. Sed interdum nibh eu
+              sapien imperdiet, et vulputate mauris tempus. Mauris maximus et
+              felis at sollicitudin. Suspendisse id ante massa.
+            </p>
+          </div>
         </div>
       )}
     </div>

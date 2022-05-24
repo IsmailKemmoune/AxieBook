@@ -44,7 +44,7 @@ module.exports = {
         },
         primary: "#1C1B29",
         secondary: "#292741",
-        manager: "#9B5367",
+        manager: "#FFFADE",
         scholar: "#93D3BE",
         delete: "#C11A43",
         expand: "#47817F",

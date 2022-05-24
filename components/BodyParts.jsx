@@ -6,8 +6,8 @@ export default function BodyParts({ setModalOn }) {
       <div className="w-full flex items-center justify-between mb-5">
         <p>BODY PARTS</p>
         <AiOutlineCloseCircle
-          onClick={setModalOn((prevModal) => (prevModal = !prevModal))}
           className="pointer-cursor text-xl hover:text-delete"
+          onClick={() => setModalOn(false)}
         />
       </div>
       <hr />
