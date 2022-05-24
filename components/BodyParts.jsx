@@ -1,7 +1,15 @@
-export default function BodyParts() {
+import { AiOutlineCloseCircle } from "react-icons/ai";
+
+export default function BodyParts({ setModalOn }) {
   return (
     <div className="bg-secondary text-white w-2/5 flex flex-col justify-evenly p-7 rounded-md mt-10 drop-shadow-lg">
-      <p className="mb-5">BODY PARTS</p>
+      <div className="w-full flex items-center justify-between mb-5">
+        <p>BODY PARTS</p>
+        <AiOutlineCloseCircle
+          onClick={setModalOn((prevModal) => (prevModal = !prevModal))}
+          className="pointer-cursor text-xl hover:text-delete"
+        />
+      </div>
       <hr />
       <div className="grid grid-cols-2 gap-y-5 gap-x-20 mt-10">
         <div className="w-full flex items-center">

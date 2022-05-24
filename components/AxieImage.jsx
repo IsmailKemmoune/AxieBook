@@ -1,24 +1,21 @@
 import { useState } from "react";
 import { BiExpandAlt } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
-import useAxios from "../custom_hooks/useAxios";
+import Image from "next/image";
 
-export default function AxieImage() {
+const axieLoader = ({ src }) => {
+  return `https://assets.axieinfinity.com/axies/${src}/axie/axie-full-transparent.png`;
+};
+
+export default function AxieImage({ setModalOn }) {
   const [inputId, setInputId] = useState("");
   const [axieImages, setAxieImages] = useState([]);
-  // const { data, loading, error } = useAxios(
-  //   `https://assets.axieinfinity.com/axies/${inputId}/axie/axie-full-transparent.png`
-  // );
-
-  // console.log(data);
   const getInputData = (e) => {
     const { value } = e.target;
     setInputId(value);
   };
 
-  // console.log(data);
   const getAxiePicture = () => {
-    setInputId("");
     if (!inputId) {
       alert("Axie ID is required");
       return;
@@ -37,43 +34,52 @@ export default function AxieImage() {
         ]);
       } else alert("you cant have more than 3 Axies in 1 team");
     }
+    setInputId("");
   };
 
-  // console.log(axieImages);
   const deleteAxie = (axieId) => {
     setAxieImages((prevAxieImages) =>
       prevAxieImages.filter((img) => img.id != axieId)
     );
   };
 
-  // const expandAxie = (axieId) => {};
+  const expandAxie = (axieId) => {
+    setModalOn(true);
+  };
 
   let imagesElement = axieImages.map((axie) => {
     return (
       <div
         key={axie.id}
-        className="group axie-img w-48 h-60 bg-secondary m-5 rounded-md flex flex-col justify-evenly items-center border-2 border-secondary hover:border-2 hover:border-shades-300 hover:shadow-2xl transition duration-200 ease-linear"
+        className="group cursor-pointer axie-img w-48 h-60 bg-secondary m-5 rounded-md flex flex-col justify-evenly items-center border-2 border-secondary hover:border-2 hover:border-shades-300 hover:shadow-2xl transition duration-200 ease-linear"
       >
-        <div className="hidden group-hover:block flex items-center content-around transition duration-200 ease-linear">
-          <button className="cursor-pointer mr-4">
-            <AiOutlineDelete
-              className="text-white hover:text-delete transition duration-200 ease-linear"
-              onClick={() => deleteAxie(axie.id)}
-            />
-          </button>
-          <button className="cursor-pointer">
-            <BiExpandAlt
-              className="text-white hover:text-expand transition duration-200 ease-linear"
-              onClick={() => expandAxie(axie.id)}
-            />
-          </button>
+        <div className="hidden absolute top-20 z-10 group-hover:block transition duration-200 ease-linear">
+          <div className="flex items-center content-around transition duration-200 ease-linear">
+            <button className="cursor-pointer mr-4">
+              <AiOutlineDelete
+                className="text-white hover:text-delete transition duration-200 ease-linear"
+                onClick={() => deleteAxie(axie.id)}
+              />
+            </button>
+            <button className="cursor-pointer">
+              <BiExpandAlt
+                className="text-white hover:text-expand transition duration-200 ease-linear"
+                onClick={() => expandAxie(axie.id)}
+              />
+            </button>
+          </div>
         </div>
-        <div>
-          <img
-            id={axie.id}
-            src={axie.img}
-            alt="Axie Image"
-            className="w-full h-full object-contain"
+        <div className="relative fixed">
+          <Image
+            placeholder="blur"
+            loading="eager"
+            blurDataURL="/assets/skeleton.png"
+            width="1280px"
+            height="960px"
+            loader={axieLoader}
+            src={axie.id}
+            alt={axie.id}
+            quality={100}
           />
         </div>
       </div>
