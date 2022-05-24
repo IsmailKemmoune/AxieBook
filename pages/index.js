@@ -1,6 +1,7 @@
 import ManagerPost from "../components/ManagerPost";
 import ScholarPost from "../components/ScholarPost";
 import Sidebar from "../components/Sidebar";
+import Link from "next/link";
 import { useState } from "react";
 
 const glassmorphism = {
@@ -11,14 +12,28 @@ const glassmorphism = {
   position: "sticky",
   top: "0",
   zIndex: "10",
-  color: "#1C1B29",
+  color: "white",
   fontSize: "20px",
   fontWeight: "600",
-  background: "rgba(255, 255, 255, 0.2)",
-  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-  backdropFilter: "blur(20px)",
-  border: "1px solid rgba(60, 66, 77, 0.3)",
+  backgroundColor: "rgba(0, 0, 0, 0.65)",
+  backdropFilter: "blur(12px)",
 };
+// const glassmorphism = {
+//   display: "flex",
+//   alignItems: "center",
+//   justifyContent: "center",
+//   padding: "25px 0px",
+//   position: "sticky",
+//   top: "0",
+//   zIndex: "10",
+//   color: "white",
+//   fontSize: "20px",
+//   fontWeight: "600",
+//   backgroundColor: "rgba(28, 27, 41, 0.65)",
+//   boxShadow: "0 4px 30px rgba(, 0, 0, 0.1)",
+//   backdropFilter: "blur(12px)",
+//   border: "1px solid rgba(60, 66, 77, 0.3)",
+// };
 
 const defaultNav = {
   display: "flex",
@@ -40,7 +55,10 @@ export default function Home() {
     else setGlassmorph(false);
   };
 
-  window.addEventListener("scroll", changeBgStyle);
+  if (typeof window !== "undefined") {
+    //here `window` is available
+    window.addEventListener("scroll", changeBgStyle);
+  }
 
   return (
     <div className="bg-primary grid grid-cols-layout h-full">
@@ -52,15 +70,24 @@ export default function Home() {
           style={{ backdropFilter: "blur(20px)" }}
         > */}
           <ul className="flex ">
-            <li className="mr-14 cursor-pointer">Find scholar</li>
+            <Link href="/postCreation">
+              <li className="mr-14 cursor-pointer">Find scholar</li>
+            </Link>
             <li className="mr-14 cursor-pointer">Find manager</li>
             <li className="mr-14 cursor-pointer">Join Discord</li>
           </ul>
         </nav>
-        <ManagerPost />
-        <ScholarPost />
-        <ManagerPost />
-        <ManagerPost />
+        <div className="grid grid-cols-[1fr_10px_1fr] gap-3">
+          <div>
+            <ManagerPost />
+            <ManagerPost />
+            <ManagerPost />
+          </div>
+          <div className="bg-black"></div>
+          <div>
+            <ScholarPost />
+          </div>
+        </div>
       </div>
     </div>
   );
