@@ -3,11 +3,6 @@ import { BiExpandAlt } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import Image from "next/image";
 
-const toBase64 = (str) =>
-  typeof window === "undefined"
-    ? Buffer.from(str).toString("base64")
-    : window.btoa(str);
-
 const axieLoader = ({ src }) => {
   return `https://assets.axieinfinity.com/axies/${src}/axie/axie-full-transparent.png`;
 };
@@ -34,7 +29,6 @@ export default function AxieImage({ setModalOn }) {
           {
             img: `https://assets.axieinfinity.com/axies/${inputId}/axie/axie-full-transparent.png`,
             id: `${inputId}`,
-            // available: false,
           },
         ]);
       } else alert("you cant have more than 3 Axies in 1 team");
@@ -58,7 +52,7 @@ export default function AxieImage({ setModalOn }) {
         key={axie.id}
         className="group cursor-pointer axie-img w-48 h-60 bg-secondary m-5 rounded-md flex flex-col justify-evenly items-center border-2 border-secondary hover:border-2 hover:border-shades-300 hover:shadow-2xl transition duration-200 ease-linear"
       >
-        <div className="hidden absolute top-20 z-10 group-hover:block transition duration-200 ease-linear">
+        <div className="hidden  z-10 group-hover:block transition duration-200 ease-linear">
           <div className="flex items-center content-around transition duration-200 ease-linear">
             <button className="cursor-pointer mr-4">
               <AiOutlineDelete
@@ -74,7 +68,7 @@ export default function AxieImage({ setModalOn }) {
             </button>
           </div>
         </div>
-        <div className="relative fixed">
+        <div className="relative">
           <Image
             // placeholder="blur"
             // loading="eager"
@@ -93,7 +87,6 @@ export default function AxieImage({ setModalOn }) {
 
   return (
     <div className="bg-primary flex flex-col items-center">
-      <div className="flex">{imagesElement}</div>
       <div className="relative">
         <input
           className="px-10 indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-l-md hover:border-red focus:border-white outline-none font-light "
@@ -109,6 +102,7 @@ export default function AxieImage({ setModalOn }) {
           Seach Axie
         </button>
       </div>
+      <div className="flex">{imagesElement}</div>
     </div>
   );
 }
