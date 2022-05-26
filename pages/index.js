@@ -1,9 +1,11 @@
 import ManagerPost from "../components/ManagerPost";
 import ScholarPost from "../components/ScholarPost";
+import { Allotment } from "allotment";
+import "allotment/dist/style.css";
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-[1fr_10px_1fr] gap-1 h-full">
+    <Allotment>
       <div className="scroll-div max-h-screen overflow-y-auto">
         <ManagerPost />
         <ManagerPost />
@@ -11,10 +13,9 @@ export default function Home() {
         <ManagerPost />
         <ManagerPost />
       </div>
-      <div className="bg-black"></div>
-      <div>
+      <div className="max-h-full">
         <ScholarPost />
       </div>
-    </div>
+    </Allotment>
   );
 }

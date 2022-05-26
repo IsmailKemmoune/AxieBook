@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "allotment": "^1.14.1",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "http-server": "^14.1.0",

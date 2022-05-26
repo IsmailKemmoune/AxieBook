@@ -85,7 +85,7 @@ const AxieForm = () => {
             {/*  */}
 
             <input
-              className="w-96"
+              className="w-96 h-1 rounded-sm appearance-none outline-none "
               type="range"
               name="split"
               onChange={handleChange}
