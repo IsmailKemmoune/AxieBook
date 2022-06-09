@@ -62,6 +62,9 @@ module.exports = {
         "1/2": "50%",
         post: "64rem",
       },
+      screens: {
+        postmd: {max: "1400px"}
+      },
       boxShadow: {
         post: "#25233b -5px 5px, #211f34 -10px 10px, #1d1b2e -15px 15px",
         default: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
