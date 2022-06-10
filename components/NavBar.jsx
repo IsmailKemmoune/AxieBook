@@ -34,6 +34,7 @@ export default function NavBar() {
   const [glassmorph, setGlassmorph] = useState(false);
 
   const changeBgStyle = () => {
+    console.log(scrollY);
     if (scrollY > 53) setGlassmorph(true);
     else setGlassmorph(false);
   };

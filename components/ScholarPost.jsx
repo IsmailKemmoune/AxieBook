@@ -14,7 +14,7 @@ export default function ScholarPost() {
   return (
     <div
       onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}
-      className="bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear min-w-post max-w-6xl cursor-pointer"
+      className="bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear min-w-[580px] max-w-6xl cursor-pointer"
     >
       {postToggle && (
         <div className="pl-6 py-4 bg-secondary flex justify-between shadow-lg">
@@ -50,9 +50,8 @@ export default function ScholarPost() {
           </div>
         </div>
       )}
-      <div className="grid gap-x-4 grid-cols-[10px_60%_1fr]">
-        <div className="bg-scholar"></div>
-        <div className="p-6">
+      <div className="border-l-8 border-scholar flex flex-wrap p-6">
+        <div className="w-[650px] grow pr-5">
           <h2 className="text-secondary text-xl pb-3">Description</h2>
           <p className="text-white font-light">
             Vestibulum scelerisque tristique quam sed condimentum. Vestibulum
@@ -64,7 +63,8 @@ export default function ScholarPost() {
             sollicitudin. Suspendisse id ante massa.
           </p>
         </div>
-        <div className="grid grid-rows-2 grid-cols-2 items-center gap-x-5 pb-10">
+
+        <div className="grid grid-cols-2 gap-x-5 grid-rows-2 grow justify-items-center">
           <ManagerPostInfo text="Laptop">
             <BiDevices className="text-secondary mr-2 text-3xl" />
           </ManagerPostInfo>

@@ -1,8 +1,27 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup
+  .object({
+    title: yup.string().required().max(35),
+    slp: yup.number().positive().integer().required().max(200),
+    split: yup.number().integer().required().min(0).max(100),
+    energy: yup.number().positive().integer().required(),
+    payment: yup.number().positive().integer().required(),
+    description: yup.string().required(),
+  })
+  .required();
 
 const AxieForm = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
   const onSubmit = (data) => console.log(data);
   const [split, setSplit] = useState(100);
 
@@ -27,6 +46,7 @@ const AxieForm = () => {
             placeholder="Title"
             type="text"
           />
+          <p>{errors.title?.message}</p>
         </div>
 
         <div className="flex flex-col">
@@ -40,6 +60,7 @@ const AxieForm = () => {
             type="text"
             id="slp"
           />
+          <p>{errors.slp?.message}</p>
         </div>
 
         <div className="w-96 flex items-end">
@@ -58,6 +79,7 @@ const AxieForm = () => {
           <div className="bg-white border-slate-400 w-1/2 rounded-md h-[40px] p-2 cursor-not-allowed">
             <p className="text-slate-400 italic ">{split}% - manager</p>
           </div>
+          <p>{errors.split?.message}</p>
         </div>
 
         <div className="flex flex-col">
@@ -68,6 +90,7 @@ const AxieForm = () => {
                 {...register("payment")}
                 type="radio"
                 id="15"
+                value={15}
                 className="peer hidden"
                 checked
               />
@@ -84,6 +107,7 @@ const AxieForm = () => {
                 {...register("payment")}
                 type="radio"
                 id="30"
+                value={30}
                 className="peer hidden"
               />
               <label
@@ -99,6 +123,7 @@ const AxieForm = () => {
                 {...register("payment")}
                 type="radio"
                 id="45"
+                value={45}
                 className="peer hidden"
               />
               <label
@@ -118,7 +143,7 @@ const AxieForm = () => {
               <input
                 {...register("energy")}
                 type="radio"
-                value="20"
+                value={20}
                 id="20"
                 className="peer hidden"
                 checked
@@ -186,6 +211,7 @@ const AxieForm = () => {
             rows="7"
             cols="33"
           />
+          <p>{errors.description?.message}</p>
         </div>
 
         <button

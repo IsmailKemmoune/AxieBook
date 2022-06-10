@@ -14,7 +14,7 @@ export default function ManagerPost() {
   return (
     <div
       onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}
-      className=" bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear max-w-6xl min-w-[625px] cursor-pointer"
+      className=" bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear max-w-6xl min-w-[580px] cursor-pointer"
     >
       {postToggle && (
         <div className="pl-6 py-4 bg-secondary flex justify-between shadow-lg">
@@ -31,7 +31,7 @@ export default function ManagerPost() {
             {bookmark ? (
               <BsFillBookmarkHeartFill
                 onClick={(e) => {
-                  setBookmark(!bookmark);
+                  setBookmark(!bookmark); //botona
                   e.stopPropagation();
                 }}
                 className="text-red-500 text-2xl hover:text-red-600 cursor-pointer"
@@ -49,12 +49,12 @@ export default function ManagerPost() {
         </div>
       )}
       <div className="border-l-8 border-manager flex flex-wrap justify-between">
-        <div className="flex p-5">
+        <div className="flex justify-evenly py-5 grow">
           <ManagerPostAxieImage />
           <ManagerPostAxieImage />
           <ManagerPostAxieImage />
         </div>
-        <div className="grid grid-cols-2 grid-rows-2">
+        <div className="grid grid-cols-2 gap-x-5 grid-rows-2 grow p-6 justify-items-center">
           <ManagerPostInfo text="40 Eenergy">
             <TiFlash className="text-secondary mr-2 text-3xl" />
           </ManagerPostInfo>
@@ -71,7 +71,7 @@ export default function ManagerPost() {
       </div>
       {postToggle && (
         <div className="border-l-8 border-manager">
-          <div className="p-6">
+          <div className="px-10 pb-10">
             <h2 className="text-secondary text-xl pb-3">Description</h2>
             <p className="text-white font-light">
               Vestibulum scelerisque tristique quam sed condimentum. Vestibulum

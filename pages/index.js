@@ -7,7 +7,7 @@ export default function Home() {
   return (
 
     <Allotment minSize={500}>
-      <Allotment.Pane minSize={680}>
+      <Allotment.Pane minSize={650}>
       <div className="scroll-div max-h-full overflow-y-auto">
         <ManagerPost />
         <ManagerPost />
@@ -16,7 +16,7 @@ export default function Home() {
         <ManagerPost />
       </div>
       </Allotment.Pane>
-      <Allotment.Pane minSize={200}>
+      <Allotment.Pane minSize={650}>
       <div className="scroll-div max-h-full overflow-y-auto">
         <ScholarPost />
         <ScholarPost />
