@@ -5,17 +5,29 @@ import "allotment/dist/style.css";
 
 export default function Home() {
   return (
-    <Allotment>
-      <div className="scroll-div max-h-screen overflow-y-auto">
+
+    <Allotment minSize={500}>
+      <Allotment.Pane minSize={680}>
+      <div className="scroll-div max-h-full overflow-y-auto">
         <ManagerPost />
         <ManagerPost />
         <ManagerPost />
         <ManagerPost />
         <ManagerPost />
       </div>
-      <div className="max-h-full">
+      </Allotment.Pane>
+      <Allotment.Pane minSize={200}>
+      <div className="scroll-div max-h-full overflow-y-auto">
+        <ScholarPost />
+        <ScholarPost />
+        <ScholarPost />
+        <ScholarPost />
+        <ScholarPost />
+        <ScholarPost />
         <ScholarPost />
       </div>
+      </Allotment.Pane>
     </Allotment>
+
   );
 }

@@ -4,8 +4,12 @@ import { useState } from "react";
 const AxieForm = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
+  const [split, setSplit] = useState(100);
 
-  const splitCalc = (e) => console.log(e.target.value);
+  const splitCalc = (e) => {
+    const value = e.target.value;
+    setSplit((prevVal) => (prevVal = 100 - value));
+  };
 
   return (
     <div>
@@ -47,12 +51,12 @@ const AxieForm = () => {
               {...register("split")}
               onChange={splitCalc}
               className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md  focus:border-white outline-none font-light p-2"
-              placeholder="SLP for the scholar"
+              placeholder="SLP % for the scholar"
               type="text"
             />
           </div>
           <div className="bg-white border-slate-400 w-1/2 rounded-md h-[40px] p-2 cursor-not-allowed">
-            <p className="text-slate-400 italic ">53% - manager</p>
+            <p className="text-slate-400 italic ">{split}% - manager</p>
           </div>
         </div>
 

@@ -14,7 +14,7 @@ export default function ManagerPost() {
   return (
     <div
       onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}
-      className=" bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear max-w-6xl cursor-pointer"
+      className=" bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear max-w-6xl min-w-[625px] cursor-pointer"
     >
       {postToggle && (
         <div className="pl-6 py-4 bg-secondary flex justify-between shadow-lg">
@@ -48,14 +48,13 @@ export default function ManagerPost() {
           </div>
         </div>
       )}
-      <div className="border-l-8 border-manager grid grid-cols-[60%_1fr] postlg:grid-cols-none postlg:justify-items-center  postlg:grid-rows-[1fr_100px] postmd:grid-rows-2 postsm:grid-rows-[1fr_200px] postxsm:grid-rows-[1fr_300px]">
-      
-        <div className="flex p-5 postlg:w-full postlg:justify-evenly postlg:px-0 postsm:flex-col postsm:items-center">
+      <div className="border-l-8 border-manager flex flex-wrap justify-between">
+        <div className="flex p-5">
           <ManagerPostAxieImage />
           <ManagerPostAxieImage />
           <ManagerPostAxieImage />
         </div>
-        <div className="grid grid-rows-2 grid-cols-2 gap-x-5 p-5 postlg:w-full postlg:grid-cols-4 postlg:grid-rows-none postlg:justify-items-center postlg:self-center postmd:grid-rows-2 postmd:grid-cols-2 postmd:h-full postxsm:grid-rows-4 postxsm:grid-cols-none">
+        <div className="grid grid-cols-2 grid-rows-2">
           <ManagerPostInfo text="40 Eenergy">
             <TiFlash className="text-secondary mr-2 text-3xl" />
           </ManagerPostInfo>
@@ -71,8 +70,7 @@ export default function ManagerPost() {
         </div>
       </div>
       {postToggle && (
-        <div className="border-l-8 border-manager grid grid-cols-1">
-       
+        <div className="border-l-8 border-manager">
           <div className="p-6">
             <h2 className="text-secondary text-xl pb-3">Description</h2>
             <p className="text-white font-light">
