@@ -63,7 +63,10 @@ module.exports = {
         post: "64rem",
       },
       screens: {
-        postmd: {max: "1400px"}
+        postlg: {max: "1400px"},
+        postmd: {max: "1100px"},
+        postsm: {max: "1000px"},
+        postxsm: {max: "800px"},
       },
       boxShadow: {
         post: "#25233b -5px 5px, #211f34 -10px 10px, #1d1b2e -15px 15px",

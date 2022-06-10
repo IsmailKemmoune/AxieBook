@@ -7,7 +7,7 @@ import { BsChevronCompactDown } from "react-icons/bs";
 
 export default function ManagerPostInfo({ text, children }) {
   return (
-    <div className="flex items-center mb-2 mt-12 postmd:my-0">
+    <div className="flex items-center mb-2 mt-12 postlg:my-0">
       {/* <RiSplitCellsHorizontal className="text-secondary mr-2 text-3xl" /> */}
       {children}
       <p className="text-white italic">{text}</p>

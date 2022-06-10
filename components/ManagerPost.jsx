@@ -48,14 +48,14 @@ export default function ManagerPost() {
           </div>
         </div>
       )}
-      <div className="border-l-8 border-manager grid grid-cols-[60%_1fr] postmd:grid-rows-2 postmd:grid-cols-none postmd:justify-items-center">
+      <div className="border-l-8 border-manager grid grid-cols-[60%_1fr] postlg:grid-cols-none postlg:justify-items-center  postlg:grid-rows-[1fr_100px] postmd:grid-rows-2 postsm:grid-rows-[1fr_200px] postxsm:grid-rows-[1fr_300px]">
       
-        <div className="flex p-5 postmd:w-4/5 postmd:justify-between postmd:px-0">
+        <div className="flex p-5 postlg:w-full postlg:justify-evenly postlg:px-0 postsm:flex-col postsm:items-center">
           <ManagerPostAxieImage />
           <ManagerPostAxieImage />
           <ManagerPostAxieImage />
         </div>
-        <div className="grid grid-rows-2 grid-cols-2 gap-x-5 p-5 postmd:w-4/5 postmd:justify-items-center">
+        <div className="grid grid-rows-2 grid-cols-2 gap-x-5 p-5 postlg:w-full postlg:grid-cols-4 postlg:grid-rows-none postlg:justify-items-center postlg:self-center postmd:grid-rows-2 postmd:grid-cols-2 postmd:h-full postxsm:grid-rows-4 postxsm:grid-cols-none">
           <ManagerPostInfo text="40 Eenergy">
             <TiFlash className="text-secondary mr-2 text-3xl" />
           </ManagerPostInfo>
