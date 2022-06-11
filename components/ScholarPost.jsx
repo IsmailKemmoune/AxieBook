@@ -31,21 +31,25 @@ export default function ScholarPost() {
           </div>
           <div className="flex justify-center items-center mr-4">
             {bookmark ? (
-              <BsFillBookmarkHeartFill
-                onClick={(e) => {
-                  setBookmark(!bookmark);
-                  e.stopPropagation();
-                }}
-                className="text-red-500 text-2xl hover:text-red-600 cursor-pointer"
-              />
+              <button>
+                <BsFillBookmarkHeartFill
+                  onClick={(e) => {
+                    setBookmark(!bookmark);
+                    e.stopPropagation();
+                  }}
+                  className="text-red-500 text-2xl hover:text-red-600 cursor-pointer"
+                />
+              </button>
             ) : (
-              <BsFillBookmarkFill
-                onClick={(e) => {
-                  setBookmark(!bookmark);
-                  e.stopPropagation();
-                }}
-                className="text-shades-200 text-2xl hover:text-shades-300 cursor-pointer"
-              />
+              <button>
+                <BsFillBookmarkFill
+                  onClick={(e) => {
+                    setBookmark(!bookmark);
+                    e.stopPropagation();
+                  }}
+                  className="text-shades-200 text-2xl hover:text-shades-300 cursor-pointer"
+                />
+              </button>
             )}
           </div>
         </div>

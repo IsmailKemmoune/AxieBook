@@ -89,7 +89,7 @@ export default function AxieImage({ setModalOn }) {
     <div className="bg-primary flex flex-col items-center">
       <div className="relative">
         <input
-          className="px-10 indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-l-md hover:border-red focus:border-white outline-none font-light "
+          className="px-14 indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-l-md border-2 border-primary focus:border-expand focus:border-2 outline-none font-light p-2"
           placeholder="Enter Axie ID..."
           onChange={getInputData}
           value={inputId}
@@ -97,7 +97,7 @@ export default function AxieImage({ setModalOn }) {
 
         <button
           onClick={getAxiePicture}
-          className="absolte bottom-0 top-0 right-0 h-max text-white border bg-gray-500 border-gray-500 rounded-r-md px-3 hover:bg-secondary font-extralight transition duration-200 ease-linear cursor-pointer"
+          className="absolte bottom-0 top-0 right-0 h-max text-white border bg-gray-500 border-gray-500 rounded-r-md px-3 hover:bg-secondary font-extralight transition duration-200 ease-linear cursor-pointer p-2"
         >
           Seach Axie
         </button>
