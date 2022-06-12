@@ -49,8 +49,6 @@ const AxieForm = () => {
       : setSplit((prevVal) => (prevVal = 100 - value));
   };
 
-  console.log("render", register("payment"));
-
   return (
     <div className="mt-20">
       <form
