@@ -20,7 +20,7 @@ export default function NavBar() {
   return (
     <nav style={glassmorphism}>
       <ul className="flex ">
-        <Link href="/postCreation">
+        <Link href="/post-creation">
           <li className="mr-14 cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
             Find scholar
           </li>

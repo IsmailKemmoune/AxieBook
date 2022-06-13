@@ -1,3 +1,4 @@
+import Layout from "../components/Layout";
 import ManagerPost from "../components/ManagerPost";
 import ScholarPost from "../components/ScholarPost";
 import { Allotment } from "allotment";
@@ -34,4 +35,12 @@ export default function Home() {
     </Allotment>
     </div>
   );
+}
+
+Home.getLayout = function getLayout() {
+  return (
+    <Layout>
+     <Home />
+    </Layout>
+  )
 }

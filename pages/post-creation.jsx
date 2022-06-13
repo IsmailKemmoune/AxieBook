@@ -1,3 +1,4 @@
+import Layout from "../components/Layout";
 import AxieForm from "../components/AxieForm";
 import AxieImage from "../components/AxieImage";
 import BodyPartModal from "../components/BodyPartModal";
@@ -13,4 +14,13 @@ export default function PostCreation() {
       {showForm && <AxieForm showForm={showForm}/>}
     </div>
   );
+}
+
+
+PostCreation.getLayout = function getLayout() {
+  return (
+    <Layout>
+     <PostCreation />
+    </Layout>
+  )
 }
