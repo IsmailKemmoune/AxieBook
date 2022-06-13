@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -27,7 +27,13 @@ const schema = yup
   })
   .required();
 
-const AxieForm = () => {
+const AxieForm = ({ showForm }) => {
+  const [split, setSplit] = useState(100);
+
+  useEffect(() => {
+    console.log("rendeeer");
+  }, [showForm]);
+
   const {
     register,
     handleSubmit,
@@ -40,7 +46,6 @@ const AxieForm = () => {
     },
   });
   const onSubmit = (data) => console.log(data);
-  const [split, setSplit] = useState(100);
 
   const splitCalc = (e) => {
     const value = e.target.value;
@@ -48,9 +53,10 @@ const AxieForm = () => {
       ? setSplit(100)
       : setSplit((prevVal) => (prevVal = 100 - value));
   };
-
+  console.log("render");
+  console.log(showForm);
   return (
-    <div className="mt-20">
+    <div className="mt-20 animate-fade-down-form">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-7 items-center"

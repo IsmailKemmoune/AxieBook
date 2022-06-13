@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BiExpandAlt } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import Image from "next/image";
@@ -10,6 +10,10 @@ const axieLoader = ({ src }) => {
 export default function AxieImage({ setShowForm, setModalOn }) {
   const [inputId, setInputId] = useState("");
   const [axieImages, setAxieImages] = useState([]);
+
+  useEffect(() => {
+    axieImages.length === 3 ? setShowForm(true) : setShowForm(false);
+  }, [axieImages, setShowForm]);
 
   const getInputData = (e) => {
     const { value } = e.target;
@@ -34,9 +38,6 @@ export default function AxieImage({ setShowForm, setModalOn }) {
         ]);
       } else alert("you cant have more than 3 Axies in 1 team");
     }
-    console.log(axieImages.length);
-    if (axieImages.length === 2) setShowForm(true);
-    else setShowForm(false);
     setInputId("");
   };
 
@@ -44,8 +45,6 @@ export default function AxieImage({ setShowForm, setModalOn }) {
     setAxieImages((prevAxieImages) =>
       prevAxieImages.filter((img) => img.id != axieId)
     );
-    console.log("delete : " + axieImages.length);
-    if (axieImages.length !== 2) setShowForm(false);
   };
 
   const expandAxie = (axieId) => {

@@ -4,13 +4,6 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    // colors: {
-    //   transparent: "transparent",
-    //   black: "#000",
-    //   white: "#fff",
-    //   primary: "#4B4453",
-    //   secondary: "#53596E",
-    // },
     extend: {
       colors: {
         transparent: "transparent",
@@ -74,6 +67,29 @@ module.exports = {
       },
       gridTemplateColumns: {
         layout: "300px 1fr",
+      },
+      keyframes: {
+       "slide-bottom": {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(100px)' },
+        },
+       "fade-down": {
+         "from": {   opacity: "0",
+          transform:"translateY(-5%)"},
+         "to": {   opacity: "1",
+          transform:"translateY(0px)"}
+       },
+       "fade-up": {
+         "from": {   opacity: "1",
+          transform:"translateY(0px)"},
+         "to": {   opacity: "0",
+          transform:"translateY(-5%)"}
+       },
+      },
+      animation: {
+        "sliding-form" : 'slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+        "fade-down-form" : 'fade-down 1.5s 200ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both', 
+        "fade-up-form" : 'fade-up 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both'  
       },
     },
   },
