@@ -2,7 +2,6 @@ import { FaTwitter } from "react-icons/fa";
 import { BsGoogle } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import * as yup from "yup";
@@ -17,6 +16,11 @@ const schema = yup
       .matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
   })
   .required();
+//dwqwdwqdwwqdqwdqw
+
+const deleteme = () => {
+  console.log("DOONT");
+};
 
 const LoginForm = () => {
   const {
