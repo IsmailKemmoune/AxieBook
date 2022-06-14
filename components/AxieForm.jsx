@@ -53,8 +53,7 @@ const AxieForm = ({ showForm }) => {
       ? setSplit(100)
       : setSplit((prevVal) => (prevVal = 100 - value));
   };
-  console.log("render");
-  console.log(showForm);
+
   return (
     <div className="mt-20 animate-fade-down-form">
       <form
@@ -62,7 +61,7 @@ const AxieForm = ({ showForm }) => {
         className="flex flex-col space-y-7 items-center"
       >
         <div className="flex flex-col">
-          <label htmlFor="slp" className="text-white">
+          <label htmlFor="slp" className="text-white select-none">
             Title
           </label>
           <input
@@ -77,7 +76,7 @@ const AxieForm = ({ showForm }) => {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="slp" className="text-white">
+          <label htmlFor="slp" className="text-white select-none">
             SLP quota
           </label>
           <input
@@ -93,7 +92,7 @@ const AxieForm = ({ showForm }) => {
         <div className="flex flex-col">
           <div className="w-96 flex items-end">
             <div className="flex flex-col w-9/12 mr-3">
-              <label htmlFor="slp" className="text-white">
+              <label htmlFor="slp" className="text-white select-none">
                 SLP split
               </label>
               <input
@@ -218,7 +217,7 @@ const AxieForm = ({ showForm }) => {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="description" className="text-white">
+          <label htmlFor="description" className="text-white select-none">
             Description
           </label>
           <textarea
@@ -244,5 +243,3 @@ const AxieForm = ({ showForm }) => {
 };
 
 export default AxieForm;
-
-// className="hidden checked:bg-shades-200"
