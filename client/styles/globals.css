@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-primary;
+  }
+}
+
+body {
+  height: 100%;
+}
+html {
+  height: 100%;
+}
+
+#__next {
+  height: 100%;
+}
+
+.scroll-div::-webkit-scrollbar {
+  width: 0.3vw;
+}
+.scroll-div::-webkit-scrollbar-track {
+  background-color: #1c1b29;
+}
+
+.scroll-div::-webkit-scrollbar-thumb {
+  background-color: #3e3d54;
+  border-radius: 20px;
+  margin-right: 5;
+}
+.scroll-div::-webkit-scrollbar-thumb:hover {
+  background-color: #25233b;
+}
+
+html::-webkit-scrollbar {
+  width: 0.3vw;
+}
+html::-webkit-scrollbar-track {
+  background-color: #1c1b29;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #3e3d54;
+  border-radius: 20px;
+  padding: 3px;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #25233b;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #292741;
+  border: 0.25rem solid white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+
+/* nav {
+  -webkit-box-pack: end;
+} */
+
+/* checkbox */
+/* input[type="radio"]:checked + label {
+  border: 1px solid red;
+  background-color: pink;
+  color: white;
+}
+
+input[type="radio"] + label:hover {
+  background: #e4e4e4;
+} */
+
+/* #__next > div > div.flex.flex-col.bg-primary > div > div.h-96.mt-10 > div > form > div > div > div > label */
+/* .radio input:checked ~ label {
+  background-color: rgb(70, 230, 22);
+  color: white;
+} */
