@@ -66,7 +66,7 @@ module.exports = {
         default: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
       },
       gridTemplateColumns: {
-        layout: "300px 1fr",
+        layout: "1fr 1300px 0.7fr",
       },
       keyframes: {
        "slide-bottom": {

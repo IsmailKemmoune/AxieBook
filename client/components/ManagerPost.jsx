@@ -14,7 +14,7 @@ export default function ManagerPost() {
   return (
     <div
       onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}
-      className=" bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear max-w-6xl min-w-[580px] cursor-pointer"
+      className=" bg-shades-200  m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear max-w-6xl min-w-[580px] cursor-pointer"
     >
       {postToggle && (
         <div className="pl-6 py-4 bg-secondary flex justify-between shadow-lg">
