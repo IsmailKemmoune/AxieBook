@@ -14,6 +14,7 @@ const glassmorphism = {
   fontWeight: "600",
   backgroundColor: "rgba(0, 0, 0, 0.65)",
   backdropFilter: "blur(12px)",
+  borderBottom: "solid 1px #545267",
 };
 
 export default function NavBar() {

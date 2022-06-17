@@ -6,21 +6,20 @@ import { useState } from "react";
 
 export default function PostCreation() {
   const [modalOn, setModalOn] = useState(false);
-  const [showForm, setShowForm] = useState(false)
+  const [showForm, setShowForm] = useState(false);
   return (
-    <div className="scroll-div w-full h-full flex flex-col items-center overflow-auto pt-20">
+    <div className="scroll-div w-full max-h-screen flex flex-col items-center overflow-y-auto pt-20">
       {modalOn && <BodyPartModal setModalOn={setModalOn} />}
       <AxieImage setShowForm={setShowForm} setModalOn={setModalOn} />
-      {showForm && <AxieForm showForm={showForm}/>}
+      {showForm && <AxieForm showForm={showForm} />}
     </div>
   );
 }
 
-
 PostCreation.getLayout = function getLayout() {
   return (
     <Layout>
-     <PostCreation />
+      <PostCreation />
     </Layout>
-  )
-}
+  );
+};

@@ -9,12 +9,12 @@ import ManagerPostInfo from "./ManagerPostInfo";
 import { useState } from "react";
 
 export default function ScholarPost() {
-  const [postToggle, setPostToggle] = useState(false);
+  const [postToggle, setPostToggle] = useState(true);
   const [bookmark, setBookmark] = useState(false);
   return (
     <div
       onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}
-      className="bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear min-w-[580px] max-w-6xl cursor-pointer"
+      className="bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear w-[580px] cursor-pointer"
     >
       {postToggle && (
         <div className="pl-6 py-4 bg-secondary flex justify-between shadow-lg">
@@ -54,8 +54,8 @@ export default function ScholarPost() {
           </div>
         </div>
       )}
-      <div className="border-l-8 border-scholar flex flex-wrap p-6">
-        <div className="w-[650px] grow pr-5">
+      <div className="border-l-8 border-scholar flex flex-col p-10">
+        <div className="pb-10">
           <h2 className="text-secondary text-xl pb-3">Description</h2>
           <p className="text-white font-light">
             Vestibulum scelerisque tristique quam sed condimentum. Vestibulum
@@ -67,20 +67,24 @@ export default function ScholarPost() {
             sollicitudin. Suspendisse id ante massa.
           </p>
         </div>
-
-        <div className="grid grid-cols-2 gap-x-5 grid-rows-2 grow justify-items-center">
-          <ManagerPostInfo text="Laptop">
-            <BiDevices className="text-secondary mr-2 text-3xl" />
-          </ManagerPostInfo>
-          <ManagerPostInfo text="2030 MMR">
-            <AiFillTrophy className="text-secondary mr-2 text-3xl" />
-          </ManagerPostInfo>
-          <ManagerPostInfo text="60 - 70 SLP">
-            <GiHealthPotion className="text-secondary mr-2 text-3xl" />
-          </ManagerPostInfo>
-          <ManagerPostInfo text="60 / 40">
-            <FiPercent className="text-secondary mr-2 text-3xl" />
-          </ManagerPostInfo>
+        <div className="w-full">
+          <h2 className="text-secondary text-xl relative top-[8px]">
+            Offer infos
+          </h2>
+          <div className="grid grid-cols-2 gap-x-5 grid-rows-2 items-center">
+            <ManagerPostInfo text="Laptop">
+              <BiDevices className="text-secondary mr-2 text-3xl" />
+            </ManagerPostInfo>
+            <ManagerPostInfo text="2030 MMR">
+              <AiFillTrophy className="text-secondary mr-2 text-3xl" />
+            </ManagerPostInfo>
+            <ManagerPostInfo text="60 - 70 SLP">
+              <GiHealthPotion className="text-secondary mr-2 text-3xl" />
+            </ManagerPostInfo>
+            <ManagerPostInfo text="60 / 40">
+              <FiPercent className="text-secondary mr-2 text-3xl" />
+            </ManagerPostInfo>
+          </div>
         </div>
       </div>
     </div>

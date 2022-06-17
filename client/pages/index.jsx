@@ -31,7 +31,7 @@ export default function Home() {
 
     //WITHOUT SPLIT VERSION-------------
     <div className="grid grid-cols-2 relative top-[-80px]">
-      <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200 ">
+      <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200">
         <div className="mt-[130px]">
           <ManagerPost />
           <ManagerPost />
@@ -40,7 +40,7 @@ export default function Home() {
           <ManagerPost />
         </div>
       </div>
-      <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200">
+      <div className="scroll-div max-h-screen overflow-y-auto">
         <div className="mt-[130px]">
           <ScholarPost />
           <ScholarPost />

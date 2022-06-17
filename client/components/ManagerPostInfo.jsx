@@ -10,7 +10,7 @@ export default function ManagerPostInfo({ text, children }) {
     <div className="grid grid-cols-[30px_1fr] gap-x-5 items-center mb-2 mt-6 w-[200px]">
       {/* <RiSplitCellsHorizontal className="text-secondary mr-2 text-3xl" /> */}
       {children}
-      <p className="text-white italic">{text}</p>
+      <p className="text-white text-lg font-light">{text}</p>
     </div>
   );
 }
