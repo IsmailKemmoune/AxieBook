@@ -4,7 +4,7 @@ import RightBar from "../components/RightBar";
 
 export default function Layout({ children }) {
   return (
-    <div className="bg-primary grid grid-cols-layout h-full overflow-y-hidden">
+    <div className="bg-primary grid grid-cols-layout h-full overflow-y-hidden sidebarsm:grid-cols-smallsb">
       <Sidebar />
       <div className="flex flex-col bg-primary w-[1300px]">
         <NavBar />

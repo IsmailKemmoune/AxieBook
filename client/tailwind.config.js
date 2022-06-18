@@ -44,6 +44,7 @@ module.exports = {
       },
       fontFamily: {
         primary: ["Work Sans", "sans-serif"],
+        logo: ["Ubuntu Mono", "monospace"]
       },
       spacing: {
         13: "3.25rem",
@@ -56,7 +57,7 @@ module.exports = {
         post: "64rem",
       },
       screens: {
-        postlg: {max: "1400px"},
+        sidebarsm: {max: "2000px"},
         postmd: {max: "1100px"},
         postsm: {max: "1000px"},
         postxsm: {max: "800px"},
@@ -66,7 +67,8 @@ module.exports = {
         default: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
       },
       gridTemplateColumns: {
-        layout: "1fr 1300px 0.7fr",
+        layout: "1fr 1300px 20%",
+        smallsb: "1fr 1300px 28%"
       },
       keyframes: {
        "slide-bottom": {

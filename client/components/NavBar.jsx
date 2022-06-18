@@ -12,8 +12,9 @@ const glassmorphism = {
   color: "white",
   fontSize: "16px",
   fontWeight: "600",
-  backgroundColor: "rgba(0, 0, 0, 0.65)",
-  backdropFilter: "blur(12px)",
+  backgroundColor: "rgba(0, 0, 0, 0.6)",
+  backdropFilter: "saturate(180%) blur(9px)",
+  // backdropFilter: "blur(12px)",
   borderBottom: "solid 1px #545267",
 };
 
