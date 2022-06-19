@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -45,7 +46,24 @@ const AxieForm = ({ showForm }) => {
       payment: "15",
     },
   });
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = async (data) => {
+    // const { title, slp, split, payment, energy, description } = data;
+    console.log(data);
+    const path = "http://localhost:3080/api/manager-post";
+    try {
+      const response = await fetch(path, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const splitCalc = (e) => {
     const value = e.target.value;
