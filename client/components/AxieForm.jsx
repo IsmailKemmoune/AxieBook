@@ -73,7 +73,7 @@ const AxieForm = ({ showForm }) => {
   };
 
   return (
-    <div className="mt-20 animate-fade-down-form">
+    <div className="animate-fade-down-form h-[1000px] flex items-center">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-7 items-center"

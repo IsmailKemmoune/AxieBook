@@ -58,6 +58,7 @@ module.exports = {
       },
       screens: {
         sidebarsm: {max: "2000px"},
+        feedmd: {max: "1900px"},
         postmd: {max: "1100px"},
         postsm: {max: "1000px"},
         postxsm: {max: "800px"},
@@ -68,7 +69,8 @@ module.exports = {
       },
       gridTemplateColumns: {
         layout: "1fr 1300px 20%",
-        smallsb: "1fr 1300px 28%"
+        smallsb: "1fr 1300px 28%",
+        feedmd: "1fr 650px 28%"
       },
       keyframes: {
        "slide-bottom": {

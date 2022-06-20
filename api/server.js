@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express')
 const app = express()
-const port = 3080
 const authRoutes = require("./routes/auth-routes")
 const formRoutes = require("./routes/form-routes")
 const session = require('express-session')
@@ -9,17 +8,13 @@ const MemoryStore = require('memorystore')(session)
 const cookieParser = require('cookie-parser')
 const passport = require('passport')
 const cors = require('cors');
+const port = 3080
 
 app.use(express.json());
 mongoose.connect('mongodb+srv://AxieBook:Allahisone1996@cluster0.umpnc.mongodb.net/AxieBook');
 
-app.use(cors());
-
 //enable CORS for all my GET/POSR requests
-app.use(function(req, res, next) {
-  
-  next();
-});
+app.use(cors());
 
 //express cookie parser middleware
 app.use(cookieParser())

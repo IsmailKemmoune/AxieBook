@@ -10,8 +10,9 @@ export default function RightBar() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-black border-l-[1px] border-shades-200 w-full text-white ">
-      <div className="bg-[#202327] w-[70%] flex h-[50px] border-black border-[1px] hover:border-[1px] hover:border-shades-200 rounded-full mt-5">
+    <div className="flex flex-col items-center bg-black border-l-[1px] border-shades-200 text-white grow-[1] min-w-[400px]">
+      {/* <div className="w-full"> */}
+      <div className="bg-[#202327] flex w-[70%] h-[50px] border-black border-[1px] hover:border-[1px] hover:border-shades-200 rounded-full mt-5">
         <div className="flex items-center justify-end w-[15%]">
           <FiSearch className="text-shades-200 text-2xl" />
         </div>
@@ -22,6 +23,7 @@ export default function RightBar() {
           value={inputValue}
         ></input>
       </div>
+      {/* </div> */}
     </div>
   );
 }

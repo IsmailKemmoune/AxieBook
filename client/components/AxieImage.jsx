@@ -91,7 +91,7 @@ export default function AxieImage({ setShowForm, setModalOn }) {
   });
 
   return (
-    <div className="bg-primary flex flex-col items-center">
+    <div className="bg-primary flex flex-col items-center justify-center">
       <div className="relative">
         <input
           className="px-14 indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-l-md border-2 border-primary focus:border-expand focus:border-2 outline-none font-light p-2"

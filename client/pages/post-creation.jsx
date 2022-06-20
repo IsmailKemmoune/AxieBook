@@ -8,10 +8,13 @@ export default function PostCreation() {
   const [modalOn, setModalOn] = useState(false);
   const [showForm, setShowForm] = useState(false);
   return (
-    <div className="scroll-div w-full max-h-screen flex flex-col items-center overflow-y-auto pt-20">
-      {modalOn && <BodyPartModal setModalOn={setModalOn} />}
-      <AxieImage setShowForm={setShowForm} setModalOn={setModalOn} />
-      {showForm && <AxieForm showForm={showForm} />}
+    <div className="scroll-div max-h-screen overflow-y-auto ">
+      <div className="flex flex-col items-center justify-center ">
+        {modalOn && <BodyPartModal setModalOn={setModalOn} />}
+        <AxieImage setShowForm={setShowForm} setModalOn={setModalOn} />
+        {/* <AxieForm showForm={showForm} /> */}
+        {showForm && <AxieForm showForm={showForm} />}
+      </div>
     </div>
   );
 }

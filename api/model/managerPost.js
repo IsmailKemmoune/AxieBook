@@ -14,8 +14,7 @@ const managerPost = new Schema({
   energy: Number,
   description: String,
   created: {type: Date, default: Date.now},
-  updated: Date,
-  deleted: Date,
+  updated: {type: Date, default: Date.now},
 }, { collection: "manager-post"});
 
 //creating model 
