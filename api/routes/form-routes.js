@@ -5,14 +5,11 @@ const router = require('express').Router()
 router.post("/manager-post", async (req, res) => {
  const {description, payment, energy, split: slpSplit, slp: slpQuota, title} = req.body;
 try {
-	const response = await ManagerPost.create({description, payment, energy, slpSplit, slpQuota, title});
-	console.log(response);
+	const managerPost = await ManagerPost.create({description, payment, energy, slpSplit, slpQuota, title});
+	res.status(200).json(managerPost)
 } catch (error) {
-	return  res.json({status: "error"});
+	res.status(400).json({error: error.message});
 }
-
-	// console.log("req.body : ", req.body);
-	res.json({status: 'ok'});
 })
 
 module.exports = router

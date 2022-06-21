@@ -57,11 +57,7 @@ module.exports = {
         post: "64rem",
       },
       screens: {
-        sidebarsm: {max: "2000px"},
-        feedmd: {max: "1900px"},
-        postmd: {max: "1100px"},
-        postsm: {max: "1000px"},
-        postxsm: {max: "800px"},
+        feedsm: {max: "1100px"},
       },
       boxShadow: {
         post: "#25233b -5px 5px, #211f34 -10px 10px, #1d1b2e -15px 15px",

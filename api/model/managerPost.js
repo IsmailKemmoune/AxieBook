@@ -13,9 +13,9 @@ const managerPost = new Schema({
   payment: Number,
   energy: Number,
   description: String,
-  created: {type: Date, default: Date.now},
-  updated: {type: Date, default: Date.now},
-}, { collection: "manager-post"});
+  // created: {type: Date, default: Date.now},
+  // updated: {type: Date, default: Date.now},
+}, { collection: "manager-post", timestamps: true});
 
 //creating model 
 const ManagerPost = mongoose.model("ManagerPost", managerPost);
