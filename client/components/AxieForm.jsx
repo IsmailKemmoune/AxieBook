@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -73,7 +72,7 @@ const AxieForm = ({ showForm }) => {
   };
 
   return (
-    <div className="animate-fade-down-form h-[1000px] flex items-center">
+    <div className="animate-fade-down-form  flex items-center my-10">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-7 items-center"

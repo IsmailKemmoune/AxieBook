@@ -62,6 +62,7 @@ module.exports = {
       boxShadow: {
         post: "#25233b -5px 5px, #211f34 -10px 10px, #1d1b2e -15px 15px",
         default: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+        button: "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px"
       },
       gridTemplateColumns: {
         layout: "1fr 1300px 20%",

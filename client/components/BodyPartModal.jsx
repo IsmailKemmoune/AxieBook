@@ -14,7 +14,7 @@ const glassmorphism = {
   borderBottom: "solid 1px #545267",
 };
 
-export default function BodyPartModal({ setModalOn }) {
+export default function BodyPartModal({ setModalOn, parts, stats }) {
   return (
     <div
       style={glassmorphism}
@@ -23,7 +23,7 @@ export default function BodyPartModal({ setModalOn }) {
         setModalOn(false);
       }}
     >
-      <BodyParts setModalOn={setModalOn} />
+      <BodyParts parts={parts} stats={stats} setModalOn={setModalOn} />
     </div>
   );
 }
