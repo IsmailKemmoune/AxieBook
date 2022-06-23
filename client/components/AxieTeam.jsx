@@ -76,6 +76,7 @@ export default function AxieTeam({ setShowForm }) {
     <>
       {modalOn && (
         <BodyPartModal
+          image={modalAxie[0].axie.image}
           parts={modalAxie[0].axie.parts}
           stats={modalAxie[0].axie.stats}
           setModalOn={setModalOn}

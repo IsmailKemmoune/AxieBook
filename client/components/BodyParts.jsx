@@ -1,13 +1,24 @@
+// import * as PIXI from "pixi.js";
+// import { Spine } from "pixi-spine";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
+import { AiFillThunderbolt } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { AiFillFire } from "react-icons/ai";
+import Image from "next/image";
 import axieParts from "./axieParts";
-import BugBack from "./axieParts/bug/BugBack";
+import AxieSpine from "./AxieSpine";
 
-export default function BodyParts({ setModalOn, parts, stats }) {
+const axieLoader = ({ src }) => {
+  return src;
+};
+
+export default function BodyParts({ setModalOn, image, parts, stats }) {
   const { hp, speed, skill, morale } = stats;
   const [eyes, ears, back, mouth, horn, tail] = parts;
-  console.log("speed", speed);
-  console.log(eyes.class);
-  console.log(axieParts);
+
+  console.log(image);
+  // AxieSpine();
   return (
     <div className="bg-secondary text-white w-2/5 flex flex-col justify-evenly p-7 rounded-md mt-10 drop-shadow-lg">
       <div className="w-full flex items-center justify-between mb-5">
@@ -21,27 +32,90 @@ export default function BodyParts({ setModalOn, parts, stats }) {
       <div className="grid grid-cols-2 gap-y-5 gap-x-20 mt-10">
         <div className="w-full flex items-center">
           {axieParts[eyes.class + "Eye"]()}
-          <p className="ml-2">{eyes.name}</p>
+          <p className="ml-2 text-lg">{eyes.name}</p>
         </div>
         <div className="w-full flex items-center">
           {axieParts[ears.class + "Ear"]()}
-          <p className="ml-2">{ears.name}</p>
+          <p className="ml-2 text-lg">{ears.name}</p>
         </div>
         <div className="w-full flex items-center">
           {axieParts[back.class + "Back"]()}
-          <p className="ml-2">{back.name}</p>
+          <p className="ml-2 text-lg">{back.name}</p>
         </div>
         <div className="w-full flex items-center">
           {axieParts[mouth.class + "Mouth"]()}
-          <p className="ml-2">{mouth.name}</p>
+          <p className="ml-2 text-lg">{mouth.name}</p>
         </div>
         <div className="w-full flex items-center">
           {axieParts[horn.class + "Horn"]()}
-          <p className="ml-2">{horn.name}</p>
+          <p className="ml-2 text-lg">{horn.name}</p>
         </div>
         <div className="w-full flex items-center">
           {axieParts[tail.class + "Tail"]()}
-          <p className="ml-2">{tail.name}</p>
+          <p className="ml-2 text-lg">{tail.name}</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 w-full">
+        <div class="">
+          <Image
+            width="1280px"
+            height="960px"
+            loader={axieLoader}
+            src={image}
+            alt="Axie image"
+            quality={100}
+          />
+          <div>
+            <ul className="flex justify-around">
+              <li className="w-auto">
+                <div className="w-full">
+                  <p className="font-semibold text-xs tracking-wider">HEALTH</p>
+                  <div className="flex items-center">
+                    <div className="text-[#3ac279] text-xl bg-[#3c424d] rounded-lg p-1 mr-2">
+                      <AiFillHeart />
+                    </div>
+                    <p className="text-2xl font-semibold">{hp}</p>
+                  </div>
+                </div>
+              </li>
+              <li className="w-auto">
+                <div className="w-full">
+                  <p className="font-semibold text-xs tracking-wider">SPEED</p>
+                  <div className="flex items-center">
+                    <div className="text-[#f7ac0a] text-xl bg-[#3c424d] rounded-lg p-1 mr-2">
+                      <AiFillThunderbolt />
+                    </div>
+                    <p className="text-2xl font-semibold">{speed}</p>
+                  </div>
+                </div>
+              </li>
+              <li className="w-auto">
+                <div className="w-full">
+                  <p className="font-semibold text-xs tracking-wider">SKILL</p>
+                  <div className="flex items-center">
+                    <div className="text-[#6a3ac2] text-xl bg-[#3c424d] rounded-lg p-1 mr-2">
+                      <AiFillStar />
+                    </div>
+                    <p className="text-2xl font-semibold">{skill}</p>
+                  </div>
+                </div>
+              </li>
+              <li className="w-auto">
+                <div className="w-full">
+                  <p className="font-semibold text-xs tracking-wider">MORALE</p>
+                  <div className="flex items-center">
+                    <div className="text-[#c23a3a] text-xl bg-[#3c424d] rounded-lg p-1 mr-2">
+                      <AiFillFire />
+                    </div>
+                    <p className="text-2xl font-semibold">{morale}</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p>ughh</p>
         </div>
       </div>
     </div>

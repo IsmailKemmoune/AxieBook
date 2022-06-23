@@ -58,6 +58,7 @@ module.exports = {
       },
       screens: {
         feedsm: {max: "1100px"},
+        testsm: {max: "1800px"},
       },
       boxShadow: {
         post: "#25233b -5px 5px, #211f34 -10px 10px, #1d1b2e -15px 15px",
@@ -67,7 +68,8 @@ module.exports = {
       gridTemplateColumns: {
         layout: "1fr 1300px 20%",
         smallsb: "1fr 1300px 28%",
-        feedmd: "1fr 650px 28%"
+        feedmd: "1fr 650px 28%",
+        test: "repeat(auto-fit, minmax(660px, 1fr))"
       },
       keyframes: {
        "slide-bottom": {
