@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express')
 const app = express()
 const authRoutes = require("./routes/auth-routes")
-const formRoutes = require("./routes/form-routes")
+const apiRoutes = require("./routes/api-routes")
 const session = require('express-session')
 const MemoryStore = require('memorystore')(session)
 const cookieParser = require('cookie-parser')
@@ -41,7 +41,7 @@ app.use(passport.authenticate("session"));
 
 //express routes middleware 
 app.use("/auth", authRoutes);
-app.use("/api", formRoutes);
+app.use("/api", apiRoutes);
 
 
 app.listen(port, () => {

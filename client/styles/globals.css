@@ -64,7 +64,9 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
 }
 
-
+.clip {
+  clip-path: inset(21% 4% 36% 4%);
+}
 /* nav {
   -webkit-box-pack: end;
 } */
