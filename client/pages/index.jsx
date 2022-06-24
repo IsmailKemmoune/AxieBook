@@ -8,7 +8,7 @@ import { Allotment } from "allotment";
 import "allotment/dist/style.css";
 
 export default function Home() {
-  const [modalOn, setModalOn] = useState(false);
+  // const [modalOn, setModalOn] = useState(false);
   const [scholarPosts, setScholarPosts] = useState([]);
   const [windowSize, setWindowSize] = useState({
     width: undefined,
@@ -16,7 +16,6 @@ export default function Home() {
   });
 
   useEffect(() => {
-    console.log("render");
     axios
       .get("http://localhost:3080/api/manager-post")
       .then((response) => setScholarPosts(response.data));
@@ -26,7 +25,7 @@ export default function Home() {
   const scholarPostsEl = scholarPosts.map((scholarPost) => (
     <ManagerPost
       key={scholarPost._id}
-      setModalOn={setModalOn}
+      // setModalOn={setModalOn}
       postData={scholarPost}
     />
   ));
@@ -51,7 +50,7 @@ export default function Home() {
 
   return (
     <>
-      {modalOn && <BodyPartModal setModalOn={setModalOn} />}
+      {/* {modalOn && <BodyPartModal setModalOn={setModalOn} />} */}
 
       {/* <div className="flex flex-wrap relative top-[-80px] "> */}
       <div className="grid grid-cols-2 relative top-[-80px] w-fit testsm:grid-cols-0 testsm:flex testsm:flex-col">

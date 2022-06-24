@@ -31,37 +31,43 @@ const AxieForm = ({ axieImages }) => {
   const [split, setSplit] = useState(100);
   // console.log(axieImages);
 
-  const axiesDataHeader = axieImages.map((axie, index) => {
+  const axiesDataHeader = axieImages.map((axie) => {
     return {
       id: axie.axie.id,
       image: axie.axie.image,
       class: axie.axie.class,
-      parts: {
-        eyes: {
+      parts: [
+        {
           class: axie.axie.parts[0].class,
           name: axie.axie.parts[0].name,
+          type: axie.axie.parts[0].type,
         },
-        ears: {
+        {
           class: axie.axie.parts[1].class,
           name: axie.axie.parts[1].name,
+          type: axie.axie.parts[1].type,
         },
-        back: {
+        {
           class: axie.axie.parts[2].class,
           name: axie.axie.parts[2].name,
+          type: axie.axie.parts[2].type,
         },
-        mouth: {
+        {
           class: axie.axie.parts[3].class,
           name: axie.axie.parts[3].name,
+          type: axie.axie.parts[3].type,
         },
-        horn: {
+        {
           class: axie.axie.parts[4].class,
           name: axie.axie.parts[4].name,
+          type: axie.axie.parts[4].type,
         },
-        tail: {
+        {
           class: axie.axie.parts[5].class,
           name: axie.axie.parts[5].name,
+          type: axie.axie.parts[5].type,
         },
-      },
+      ],
       abilities: {
         back: axie.axie.parts[2].abilities[0].backgroundUrl,
         mouth: axie.axie.parts[3].abilities[0].backgroundUrl,

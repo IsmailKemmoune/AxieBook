@@ -8,32 +8,38 @@ const managerPost = new Schema({
     id: String, 
     image: String,
     class: String,
-    parts: {
-      eyes: {
+    parts: [
+      {
         class: String,
         name: String,
+        type: String,
       },
-      ears: {
+      {
         class: String,
         name: String,
+        type: String,
       },
-      back: {
+      {
         class: String,
         name: String,
+        type: String,
       },
-      mouth: {
+      {
         class: String,
         name: String,
+        type: String,
       },
-      horn: {
+      {
         class: String,
         name: String,
+        type: String,
       },
-      tail: {
+      {
         class: String,
         name: String,
+        type: String,
       },
-    },
+    ],
     abilities: {
       back: String,
       mouth: String,

@@ -11,7 +11,6 @@ import { useState } from "react";
 export default function ManagerPost({ setModalOn, postData }) {
   // const [postToggle, setPostToggle] = useState(true);
   const [bookmark, setBookmark] = useState(false);
-  console.log(postData);
 
   const {
     axies,
@@ -70,18 +69,24 @@ export default function ManagerPost({ setModalOn, postData }) {
             image={axies[0].image}
             id={axies[0].id}
             axieClass={axies[0].class}
+            parts={axies[0].parts}
+            stats={axies[0].stats}
           />
           <ManagerPostAxieImage
             setModalOn={setModalOn}
             image={axies[1].image}
             id={axies[1].id}
             axieClass={axies[1].class}
+            parts={axies[1].parts}
+            stats={axies[1].stats}
           />
           <ManagerPostAxieImage
             setModalOn={setModalOn}
             image={axies[2].image}
             id={axies[2].id}
             axieClass={axies[2].class}
+            parts={axies[2].parts}
+            stats={axies[2].stats}
           />
         </div>
         <div className="w-full px-10">
