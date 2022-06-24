@@ -17,7 +17,6 @@ export default function BodyParts({ setModalOn, image, parts, stats }) {
   const { hp, speed, skill, morale } = stats;
   const [eyes, ears, back, mouth, horn, tail] = parts;
 
-  console.log(back.abilities[0].backgroundUrl);
   // AxieSpine();
   return (
     <div className="bg-secondary text-white w-[1000px] flex flex-col justify-evenly p-7 rounded-md mt-10 drop-shadow-lg">

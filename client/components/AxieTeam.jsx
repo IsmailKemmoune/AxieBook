@@ -4,10 +4,10 @@ import query from "../graphqlQuery";
 import AxieImage from "./AxieImage";
 import BodyPartModal from "./BodyPartModal";
 
-export default function AxieTeam({ setShowForm }) {
+export default function AxieTeam({ setShowForm, axieImages, setAxieImages }) {
   const [axieId, setAxieId] = useState("");
   const [modalAxie, setModalAxie] = useState([]);
-  const [axieImages, setAxieImages] = useState([]);
+  // const [axieImages, setAxieImages] = useState([]);
   const [modalOn, setModalOn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 

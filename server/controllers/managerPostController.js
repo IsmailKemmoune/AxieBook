@@ -30,10 +30,19 @@ const getSingleManagerPost = async (req, res) => {
 
 //POST a manager post
 const createManagerPost = async (req, res) => {
-	const {description, payment, energy, split: slpSplit, slp: slpQuota, title} = req.body;
+	console.log(req.body)
+	const {
+		axies,
+		description, 
+		payment, 
+		energy, 
+		split: slpSplit, 
+		slp: slpQuota, 
+		title
+	} = req.body;
 	try {
-		const managerPost = await ManagerPost.create({description, payment, energy, slpSplit, slpQuota, title});
-		res.status(200).json(managerPost)
+		const managerPost = await ManagerPost.create({axies, description, payment, energy, slpSplit, slpQuota, title});
+		// res.status(200).json(managerPost)
 	} catch (error) {
 		res.status(400).json({error: error.message});
 	}

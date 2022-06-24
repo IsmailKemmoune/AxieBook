@@ -8,9 +8,22 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { useState } from "react";
 
-export default function ManagerPost({ setModalOn }) {
+export default function ManagerPost({ setModalOn, postData }) {
   // const [postToggle, setPostToggle] = useState(true);
   const [bookmark, setBookmark] = useState(false);
+  console.log(postData);
+
+  const {
+    axies,
+    title,
+    description,
+    energy,
+    payment,
+    createdAt,
+    slpQuota,
+    slpSplit,
+    updatedAt,
+  } = postData;
 
   return (
     <div
@@ -21,7 +34,7 @@ export default function ManagerPost({ setModalOn }) {
         <div className="flex">
           <div className="bg-white rounded-full h-12 w-12 mr-4"></div>
           <div>
-            <h1 className="text-white text-lg">Meta team available</h1>
+            <h1 className="text-white text-lg">{title}</h1>
             <p className="text-white text-sm italic font-extralight">1H ago</p>
           </div>
         </div>
@@ -52,25 +65,40 @@ export default function ManagerPost({ setModalOn }) {
 
       <div className="border-l-8 border-manager flex flex-col items-center">
         <div className="flex justify-evenly pb-10">
-          <ManagerPostAxieImage setModalOn={setModalOn} />
-          <ManagerPostAxieImage setModalOn={setModalOn} />
-          <ManagerPostAxieImage setModalOn={setModalOn} />
+          <ManagerPostAxieImage
+            setModalOn={setModalOn}
+            image={axies[0].image}
+            id={axies[0].id}
+            axieClass={axies[0].class}
+          />
+          <ManagerPostAxieImage
+            setModalOn={setModalOn}
+            image={axies[1].image}
+            id={axies[1].id}
+            axieClass={axies[1].class}
+          />
+          <ManagerPostAxieImage
+            setModalOn={setModalOn}
+            image={axies[2].image}
+            id={axies[2].id}
+            axieClass={axies[2].class}
+          />
         </div>
         <div className="w-full px-10">
           <h2 className="text-secondary text-xl relative top-[8px]">
             Offer infos
           </h2>
           <div className="grid grid-cols-2 gap-x-5 grid-rows-2 pb-10 items-center">
-            <ManagerPostInfo text="40 Eenergy">
+            <ManagerPostInfo text={`${energy} Eenergy`}>
               <TiFlash className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
-            <ManagerPostInfo text="Every 15 days">
+            <ManagerPostInfo text={`Every ${payment} days`}>
               <AiFillCalendar className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
-            <ManagerPostInfo text="60 - 70 SLP">
+            <ManagerPostInfo text={`${slpQuota} SLP`}>
               <GiHealthPotion className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
-            <ManagerPostInfo text="50 / 50">
+            <ManagerPostInfo text={`${slpSplit}% for Scholar`}>
               <FiPercent className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
           </div>
@@ -80,15 +108,7 @@ export default function ManagerPost({ setModalOn }) {
       <div className="border-l-8 border-manager">
         <div className="px-10 pb-10">
           <h2 className="text-secondary text-xl pb-3">Description</h2>
-          <p className="text-white font-light">
-            Vestibulum scelerisque tristique quam sed condimentum. Vestibulum
-            porttitor justo a ornare dapibus. Suspendisse potenti. Proin
-            tincidunt aliquam eros, at tincidunt risus euismod nec. Cras vel
-            justo eget orci tempor scelerisque. Vivamus hendrerit facilisis leo,
-            eget sollicitudin nibh malesuada ut. Sed interdum nibh eu sapien
-            imperdiet, et vulputate mauris tempus. Mauris maximus et felis at
-            sollicitudin. Suspendisse id ante massa.
-          </p>
+          <p className="text-white font-light">{description}</p>
         </div>
       </div>
     </div>

@@ -9,12 +9,30 @@ const managerPost = new Schema({
     image: String,
     class: String,
     parts: {
-      eyes: String,
-      ears: String,
-      back: String,
-      mouth: String,
-      horn: String,
-      tail: String,
+      eyes: {
+        class: String,
+        name: String,
+      },
+      ears: {
+        class: String,
+        name: String,
+      },
+      back: {
+        class: String,
+        name: String,
+      },
+      mouth: {
+        class: String,
+        name: String,
+      },
+      horn: {
+        class: String,
+        name: String,
+      },
+      tail: {
+        class: String,
+        name: String,
+      },
     },
     abilities: {
       back: String,

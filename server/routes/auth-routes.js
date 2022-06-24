@@ -23,7 +23,7 @@ router.get("/profile", (req, res) => {
     const user = req.session?.passport?.user
     // console.log(req?.user?.id)
      if(!user?.id){
-        res.status(401).send("dor t9wd")
+        res.status(401).send("You dont have access")
      }
      else
         res.send(user)

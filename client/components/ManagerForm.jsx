@@ -27,12 +27,55 @@ const schema = yup
   })
   .required();
 
-const AxieForm = ({ showForm }) => {
+const AxieForm = ({ axieImages }) => {
   const [split, setSplit] = useState(100);
+  // console.log(axieImages);
 
-  useEffect(() => {
-    console.log("rendeeer");
-  }, [showForm]);
+  const axiesDataHeader = axieImages.map((axie, index) => {
+    return {
+      id: axie.axie.id,
+      image: axie.axie.image,
+      class: axie.axie.class,
+      parts: {
+        eyes: {
+          class: axie.axie.parts[0].class,
+          name: axie.axie.parts[0].name,
+        },
+        ears: {
+          class: axie.axie.parts[1].class,
+          name: axie.axie.parts[1].name,
+        },
+        back: {
+          class: axie.axie.parts[2].class,
+          name: axie.axie.parts[2].name,
+        },
+        mouth: {
+          class: axie.axie.parts[3].class,
+          name: axie.axie.parts[3].name,
+        },
+        horn: {
+          class: axie.axie.parts[4].class,
+          name: axie.axie.parts[4].name,
+        },
+        tail: {
+          class: axie.axie.parts[5].class,
+          name: axie.axie.parts[5].name,
+        },
+      },
+      abilities: {
+        back: axie.axie.parts[2].abilities[0].backgroundUrl,
+        mouth: axie.axie.parts[3].abilities[0].backgroundUrl,
+        horn: axie.axie.parts[4].abilities[0].backgroundUrl,
+        tail: axie.axie.parts[4].abilities[0].backgroundUrl,
+      },
+      stats: {
+        hp: axie.axie.stats.hp,
+        speed: axie.axie.stats.speed,
+        skill: axie.axie.stats.skill,
+        morale: axie.axie.stats.morale,
+      },
+    };
+  });
 
   const {
     register,
@@ -47,8 +90,19 @@ const AxieForm = ({ showForm }) => {
   });
 
   const onSubmit = async (data) => {
-    // const { title, slp, split, payment, energy, description } = data;
     console.log(data);
+    const { title, slp, split, payment, energy, description } = data;
+    const formData = {
+      // manager:
+      axies: axiesDataHeader,
+      title,
+      slp,
+      split,
+      payment,
+      energy,
+      description,
+    };
+    console.log(formData);
     const path = "http://localhost:3080/api/manager-post";
     try {
       const response = await fetch(path, {
@@ -56,9 +110,8 @@ const AxieForm = ({ showForm }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
-      console.log(response);
     } catch (err) {
       console.log(err);
     }
