@@ -22,12 +22,12 @@ export default function NavBar() {
   return (
     <nav style={glassmorphism}>
       <ul className="flex ">
-        <Link href="/post-creation">
+        <Link href="/manager-post-creation">
           <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
             Find scholar
           </li>
         </Link>
-        <Link href="">
+        <Link href="/scholar-post-creation">
           <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
             Find manager
           </li>

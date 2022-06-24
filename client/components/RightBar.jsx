@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import Link from "next/link";
 
 export default function RightBar() {
   const [inputValue, setInputValue] = useState("");
@@ -24,6 +25,9 @@ export default function RightBar() {
         ></input>
       </div>
       {/* </div> */}
+      <Link href="/login">
+        <button>ugly login</button>
+      </Link>
     </div>
   );
 }
