@@ -7,9 +7,10 @@ import BodyPartModal from "./BodyPartModal";
 export default function AxieTeam({ setShowForm, axieImages, setAxieImages }) {
   const [axieId, setAxieId] = useState("");
   const [modalAxie, setModalAxie] = useState([]);
-  // const [axieImages, setAxieImages] = useState([]);
   const [modalOn, setModalOn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  console.log(modalAxie);
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {

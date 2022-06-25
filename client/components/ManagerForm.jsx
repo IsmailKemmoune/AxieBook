@@ -29,7 +29,6 @@ const schema = yup
 
 const AxieForm = ({ axieImages }) => {
   const [split, setSplit] = useState(100);
-  // console.log(axieImages);
 
   const axiesDataHeader = axieImages.map((axie) => {
     return {
@@ -51,21 +50,45 @@ const AxieForm = ({ axieImages }) => {
           class: axie.axie.parts[2].class,
           name: axie.axie.parts[2].name,
           partType: axie.axie.parts[2].type,
+          abilities: [
+            {
+              name: axie.axie.parts[2].abilities[0].name,
+              backgroundUrl: axie.axie.parts[2].abilities[0].backgroundUrl,
+            },
+          ],
         },
         {
           class: axie.axie.parts[3].class,
           name: axie.axie.parts[3].name,
           partType: axie.axie.parts[3].type,
+          abilities: [
+            {
+              name: axie.axie.parts[3].abilities[0].name,
+              backgroundUrl: axie.axie.parts[3].abilities[0].backgroundUrl,
+            },
+          ],
         },
         {
           class: axie.axie.parts[4].class,
           name: axie.axie.parts[4].name,
           partType: axie.axie.parts[4].type,
+          abilities: [
+            {
+              name: axie.axie.parts[4].abilities[0].name,
+              backgroundUrl: axie.axie.parts[4].abilities[0].backgroundUrl,
+            },
+          ],
         },
         {
           class: axie.axie.parts[5].class,
           name: axie.axie.parts[5].name,
           partType: axie.axie.parts[5].type,
+          abilities: [
+            {
+              name: axie.axie.parts[5].abilities[0].name,
+              backgroundUrl: axie.axie.parts[5].abilities[0].backgroundUrl,
+            },
+          ],
         },
       ],
       abilities: {
@@ -83,8 +106,6 @@ const AxieForm = ({ axieImages }) => {
     };
   });
 
-  console.log(axiesDataHeader);
-
   const {
     register,
     handleSubmit,
@@ -98,7 +119,6 @@ const AxieForm = ({ axieImages }) => {
   });
 
   const onSubmit = async (data) => {
-    // console.log(data);
     const { title, slp, split, payment, energy, description } = data;
     const formData = {
       // manager:
@@ -110,7 +130,6 @@ const AxieForm = ({ axieImages }) => {
       energy,
       description,
     };
-    // console.log(formData);
     const path = "http://localhost:3080/api/manager-post";
     try {
       const response = await fetch(path, {

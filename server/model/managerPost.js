@@ -13,14 +13,14 @@ const managerPost = new Schema({
         class: String,
         name: String,
         partType: String,
+        abilities: [
+          {
+            name: String,
+            backgroundUrl: String,
+          },
+        ]
       },
     ],
-    abilities: {
-      back: String,
-      mouth: String,
-      horn: String,
-      tail: String,
-    },
     stats: {
       hp: Number,
       speed: Number,

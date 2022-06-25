@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import BodyPartModal from "../components/BodyPartModal";
+import { request } from "graphql-request";
+import query from "../graphqlQuery";
 import classesIcons from "./classesIcons";
 
 const colors = {
@@ -16,26 +16,31 @@ const colors = {
 };
 
 export default function ManagerPostAxieImage({
-  // setModalOn,
   image,
   id,
   axieClass,
-  parts,
-  stats,
+  setModalOn,
+  setModalAxie,
 }) {
-  const [modalOn, setModalOn] = useState(false);
-  console.log(parts);
-  // console.log(stats);
+  const variables = {
+    axieId: id,
+  };
+  const fetchAxie = async () => {
+    try {
+      const data = await request(
+        "https://graphql-gateway.axieinfinity.com/graphql",
+        query,
+        variables
+      );
+      setModalAxie(data);
+      setModalOn(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
-      {modalOn && (
-        <BodyPartModal
-          setModalOn={setModalOn}
-          image={image}
-          parts={parts}
-          stats={stats}
-        />
-      )}
       <div className="flex flex-col items-center w-fit">
         <div className="w-48">
           <motion.img
@@ -44,7 +49,7 @@ export default function ManagerPostAxieImage({
             src={image}
             alt="axie image"
             className="w-full h-full object-cover"
-            onClick={() => setModalOn(true)}
+            onClick={fetchAxie}
           />
         </div>
         <div

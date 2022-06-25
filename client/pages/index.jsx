@@ -8,8 +8,9 @@ import { Allotment } from "allotment";
 import "allotment/dist/style.css";
 
 export default function Home() {
-  // const [modalOn, setModalOn] = useState(false);
+  const [modalOn, setModalOn] = useState(false);
   const [scholarPosts, setScholarPosts] = useState([]);
+  const [modalAxie, setModalAxie] = useState([]);
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
@@ -21,15 +22,14 @@ export default function Home() {
       .then((response) => setScholarPosts(response.data));
   }, []);
 
-  // console.log(scholarPosts);
   const scholarPostsEl = scholarPosts.map((scholarPost) => (
     <ManagerPost
       key={scholarPost._id}
-      // setModalOn={setModalOn}
+      setModalOn={setModalOn}
       postData={scholarPost}
+      setModalAxie={setModalAxie}
     />
   ));
-  // console.log(scholarPosts);
 
   useEffect(() => {
     // only execute all the code below in client side
@@ -51,9 +51,15 @@ export default function Home() {
 
   return (
     <>
-      {/* {modalOn && <BodyPartModal setModalOn={setModalOn} />} */}
+      {modalOn && (
+        <BodyPartModal
+          image={modalAxie.axie.image}
+          parts={modalAxie.axie.parts}
+          stats={modalAxie.axie.stats}
+          setModalOn={setModalOn}
+        />
+      )}
 
-      {/* <div className="flex flex-wrap relative top-[-80px] "> */}
       <div className="grid grid-cols-2 relative top-[-80px] w-fit testsm:grid-cols-0 testsm:flex testsm:flex-col">
         <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200">
           <div className="mt-[130px]">{scholarPostsEl}</div>

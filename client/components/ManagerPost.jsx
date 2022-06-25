@@ -8,7 +8,7 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { useState } from "react";
 
-export default function ManagerPost({ setModalOn, postData }) {
+export default function ManagerPost({ setModalOn, postData, setModalAxie }) {
   // const [postToggle, setPostToggle] = useState(true);
   const [bookmark, setBookmark] = useState(false);
 
@@ -24,8 +24,6 @@ export default function ManagerPost({ setModalOn, postData }) {
     updatedAt,
   } = postData;
 
-  // console.log(`axies : `);
-  // console.log(axies[0].image);
   return (
     <div
       // onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}
@@ -68,27 +66,30 @@ export default function ManagerPost({ setModalOn, postData }) {
         <div className="flex justify-evenly pb-10">
           <ManagerPostAxieImage
             setModalOn={setModalOn}
+            setModalAxie={setModalAxie}
             image={axies[0].image}
             id={axies[0].id}
             axieClass={axies[0].class}
-            parts={axies[0].parts}
-            stats={axies[0].stats}
+            // parts={axies[0].parts}
+            // stats={axies[0].stats}
           />
           <ManagerPostAxieImage
             setModalOn={setModalOn}
+            setModalAxie={setModalAxie}
             image={axies[1].image}
             id={axies[1].id}
             axieClass={axies[1].class}
-            parts={axies[1].parts}
-            stats={axies[1].stats}
+            // parts={axies[1].parts}
+            // stats={axies[1].stats}
           />
           <ManagerPostAxieImage
             setModalOn={setModalOn}
+            setModalAxie={setModalAxie}
             image={axies[2].image}
             id={axies[2].id}
             axieClass={axies[2].class}
-            parts={axies[2].parts}
-            stats={axies[2].stats}
+            // parts={axies[2].parts}
+            // stats={axies[2].stats}
           />
         </div>
         <div className="w-full px-10">
