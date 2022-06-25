@@ -29,6 +29,7 @@ export default function Home() {
       postData={scholarPost}
     />
   ));
+  // console.log(scholarPosts);
 
   useEffect(() => {
     // only execute all the code below in client side

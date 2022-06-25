@@ -24,6 +24,8 @@ export default function ManagerPost({ setModalOn, postData }) {
     updatedAt,
   } = postData;
 
+  // console.log(`axies : `);
+  // console.log(axies[0].image);
   return (
     <div
       // onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}

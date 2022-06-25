@@ -12,32 +12,7 @@ const managerPost = new Schema({
       {
         class: String,
         name: String,
-        type: String,
-      },
-      {
-        class: String,
-        name: String,
-        type: String,
-      },
-      {
-        class: String,
-        name: String,
-        type: String,
-      },
-      {
-        class: String,
-        name: String,
-        type: String,
-      },
-      {
-        class: String,
-        name: String,
-        type: String,
-      },
-      {
-        class: String,
-        name: String,
-        type: String,
+        partType: String,
       },
     ],
     abilities: {

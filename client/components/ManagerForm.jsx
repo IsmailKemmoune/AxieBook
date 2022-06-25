@@ -40,32 +40,32 @@ const AxieForm = ({ axieImages }) => {
         {
           class: axie.axie.parts[0].class,
           name: axie.axie.parts[0].name,
-          type: axie.axie.parts[0].type,
+          partType: axie.axie.parts[0].type,
         },
         {
           class: axie.axie.parts[1].class,
           name: axie.axie.parts[1].name,
-          type: axie.axie.parts[1].type,
+          partType: axie.axie.parts[1].type,
         },
         {
           class: axie.axie.parts[2].class,
           name: axie.axie.parts[2].name,
-          type: axie.axie.parts[2].type,
+          partType: axie.axie.parts[2].type,
         },
         {
           class: axie.axie.parts[3].class,
           name: axie.axie.parts[3].name,
-          type: axie.axie.parts[3].type,
+          partType: axie.axie.parts[3].type,
         },
         {
           class: axie.axie.parts[4].class,
           name: axie.axie.parts[4].name,
-          type: axie.axie.parts[4].type,
+          partType: axie.axie.parts[4].type,
         },
         {
           class: axie.axie.parts[5].class,
           name: axie.axie.parts[5].name,
-          type: axie.axie.parts[5].type,
+          partType: axie.axie.parts[5].type,
         },
       ],
       abilities: {
@@ -83,6 +83,8 @@ const AxieForm = ({ axieImages }) => {
     };
   });
 
+  console.log(axiesDataHeader);
+
   const {
     register,
     handleSubmit,
@@ -96,7 +98,7 @@ const AxieForm = ({ axieImages }) => {
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     const { title, slp, split, payment, energy, description } = data;
     const formData = {
       // manager:
@@ -108,7 +110,7 @@ const AxieForm = ({ axieImages }) => {
       energy,
       description,
     };
-    console.log(formData);
+    // console.log(formData);
     const path = "http://localhost:3080/api/manager-post";
     try {
       const response = await fetch(path, {
