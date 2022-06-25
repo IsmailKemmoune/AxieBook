@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import { request } from "graphql-request";
 import query from "../graphqlQuery";
 import AxieImage from "./AxieImage";
-import BodyPartModal from "./BodyPartModal";
 
-export default function AxieTeam({ setShowForm, axieImages, setAxieImages }) {
+export default function AxieTeam({
+  setShowForm,
+  axieImages,
+  setAxieImages,
+  setModalAxie,
+  setModalOn,
+}) {
   const [axieId, setAxieId] = useState("");
-  const [modalAxie, setModalAxie] = useState([]);
-  const [modalOn, setModalOn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  console.log(modalAxie);
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -75,14 +76,14 @@ export default function AxieTeam({ setShowForm, axieImages, setAxieImages }) {
 
   return (
     <>
-      {modalOn && (
+      {/* {modalOn && (
         <BodyPartModal
           image={modalAxie[0].axie.image}
           parts={modalAxie[0].axie.parts}
           stats={modalAxie[0].axie.stats}
           setModalOn={setModalOn}
         />
-      )}
+      )} */}
       <div className="bg-primary flex flex-col items-center justify-center">
         <div className="relative">
           <input

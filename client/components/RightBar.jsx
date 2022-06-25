@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import { FiLogIn } from "react-icons/fi";
 import Link from "next/link";
 
 export default function RightBar() {
@@ -26,7 +27,10 @@ export default function RightBar() {
       </div>
       {/* </div> */}
       <Link href="/login">
-        <button>ugly login</button>
+        <button className="flex items-center justify-center w-[70%] h-[50px] mt-5 bg-primary text-white text-xl rounded-full hover:bg-shades-600 hover:shadow-button hover:-translate-y-1 transition duration-200 ease-linear">
+          <span>Login</span>
+          <FiLogIn className="ml-4" />
+        </button>
       </Link>
     </div>
   );

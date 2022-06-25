@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { BiErrorCircle } from "react-icons/bi";
 import { useState, useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -167,9 +168,12 @@ const AxieForm = ({ axieImages }) => {
             placeholder="Title"
             type="text"
           />
-          <p className="text-delete font-light text-sm">
-            {errors.title?.message}
-          </p>
+          {errors.title && (
+            <div className="flex items-center">
+              <BiErrorCircle className="text-delete mr-2" />
+              <p className="text-delete text-sm">{errors.title?.message}</p>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col">
@@ -183,7 +187,12 @@ const AxieForm = ({ axieImages }) => {
             type="text"
             id="slp"
           />
-          <p>{errors.slp?.message}</p>
+          {errors.slp && (
+            <div className="flex items-center">
+              <BiErrorCircle className="text-delete mr-2" />
+              <p className="text-delete text-sm">{errors.slp?.message}</p>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col">
@@ -204,7 +213,12 @@ const AxieForm = ({ axieImages }) => {
               <p className="text-slate-400 italic ">{split}% - manager</p>
             </div>
           </div>
-          <p>{errors.split?.message}</p>
+          {errors.split && (
+            <div className="flex items-center">
+              <BiErrorCircle className="text-delete mr-2" />
+              <p className="text-delete text-sm">{errors.split?.message}</p>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col">
@@ -325,7 +339,14 @@ const AxieForm = ({ axieImages }) => {
             rows="7"
             cols="33"
           />
-          <p>{errors.description?.message}</p>
+          {errors.description && (
+            <div className="flex items-center">
+              <BiErrorCircle className="text-delete mr-2" />
+              <p className="text-delete text-sm">
+                {errors.description?.message}
+              </p>
+            </div>
+          )}
         </div>
 
         <button
