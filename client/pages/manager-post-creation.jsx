@@ -29,7 +29,12 @@ export default function ManagerPostCreation() {
             setModalAxie={setModalAxie}
             setModalOn={setModalOn}
           />
-          {showForm && <ManagerForm axieImages={axieImages} />}
+
+          <ManagerForm axieImages={axieImages} showForm={showForm} />
+
+          {/* {showForm && (
+            <ManagerForm axieImages={axieImages} showForm={showForm} />
+          )} */}
         </div>
       </div>
     </>
