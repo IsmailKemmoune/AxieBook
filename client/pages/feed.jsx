@@ -1,4 +1,6 @@
 import Link from "next/link";
+import FeatureManagerCard from "../components/FeatureManagerCard";
+import FeatureScholarCard from "../components/FeatureScholarCard";
 
 const glassmorphism = {
   display: "flex",
@@ -22,7 +24,7 @@ export default function Feed() {
   return (
     <div className="bg-black w-full h-full text-white">
       <nav style={glassmorphism}>
-        <ul>
+        <ul className="flex ">
           <Link href="/manager-post-creation">
             <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
               Find scholar
@@ -38,7 +40,10 @@ export default function Feed() {
       <main>
         {/* hero */}
         <section className="flex flex-col items-center py-4">
-          <h1 className="text-3xl">The bridge between scholars and managers</h1>
+          <div className="flex flex-col justify-center items-center py-5">
+            <h1 className="text-6xl">The bridge between</h1>
+            <h1 className="text-6xl">scholars and managers</h1>
+          </div>
           <div className="flex mt-5 space-x-4">
             <button className="bg-white w-[250px] py-3 rounded-md border-2 border-black hover:border-white hover:bg-black hover:border-2 text-black hover:text-white text-lg transition duration-200 ease-linear">
               Create an account
@@ -52,12 +57,8 @@ export default function Feed() {
         <section className="flex flex-col items-center">
           <p>Explore various offers depends on your specific need</p>
           <div className="grid grid-cols-2 mt-5">
-            <div>
-              <h3>For managers</h3>
-            </div>
-            <div>
-              <h3>For scholars</h3>
-            </div>
+            <FeatureManagerCard />
+            <FeatureScholarCard />
           </div>
         </section>
       </main>
