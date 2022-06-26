@@ -10,21 +10,21 @@ export default function FeaturManagerCard() {
         </div>
         <div className="flex flex-col">
           <h1 className="text-2xl font-medium">FOR MANAGERS</h1>
-          <p className="text-sm font-light">
+          <p className="text-sm font-light text-shades-100">
             Get the perfect scholar for your team
           </p>
         </div>
       </div>
       <div className="mt-5 flex flex-col space-y-3">
-        <p className="leading-relaxed">
+        <p className="leading-relaxed font-light">
           We know that you are struggling to find good scholars while wasting
           your time looking for them on random Discord servers.
         </p>
-        <p>
+        <p className="leading-relaxed font-light">
           Here you can create, manage and track your offers, then wait for the
           interested scholars to contact you.
         </p>
-        <p>
+        <p className="leading-relaxed font-light">
           Or you can simply browse scholar's offers or profiles, and choose the
           ideal scholars for your teams.
         </p>

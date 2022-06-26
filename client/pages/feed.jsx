@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FeatureManagerCard from "../components/FeatureManagerCard";
 import FeatureScholarCard from "../components/FeatureScholarCard";
+import ReasonCard from "../components/ReasonCard";
 
 const glassmorphism = {
   display: "flex",
@@ -22,9 +23,9 @@ const glassmorphism = {
 
 export default function Feed() {
   return (
-    <div className="bg-black w-full h-full text-white">
+    <div className="bg-black w-full text-white flex flex-col items-center">
       <nav style={glassmorphism}>
-        <ul className="flex ">
+        <ul className="flex">
           <Link href="/manager-post-creation">
             <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
               Find scholar
@@ -39,12 +40,12 @@ export default function Feed() {
       </nav>
       <main>
         {/* hero */}
-        <section className="flex flex-col items-center py-4">
+        <section className="flex flex-col items-center py-20 w-[1400px]">
           <div className="flex flex-col justify-center items-center py-5">
-            <h1 className="text-6xl">The bridge between</h1>
-            <h1 className="text-6xl">scholars and managers</h1>
+            <h1 className="text-7xl">The bridge between</h1>
+            <h1 className="text-7xl">scholars and managers</h1>
           </div>
-          <div className="flex mt-5 space-x-4">
+          <div className="flex mt-20 space-x-12">
             <button className="bg-white w-[250px] py-3 rounded-md border-2 border-black hover:border-white hover:bg-black hover:border-2 text-black hover:text-white text-lg transition duration-200 ease-linear">
               Create an account
             </button>
@@ -54,11 +55,40 @@ export default function Feed() {
           </div>
         </section>
         {/* features */}
-        <section className="flex flex-col items-center">
-          <p>Explore various offers depends on your specific need</p>
-          <div className="grid grid-cols-2 mt-5">
+        <section className="flex flex-col py-20 w-[1400px]">
+          <h2 className="text-3xl ml-20">
+            Explore various offers depends on your specific needs
+          </h2>
+          <div className="flex justify-around">
             <FeatureManagerCard />
             <FeatureScholarCard />
+          </div>
+        </section>
+        {/* reasons */}
+        <section className="flex flex-col py-20 w-[1400px]">
+          <h2 className="text-3xl ml-20">Why join AxieBook?</h2>
+          <div className="flex  justify-around">
+            <ReasonCard
+              number={"1"}
+              title={"Efficiency and ease of use"}
+              paragraph={
+                "With AxieBook, you can browse, bookmark, or even create your posts, while letting others have all the necessary information. We made the process of matching scholars with managers quite simple, creating the post takes less than 1min, and then the magic will happen."
+              }
+            />
+            <ReasonCard
+              number={"2"}
+              title={"Centralized and organized"}
+              paragraph={
+                "AxieBook allows you to browse among hundreds of offers in an organized way, instead of wasting your time and energy looking up random Discord servers with Axie infinity players"
+              }
+            />
+            <ReasonCard
+              number={"3"}
+              title={"Verified profiles"}
+              paragraph={
+                "With AxieBook you can access others's profiles, see their badges, and check the reviews, that way you can be sure you're dealing with the right person"
+              }
+            />
           </div>
         </section>
       </main>
@@ -66,3 +96,14 @@ export default function Feed() {
     </div>
   );
 }
+
+// 1 - efficiency and ease of use
+// With AxieBook, you can browse, bookmark, or even create your posts, while letting others have all the necessary information.
+// We made the process of matching scholars with managers quite simple, creating the post takes less than 1min, and then the magic will happen.
+
+// 2 - centralized and organized
+// AxieBook allows you to browse among hundreds of offers in an organized way,
+// instead of wasting your time and energy looking up random Discord servers with Axie infinity players
+
+// 3 - verified profiles
+//  with AxieBook you can access others's profiles, see their badges, and check the reviews, that way you can be sure you're dealing with the right person

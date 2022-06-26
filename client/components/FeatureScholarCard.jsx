@@ -9,22 +9,22 @@ export default function FeaturScholarCard() {
           <SiGooglescholar className="text-3xl" />
         </div>
         <div className="flex flex-col">
-          <h1 className="text-2xl font-medium">FOR Scholars</h1>
-          <p className="text-sm font-light">
+          <h1 className="text-2xl font-medium">FOR SCHOLARS</h1>
+          <p className="text-sm font-light text-shades-100">
             Find the ideal team that suits your gameplay
           </p>
         </div>
       </div>
       <div className="mt-5 flex flex-col space-y-3">
-        <p className="leading-relaxed">
+        <p className="leading-relaxed font-light">
           Tired of applying all the day without any response from the managers?
         </p>
-        <p>
+        <p className="leading-relaxed font-light">
           We got your back, here you can create, manage and track your
           application offers, then wait for the interested managers to contact
           you.
         </p>
-        <p>
+        <p className="leading-relaxed font-light">
           Or you can simply browse managers's offers or profiles, and pick the
           perfect team for strategies and gameplay style.
         </p>
