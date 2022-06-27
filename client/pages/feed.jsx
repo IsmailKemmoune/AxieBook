@@ -3,9 +3,7 @@ import FeatureManagerCard from "../components/FeatureManagerCard";
 import FeatureScholarCard from "../components/FeatureScholarCard";
 import ReasonsCards from "../components/ReasonCard";
 import Footer from "../components/Footer";
-import { RiSearchEyeLine } from "react-icons/ri";
-import { RiFocus3Line } from "react-icons/ri";
-import { CgCommunity } from "react-icons/cg";
+import FeaturesCards from "../components/FeaturesCards";
 
 const glassmorphism = {
   display: "flex",
@@ -68,7 +66,7 @@ export default function Feed() {
           <h2 className="text-3xl ml-20">
             Explore various offers depends on your specific needs
           </h2>
-          <div className="flex justify-around">
+          <div className="flex justify-evenly">
             <FeatureManagerCard />
             <FeatureScholarCard />
           </div>
@@ -76,54 +74,70 @@ export default function Feed() {
         {/* reasons */}
         <section className="flex flex-col py-20 w-[1400px]">
           <h2 className="text-3xl ml-20">Why join AxieBook?</h2>
-          <div className="flex  justify-around">
+          <div className="flex justify-around">
             <ReasonsCards />
           </div>
         </section>
+        {/* Features */}
+        <section className="flex flex-col p-20 w-[1400px] space-y-20">
+          <FeaturesCards />
+        </section>
         {/* joining steps */}
         <section className="flex flex-col py-20 w-[1400px] space-y-20">
-          <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary w-1/2">
-            <div className="flex justify-between items-center">
-              <h2 className="text-3xl pb-3">
-                Finding what you're looking for won't ever be difficult for you
-              </h2>
-              <RiSearchEyeLine className=" w-[90px] h-[65px] bg-gradient-to-r from-[#21B6F8] to-[#482FBD] p-3 rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] text-shades-600" />
+          <h2 className="text-3xl ml-20">
+            How to begin your journey using AxieBook
+          </h2>
+          <div className="flex justify-around">
+            {/* 1 */}
+            <div className="w-[320px]">
+              <div className="">
+                <div className="bg-secondary w-7 h-7 rounded-full flex items-center justify-center mr-2">
+                  <span>1</span>
+                </div>
+                <h4 className="text-xl mt-2">Create your account</h4>
+              </div>
+              <p className="font-light mt-3 leading-relaxed">
+                Providing basic information will help people to identify you.
+              </p>
             </div>
-            <p className="font-light text-xl pt-5">
-              As a scholar, you will come across a range of diverse teams. This
-              will allow you to find the composition that you are most
-              comfortable with. <br />
-              As a manager, you may quickly recruit the top scholars.
-            </p>
-          </div>
-          <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary w-1/2">
-            <div className="flex justify-between items-center">
-              <h2 className="text-3xl pb-3">
-                Focus on the important matters for your guild while we handle
-                the rest
-              </h2>
-              <RiFocus3Line className=" w-[90px] h-[65px] bg-gradient-to-r from-purple-400 to-pink-600 p-3 rounded-[0%_100%_0%_100%_/_50%_50%_50%_50%] text-shades-600" />
+            {/* 2 */}
+            <div className="w-[320px]">
+              <div className="">
+                <div className="bg-secondary w-7 h-7 rounded-full flex items-center justify-center mr-2">
+                  <span>2</span>
+                </div>
+                <h4 className="text-xl mt-2">Fill out the form</h4>
+              </div>
+              <p className="font-light mt-3 leading-relaxed">
+                You must fill out a brief form to explain your offer in order to
+                create a post.
+              </p>
             </div>
-            <p className="font-light text-xl pt-5">
-              Because big and medium-sized guilds require interest as well,
-              AxieBook provides unique features for guilds.
-            </p>
-          </div>
-          <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary w-1/2">
-            <div className="flex justify-between items-center">
-              <h2 className="text-3xl pb-3">
-                Join our community to find others with shared interests
-              </h2>
-              <CgCommunity className=" w-[90px] h-[65px] bg-gradient-to-r from-[#1AA2DA] to-[#63BF8F] p-3 rounded-[92%_8%_92%_8%_/_92%_8%_92%_8%] text-shades-600" />
+            {/* 3 */}
+            <div className="w-[320px]">
+              <div className="">
+                <div className="bg-secondary w-7 h-7 rounded-full flex items-center justify-center mr-2">
+                  <span>3</span>
+                </div>
+                <h4 className="text-xl mt-2">Recieve offers</h4>
+              </div>
+              <p className="font-light mt-3 leading-relaxed">
+                receive proposals from people that are interested.
+              </p>
             </div>
-            {/* <h2 className="text-3xl pb-3">
-              Join our community to find others with shared interests
-            </h2> */}
-            <p className="font-light text-xl pt-5">
-              By joining our Discord server, you will obtain tags based on who
-              you are and your qualifications. In addition, you can connect with
-              people who have similar experiences and hear about their stories.
-            </p>
+            {/* 4 */}
+            <div className="w-[320px]">
+              <div className="">
+                <div className="bg-secondary w-7 h-7 rounded-full flex items-center justify-center mr-2">
+                  <span>4</span>
+                </div>
+                <h4 className="text-xl mt-2">Contact the right person</h4>
+              </div>
+              <p className="font-light mt-3 leading-relaxed">
+                contact the matching prospect to begin your adventure.
+              </p>
+            </div>
+            {/* 2 */}
           </div>
         </section>
       </main>
@@ -131,27 +145,3 @@ export default function Feed() {
     </div>
   );
 }
-
-// 1 - efficiency and ease of use
-// With AxieBook, you can browse, bookmark, or even create your posts, while letting others have all the necessary information.
-// We made the process of matching scholars with managers quite simple, creating the post takes less than 1min, and then the magic will happen.
-
-// 2 - centralized and organized
-// AxieBook allows you to browse among hundreds of offers in an organized way,
-// instead of wasting your time and energy looking up random Discord servers with Axie infinity players
-
-// 3 - verified profiles
-//  with AxieBook you can access others's profiles, see their badges, and check the reviews, that way you can be sure you're dealing with the right person
-
-//----------------------------------------------------------------------------
-
-// Finding what you're looking for won't ever be difficult for you.
-// as a scholar you will find a variation of different teams, that way you can find the composition that you master
-// as manager you can hire the best scholars in few steps
-
-// Focus on the important matters for your guild while we handle the rest.
-// large and medium sized guild need interest too, that why AxieBook gives a special pearks for guilds
-
-// Join our community to find others with shared interests.
-// by joining our Discord server you can get tags depends on who you are, and your achievements, not only that
-// you can meet others with your same experience who share their experiences
