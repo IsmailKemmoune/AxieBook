@@ -17,16 +17,16 @@ export default function FeaturScholarCard() {
       </div>
       <div className="mt-5 flex flex-col space-y-3">
         <p className="leading-relaxed font-light">
-          Tired of applying all the day without any response from the managers?
+          Tired of applying all day long and never hearing back from the
+          managers?
         </p>
         <p className="leading-relaxed font-light">
-          We got your back, here you can create, manage and track your
-          application offers, then wait for the interested managers to contact
-          you.
+          You may create, update, and track your application offers here while
+          you wait for interested managers to get in contact with you.
         </p>
         <p className="leading-relaxed font-light">
-          Or you can simply browse managers's offers or profiles, and pick the
-          perfect team for strategies and gameplay style.
+          Alternatively, you can simply browse manager offers or profiles to
+          find the ideal team for your gameplay style and strategy.
         </p>
       </div>
       <div className="">

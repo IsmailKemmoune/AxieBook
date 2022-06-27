@@ -3,6 +3,9 @@ import FeatureManagerCard from "../components/FeatureManagerCard";
 import FeatureScholarCard from "../components/FeatureScholarCard";
 import ReasonsCards from "../components/ReasonCard";
 import Footer from "../components/Footer";
+import { RiSearchEyeLine } from "react-icons/ri";
+import { RiFocus3Line } from "react-icons/ri";
+import { CgCommunity } from "react-icons/cg";
 
 const glassmorphism = {
   display: "flex",
@@ -17,7 +20,7 @@ const glassmorphism = {
   fontSize: "16px",
   fontWeight: "600",
   backgroundColor: "rgba(0, 0, 0, 0.6)",
-  backdropFilter: "saturate(180%) blur(9px)",
+  backdropFilter: "saturate(180%) blur(5px)",
   // backdropFilter: "blur(12px)",
   //   borderBottom: "solid 1px #545267",
 };
@@ -78,7 +81,51 @@ export default function Feed() {
           </div>
         </section>
         {/* joining steps */}
-        <section className="flex flex-col py-20 w-[1400px]"></section>
+        <section className="flex flex-col py-20 w-[1400px] space-y-20">
+          <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary w-1/2">
+            <div className="flex justify-between items-center">
+              <h2 className="text-3xl pb-3">
+                Finding what you're looking for won't ever be difficult for you
+              </h2>
+              <RiSearchEyeLine className=" w-[90px] h-[65px] bg-gradient-to-r from-[#21B6F8] to-[#482FBD] p-3 rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] text-shades-600" />
+            </div>
+            <p className="font-light text-xl pt-5">
+              As a scholar, you will come across a range of diverse teams. This
+              will allow you to find the composition that you are most
+              comfortable with. <br />
+              As a manager, you may quickly recruit the top scholars.
+            </p>
+          </div>
+          <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary w-1/2">
+            <div className="flex justify-between items-center">
+              <h2 className="text-3xl pb-3">
+                Focus on the important matters for your guild while we handle
+                the rest
+              </h2>
+              <RiFocus3Line className=" w-[90px] h-[65px] bg-gradient-to-r from-purple-400 to-pink-600 p-3 rounded-[0%_100%_0%_100%_/_50%_50%_50%_50%] text-shades-600" />
+            </div>
+            <p className="font-light text-xl pt-5">
+              Because big and medium-sized guilds require interest as well,
+              AxieBook provides unique features for guilds.
+            </p>
+          </div>
+          <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary w-1/2">
+            <div className="flex justify-between items-center">
+              <h2 className="text-3xl pb-3">
+                Join our community to find others with shared interests
+              </h2>
+              <CgCommunity className=" w-[90px] h-[65px] bg-gradient-to-r from-[#1AA2DA] to-[#63BF8F] p-3 rounded-[92%_8%_92%_8%_/_92%_8%_92%_8%] text-shades-600" />
+            </div>
+            {/* <h2 className="text-3xl pb-3">
+              Join our community to find others with shared interests
+            </h2> */}
+            <p className="font-light text-xl pt-5">
+              By joining our Discord server, you will obtain tags based on who
+              you are and your qualifications. In addition, you can connect with
+              people who have similar experiences and hear about their stories.
+            </p>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
@@ -96,8 +143,15 @@ export default function Feed() {
 // 3 - verified profiles
 //  with AxieBook you can access others's profiles, see their badges, and check the reviews, that way you can be sure you're dealing with the right person
 
-// You will never have struggles to find what you're looking for
+//----------------------------------------------------------------------------
 
-// Focus on your guild's important things and
+// Finding what you're looking for won't ever be difficult for you.
+// as a scholar you will find a variation of different teams, that way you can find the composition that you master
+// as manager you can hire the best scholars in few steps
 
-// Join our community and meet people that share your same interests
+// Focus on the important matters for your guild while we handle the rest.
+// large and medium sized guild need interest too, that why AxieBook gives a special pearks for guilds
+
+// Join our community to find others with shared interests.
+// by joining our Discord server you can get tags depends on who you are, and your achievements, not only that
+// you can meet others with your same experience who share their experiences

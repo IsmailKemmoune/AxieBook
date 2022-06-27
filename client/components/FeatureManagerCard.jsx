@@ -17,16 +17,16 @@ export default function FeaturManagerCard() {
       </div>
       <div className="mt-5 flex flex-col space-y-3">
         <p className="leading-relaxed font-light">
-          We know that you are struggling to find good scholars while wasting
-          your time looking for them on random Discord servers.
+          We are aware of your difficulties in locating qualified scholars while
+          wasting your time hunting for them on random Discord servers.
         </p>
         <p className="leading-relaxed font-light">
-          Here you can create, manage and track your offers, then wait for the
-          interested scholars to contact you.
+          You can create, manage, and track your offers from here, then just
+          wait for any interested scholars to get in touch with you.
         </p>
         <p className="leading-relaxed font-light">
-          Or you can simply browse scholar's offers or profiles, and choose the
-          ideal scholars for your teams.
+          Or, you may just browse scholar offers or profiles to find the best
+          applicants for your teams.
         </p>
       </div>
       <div className="">

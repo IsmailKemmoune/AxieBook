@@ -30,9 +30,9 @@ export default function ReasonsCards() {
           while letting others have all the necessary information.
         </p>
         <p className="mt-4 font-light leading-relaxed">
-          We made the process of matching scholars with managers quite simple,
-          creating the post takes less than 1min, and then the magic will
-          happen.
+          The process of matching scholars with managers has been made very
+          simple, it takes less than a minute to create a post after which magic
+          will happen.
         </p>
       </div>
       {/* 2 */}
@@ -88,7 +88,7 @@ export default function ReasonsCards() {
         <p className="mt-4 font-light leading-relaxed">
           With AxieBook you can access others's profiles, see their badges, and
           check the reviews, that way you can be sure you're dealing with the
-          right person
+          right person.
         </p>
       </div>
     </div>
