@@ -1,7 +1,7 @@
 import Link from "next/link";
 import FeatureManagerCard from "../components/FeatureManagerCard";
 import FeatureScholarCard from "../components/FeatureScholarCard";
-import ReasonCard from "../components/ReasonCard";
+import ReasonsCards from "../components/ReasonCard";
 
 const glassmorphism = {
   display: "flex",
@@ -68,27 +68,7 @@ export default function Feed() {
         <section className="flex flex-col py-20 w-[1400px]">
           <h2 className="text-3xl ml-20">Why join AxieBook?</h2>
           <div className="flex  justify-around">
-            <ReasonCard
-              number={"1"}
-              title={"Efficiency and ease of use"}
-              paragraph={
-                "With AxieBook, you can browse, bookmark, or even create your posts, while letting others have all the necessary information. We made the process of matching scholars with managers quite simple, creating the post takes less than 1min, and then the magic will happen."
-              }
-            />
-            <ReasonCard
-              number={"2"}
-              title={"Centralized and organized"}
-              paragraph={
-                "AxieBook allows you to browse among hundreds of offers in an organized way, instead of wasting your time and energy looking up random Discord servers with Axie infinity players"
-              }
-            />
-            <ReasonCard
-              number={"3"}
-              title={"Verified profiles"}
-              paragraph={
-                "With AxieBook you can access others's profiles, see their badges, and check the reviews, that way you can be sure you're dealing with the right person"
-              }
-            />
+            <ReasonsCards />
           </div>
         </section>
       </main>
