@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { FaRocket } from "react-icons/fa";
 
 export default function ReasonsCards() {
   return (
     <div className="w-full flex justify-around mt-10">
       {/* 1 */}
       <div className="w-[350px] h-[450px] mt-5 border-2 border-secondary p-5 relative">
-        <div className="bg-black w-fit absolute top-[-35px]">
+        <div className="bg-black w-fit absolute top-[-35px] pl-2">
           <Image
             src="/rocket.png"
             alt="rocket image"
@@ -14,7 +13,7 @@ export default function ReasonsCards() {
             height="70px"
           />
         </div>
-        <div className="flex mt-8">
+        <div className="flex mt-12 items-center">
           <div className="w-12">
             <div className="bg-secondary w-10 h-10 rounded-full flex items-center justify-center mr-2">
               <span className="text-2xl bg-clip-text bg-gradient-to-r from-[#21B6F8] to-[#482FBD] text-transparent">
@@ -38,7 +37,7 @@ export default function ReasonsCards() {
       </div>
       {/* 2 */}
       <div className="w-[350px] h-[450px] mt-5 border-2 border-secondary p-5 relative">
-        <div className="bg-black w-fit absolute top-[-40px]">
+        <div className="bg-black w-fit absolute top-[-40px] px-1">
           <Image
             src="/structure.png"
             alt="rocket image"
@@ -46,7 +45,7 @@ export default function ReasonsCards() {
             height="75px"
           />
         </div>
-        <div className="flex mt-8">
+        <div className="flex mt-12 items-center">
           <div className="w-12">
             <div className="bg-secondary w-10 h-10 rounded-full flex items-center justify-center mr-2">
               <span className="text-2xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 text-transparent">
@@ -66,7 +65,7 @@ export default function ReasonsCards() {
       </div>
       {/* 3 */}
       <div className="w-[350px] h-[450px] mt-5 border-2 border-secondary p-5 relative">
-        <div className="bg-black w-fit absolute top-[-35px]">
+        <div className="bg-black w-fit absolute top-[-35px] px-2">
           <Image
             src="/user.png"
             alt="rocket image"
@@ -74,7 +73,7 @@ export default function ReasonsCards() {
             height="60px"
           />
         </div>
-        <div className="flex mt-8">
+        <div className="flex mt-12 items-center">
           <div className="w-12">
             <div className="bg-secondary w-10 h-10 rounded-full flex items-center justify-center mr-2">
               <span className="text-2xl bg-clip-text bg-gradient-to-r from-[#1AA2DA] to-[#63BF8F] text-transparent">

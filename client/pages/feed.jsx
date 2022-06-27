@@ -2,6 +2,7 @@ import Link from "next/link";
 import FeatureManagerCard from "../components/FeatureManagerCard";
 import FeatureScholarCard from "../components/FeatureScholarCard";
 import ReasonsCards from "../components/ReasonCard";
+import Footer from "../components/Footer";
 
 const glassmorphism = {
   display: "flex",
@@ -23,20 +24,25 @@ const glassmorphism = {
 
 export default function Feed() {
   return (
-    <div className="bg-black w-full text-white flex flex-col items-center">
-      <nav style={glassmorphism}>
-        <ul className="flex">
-          <Link href="/manager-post-creation">
-            <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
-              Find scholar
-            </li>
-          </Link>
-          <Link href="/manager-post-creation">
-            <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
-              Find manager
-            </li>
-          </Link>
-        </ul>
+    <div className="bg-black w-full flex flex-col items-center text-white ">
+      <nav style={glassmorphism} className="flex ">
+        <div className="w-[1400px] flex justify-around">
+          <div>
+            <h1 className="font-logo text-3xl">AxieBook</h1>
+          </div>
+          <ul className="flex">
+            <Link href="/manager-post-creation">
+              <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
+                Find scholar
+              </li>
+            </Link>
+            <Link href="/manager-post-creation">
+              <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
+                Find manager
+              </li>
+            </Link>
+          </ul>
+        </div>
       </nav>
       <main>
         {/* hero */}
@@ -71,8 +77,10 @@ export default function Feed() {
             <ReasonsCards />
           </div>
         </section>
+        {/* joining steps */}
+        <section className="flex flex-col py-20 w-[1400px]"></section>
       </main>
-      <footer></footer>
+      <Footer />
     </div>
   );
 }
@@ -87,3 +95,9 @@ export default function Feed() {
 
 // 3 - verified profiles
 //  with AxieBook you can access others's profiles, see their badges, and check the reviews, that way you can be sure you're dealing with the right person
+
+// You will never have struggles to find what you're looking for
+
+// Focus on your guild's important things and
+
+// Join our community and meet people that share your same interests
