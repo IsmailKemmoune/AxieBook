@@ -47,19 +47,19 @@ export default function Home() {
       </nav>
       <main className="flex flex-col items-center">
         {/* hero */}
-        <section className="flex flex-col items-center py-20 max-w-[1400px] w-full">
+        <section className="flex flex-col items-center py-20 px-30 max-w-[1400px] w-full">
           <div className="flex flex-col justify-center items-center py-5">
             <h1 className="text-7xl">The bridge between</h1>
             <h1 className="text-7xl">scholars and managers</h1>
           </div>
-          <div className="flex mt-20 space-x-12">
+          <div className="flex justify-evenly mt-20 flex-wrap w-[80%]">
             <Link href="/login">
-              <button className="bg-white w-[250px] py-3 rounded-md border-2 border-black hover:border-white hover:bg-black hover:border-2 text-black hover:text-white text-lg transition duration-200 ease-linear">
+              <button className="bg-white w-[250px] py-3 rounded-md border-2 border-black hover:border-white hover:bg-black hover:border-2 text-black hover:text-white text-lg transition duration-200 ease-linear mt-10">
                 Create an account
               </button>
             </Link>
             <Link href="/feed">
-              <button className="w-[250px] py-3 rounded-md border-[1px] border-[#333] hover:border-white hover:border-2 text-[#888] hover:text-white text-lg transition duration-200 ease-linear">
+              <button className="w-[250px] py-3 rounded-md border-[1px] border-[#333] hover:border-white hover:border-2 text-[#888] hover:text-white text-lg transition duration-200 ease-linear mt-10">
                 Browse offers
               </button>
             </Link>
@@ -83,7 +83,7 @@ export default function Home() {
           </div>
         </section>
         {/* Features */}
-        <section className="flex flex-col max-w-[1400px] w-full space-y-20">
+        <section className="max-w-[1400px] w-full">
           <FeaturesCards />
         </section>
         {/* joining steps */}

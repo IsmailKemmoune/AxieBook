@@ -6,11 +6,13 @@ export default function Footer() {
     <footer className="bg-primary min-h-[320px] w-full flex justify-center">
       <div className="w-[1400px] h-full">
         <div className="py-10 px-20 h-full w-full">
-          <div className="grid grid-cols-[25%_1fr] ">
-            <h2 className="font-logo text-4xl">AxieBook</h2>
-            <nav className="flex justify-around">
-              <div>
-                <h5 className="text-lg">Managers</h5>
+          <div className="flex flex-wrap">
+            <div className="w-[30%] min-w-[200px]">
+              <h2 className="font-logo text-4xl">AxieBook</h2>
+            </div>
+            <nav className="flex justify-around w-[70%] flex-wrap">
+              <div className="w-[200px]">
+                <h5 className="text-lg mt-5">Managers</h5>
                 <ul className="flex flex-col space-y-3 mt-5">
                   <Link href="#">
                     <li className="text-shades-100 hover:text-white hover:cursor-pointer">
@@ -29,8 +31,8 @@ export default function Footer() {
                   </Link>
                 </ul>
               </div>
-              <div>
-                <h5 className="text-lg">Scholars</h5>
+              <div className="w-[200px]">
+                <h5 className="text-lg mt-5">Scholars</h5>
                 <ul className="flex flex-col space-y-3 mt-5">
                   <Link href="#">
                     <li className="text-shades-100 hover:text-white hover:cursor-pointer">
@@ -49,8 +51,8 @@ export default function Footer() {
                   </Link>
                 </ul>
               </div>
-              <div>
-                <h5 className="text-lg">Guilds</h5>
+              <div className="w-[200px]">
+                <h5 className="text-lg mt-5">Guilds</h5>
                 <ul className="flex flex-col space-y-3 mt-5">
                   <Link href="#">
                     <li className="text-shades-100 hover:text-white hover:cursor-pointer">
@@ -64,8 +66,8 @@ export default function Footer() {
                   </Link>
                 </ul>
               </div>
-              <div>
-                <h5 className="text-lg">Contact</h5>
+              <div className="w-[200px]">
+                <h5 className="text-lg mt-5">Contact</h5>
                 <ul className="flex flex-col space-y-3 mt-5">
                   <Link href="#">
                     <li className="text-shades-100 hover:text-white hover:cursor-pointer">
@@ -76,7 +78,7 @@ export default function Footer() {
               </div>
             </nav>
           </div>
-          <div className="w-full mt-20 flex space-x-3 justify-center items-center">
+          <div className="w-full mt-20 flex flex-wrap space-x-3 justify-center items-center">
             <span className="font-light">Created with</span>
             <AiFillHeart className="text-[#c23a3a] text-2xl" />
             <span className="font-light">for Axie Infinity community</span>

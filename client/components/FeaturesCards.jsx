@@ -4,8 +4,8 @@ import { CgCommunity } from "react-icons/cg";
 
 export default function featuresCards() {
   return (
-    <>
-      <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary w-[630px]">
+    <div className="flex flex-col w-full space-y-20 px-5">
+      <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary max-w-[630px]">
         <div className="flex justify-between items-center">
           <h2 className="text-3xl pb-3">
             Finding what you're looking for won't ever be difficult for you
@@ -19,7 +19,7 @@ export default function featuresCards() {
           As a manager, you may quickly recruit the top scholars.
         </p>
       </div>
-      <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary w-[630px] self-end">
+      <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary max-w-[630px] self-end">
         <div className="flex justify-between items-center">
           <h2 className="text-3xl pb-3">
             Focus on the important matters for your guild while we handle the
@@ -32,7 +32,7 @@ export default function featuresCards() {
           provides unique features for guilds.
         </p>
       </div>
-      <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary w-[630px]">
+      <div className="p-5 bg-shades-600 rounded-lg border-l-8 border-secondary shadow-card divide-dashed divide-y-2 divide-secondary max-w-[630px]">
         <div className="flex justify-between items-center">
           <h2 className="text-3xl pb-3">
             Join our community to find others with shared interests
@@ -45,6 +45,6 @@ export default function featuresCards() {
           who have similar experiences and hear about their stories.
         </p>
       </div>
-    </>
+    </div>
   );
 }
