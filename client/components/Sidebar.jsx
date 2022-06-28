@@ -32,7 +32,7 @@ export default function Sidebar() {
                     AxieBook
                   </h1>
                 </Link>
-                <Link href="/">
+                <Link href="/feed">
                   <button className="flex items-center justify-start px-4 py-3 my-1 text-white text-xl rounded-full hover:bg-primary">
                     <RiHome2Line className="mr-4" />
                     <span>Home</span>

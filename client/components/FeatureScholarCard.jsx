@@ -3,7 +3,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 export default function FeaturScholarCard() {
   return (
-    <div className="m-10 bg-primary w-[550px] p-6 rounded-lg border-2 border-b-8 border-secondary hover:shadow-card hover:-translate-y-1 transition duration-200 ease-linear">
+    <div className="m-10 bg-primary w-[550px] p-6 rounded-lg border-2 border-b-8 border-secondary shadow-card hover:-translate-y-1 transition duration-200 ease-linear">
       <div className="flex items-center">
         <div className="bg-secondary rounded-md p-2 mr-2">
           <SiGooglescholar className="text-3xl" />

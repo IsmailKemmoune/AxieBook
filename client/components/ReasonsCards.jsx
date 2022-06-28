@@ -2,10 +2,10 @@ import Image from "next/image";
 
 export default function ReasonsCards() {
   return (
-    <div className="w-full flex justify-around mt-10">
+    <div className="w-full flex justify-evenly mt-10 flex-wrap">
       {/* 1 */}
-      <div className="w-[350px] h-[450px] mt-5 border-2 border-secondary p-5 relative">
-        <div className="bg-black w-fit absolute top-[-35px] pl-2">
+      <div className="w-[350px] h-[450px] mt-20 border-2 border-secondary p-5 relative shadow-card ">
+        <div className="bg-black w-fit absolute top-[-35px] pl-2 rounded-full">
           <Image
             src="/rocket.png"
             alt="rocket image"
@@ -36,8 +36,8 @@ export default function ReasonsCards() {
         </p>
       </div>
       {/* 2 */}
-      <div className="w-[350px] h-[450px] mt-5 border-2 border-secondary p-5 relative">
-        <div className="bg-black w-fit absolute top-[-40px] px-1">
+      <div className="w-[350px] h-[450px] mt-20 border-2 border-secondary p-5 relative shadow-card ">
+        <div className="bg-black w-fit absolute top-[-40px] px-1 rounded-full">
           <Image
             src="/structure.png"
             alt="rocket image"
@@ -64,8 +64,8 @@ export default function ReasonsCards() {
         </p>
       </div>
       {/* 3 */}
-      <div className="w-[350px] h-[450px] mt-5 border-2 border-secondary p-5 relative">
-        <div className="bg-black w-fit absolute top-[-35px] px-2">
+      <div className="w-[350px] h-[450px] mt-20 border-2 border-secondary p-5 relative shadow-card">
+        <div className="bg-black w-fit absolute top-[-35px] px-2 rounded-full">
           <Image
             src="/user.png"
             alt="rocket image"

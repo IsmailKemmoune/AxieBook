@@ -3,7 +3,7 @@ import { AiFillHeart } from "react-icons/ai";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary h-[320px] w-full flex justify-center">
+    <footer className="bg-primary min-h-[320px] w-full flex justify-center">
       <div className="w-[1400px] h-full">
         <div className="py-10 px-20 h-full w-full">
           <div className="grid grid-cols-[25%_1fr] ">

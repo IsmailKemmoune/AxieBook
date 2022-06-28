@@ -1,129 +1,151 @@
-import Layout from "../components/Layout";
-import ManagerPost from "../components/ManagerPost";
-import ScholarPost from "../components/ScholarPost";
-import BodyPartModal from "../components/BodyPartModal";
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { Allotment } from "allotment";
-import "allotment/dist/style.css";
+import Link from "next/link";
+import FeatureManagerCard from "../components/FeatureManagerCard";
+import FeatureScholarCard from "../components/FeatureScholarCard";
+import ReasonsCards from "../components/ReasonsCards";
+import Footer from "../components/Footer";
+import FeaturesCards from "../components/FeaturesCards";
+
+const glassmorphism = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "25px 0px",
+  position: "sticky",
+  width: "100%",
+  top: "-0.5px",
+  zIndex: "1",
+  color: "white",
+  fontSize: "16px",
+  fontWeight: "600",
+  backgroundColor: "rgba(0, 0, 0, 0.6)",
+  backdropFilter: "saturate(180%) blur(5px)",
+  // backdropFilter: "blur(12px)",
+  //   borderBottom: "solid 1px #545267",
+};
 
 export default function Home() {
-  const [modalOn, setModalOn] = useState(false);
-  const [scholarPosts, setScholarPosts] = useState([]);
-  const [modalAxie, setModalAxie] = useState([]);
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3080/api/manager-post")
-      .then((response) => setScholarPosts(response.data));
-  }, []);
-
-  const scholarPostsEl = scholarPosts.map((scholarPost) => (
-    <ManagerPost
-      key={scholarPost._id}
-      setModalOn={setModalOn}
-      postData={scholarPost}
-      setModalAxie={setModalAxie}
-    />
-  ));
-
-  useEffect(() => {
-    // only execute all the code below in client side
-    if (typeof window !== "undefined") {
-      function handleResize() {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      }
-      // Add event listener
-      window.addEventListener("resize", handleResize);
-      // Call handler right away so state gets updated with initial window size
-      handleResize();
-      // Remove event listener on cleanup
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []); // Empty array ensures that effect is only run on mount
-
   return (
-    <>
-      {modalOn && (
-        <BodyPartModal
-          image={modalAxie.axie.image}
-          parts={modalAxie.axie.parts}
-          stats={modalAxie.axie.stats}
-          setModalOn={setModalOn}
-        />
-      )}
-
-      <div className="grid grid-cols-2 relative top-[-80px] w-fit testsm:grid-cols-0 testsm:flex testsm:flex-col">
-        <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200">
-          <div className="mt-[130px]">{scholarPostsEl}</div>
-        </div>
-        <div className="scroll-div max-h-screen overflow-y-auto">
-          <div className="mt-[130px]">
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
+    <div className="bg-black w-full flex flex-col items-center text-white ">
+      <nav style={glassmorphism} className="flex ">
+        <div className="max-w-[1400px] w-[90%] flex justify-around">
+          <div>
+            <h1 className="font-logo text-3xl">AxieBook</h1>
           </div>
+          <ul className="flex">
+            <Link href="/manager-post-creation">
+              <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
+                Find scholar
+              </li>
+            </Link>
+            <Link href="/manager-post-creation">
+              <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
+                Find manager
+              </li>
+            </Link>
+          </ul>
         </div>
-      </div>
-
-      {/* {windowSize.width >= 1800 ? (
-        <div className="grid grid-cols-2 relative top-[-80px] min-w-[1322px]">
-          <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200">
-            <div className="mt-[130px]">
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
+      </nav>
+      <main className="flex flex-col items-center">
+        {/* hero */}
+        <section className="flex flex-col items-center py-20 max-w-[1400px] w-full">
+          <div className="flex flex-col justify-center items-center py-5">
+            <h1 className="text-7xl">The bridge between</h1>
+            <h1 className="text-7xl">scholars and managers</h1>
+          </div>
+          <div className="flex mt-20 space-x-12">
+            <Link href="/login">
+              <button className="bg-white w-[250px] py-3 rounded-md border-2 border-black hover:border-white hover:bg-black hover:border-2 text-black hover:text-white text-lg transition duration-200 ease-linear">
+                Create an account
+              </button>
+            </Link>
+            <Link href="/feed">
+              <button className="w-[250px] py-3 rounded-md border-[1px] border-[#333] hover:border-white hover:border-2 text-[#888] hover:text-white text-lg transition duration-200 ease-linear">
+                Browse offers
+              </button>
+            </Link>
+          </div>
+        </section>
+        {/* features */}
+        <section className="flex flex-col py-20 max-w-[1400px] w-full">
+          <h2 className="text-3xl ml-20">
+            Explore various offers depends on your specific needs
+          </h2>
+          <div className="flex justify-evenly flex-wrap">
+            <FeatureManagerCard />
+            <FeatureScholarCard />
+          </div>
+        </section>
+        {/* reasons */}
+        <section className="flex flex-col py-20 max-w-[1400px] w-full">
+          <h2 className="text-3xl ml-20">Why join AxieBook?</h2>
+          <div className="flex justify-around">
+            <ReasonsCards />
+          </div>
+        </section>
+        {/* Features */}
+        <section className="flex flex-col max-w-[1400px] w-full space-y-20">
+          <FeaturesCards />
+        </section>
+        {/* joining steps */}
+        <section className="flex flex-col py-20 max-w-[1400px] w-full space-y-20 mb-10">
+          <h2 className="text-3xl ml-20">
+            How to begin your journey using AxieBook
+          </h2>
+          <div className="flex justify-around flex-wrap">
+            {/* 1 */}
+            <div className="w-[300px] mt-10">
+              <div className="">
+                <div className="bg-secondary w-7 h-7 rounded-full flex items-center justify-center mr-2">
+                  <span>1</span>
+                </div>
+                <h4 className="text-xl mt-2">Create your account</h4>
+              </div>
+              <p className="font-light mt-3 leading-relaxed">
+                Providing basic information will help people to identify you.
+              </p>
             </div>
-          </div>
-          <div className="scroll-div max-h-screen overflow-y-auto">
-            <div className="mt-[130px]">
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
+            {/* 2 */}
+            <div className="w-[300px] mt-10">
+              <div className="">
+                <div className="bg-secondary w-7 h-7 rounded-full flex items-center justify-center mr-2">
+                  <span>2</span>
+                </div>
+                <h4 className="text-xl mt-2">Fill out the form</h4>
+              </div>
+              <p className="font-light mt-3 leading-relaxed">
+                You must fill out a brief form to explain your offer in order to
+                create a post.
+              </p>
             </div>
-          </div>
-        </div>
-      ) : (
-        <div className="relative top-[-80px] min-w-[660px]">
-          <div className="scroll-div max-h-screen overflow-y-auto">
-            <div className="mt-[130px]">
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ScholarPost />
-              <ScholarPost />
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ScholarPost />
-              <ManagerPost setModalOn={setModalOn} />
+            {/* 3 */}
+            <div className="w-[300px] mt-10">
+              <div className="">
+                <div className="bg-secondary w-7 h-7 rounded-full flex items-center justify-center mr-2">
+                  <span>3</span>
+                </div>
+                <h4 className="text-xl mt-2">Recieve offers</h4>
+              </div>
+              <p className="font-light mt-3 leading-relaxed">
+                receive proposals from people that are interested.
+              </p>
             </div>
+            {/* 4 */}
+            <div className="w-[300px] mt-10">
+              <div className="">
+                <div className="bg-secondary w-7 h-7 rounded-full flex items-center justify-center mr-2">
+                  <span>4</span>
+                </div>
+                <h4 className="text-xl mt-2">Contact the right person</h4>
+              </div>
+              <p className="font-light mt-3 leading-relaxed">
+                contact the matching prospect to begin your adventure.
+              </p>
+            </div>
+            {/* 2 */}
           </div>
-        </div>
-      )} */}
-    </>
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 }
-
-Home.getLayout = function getLayout() {
-  return (
-    <Layout>
-      <Home />
-    </Layout>
-  );
-};
