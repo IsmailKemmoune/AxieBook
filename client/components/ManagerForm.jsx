@@ -29,7 +29,7 @@ const schema = yup
   })
   .required();
 
-const AxieForm = ({ axieImages, showForm }) => {
+const ManagerForm = ({ axieImages, showForm }) => {
   const [split, setSplit] = useState(100);
 
   const axiesDataHeader = axieImages.map((axie) => {
@@ -191,7 +191,7 @@ const AxieForm = ({ axieImages, showForm }) => {
               <input
                 {...register("slp")}
                 className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md border-2 border-primary focus:border-expand focus:border-2  outline-none font-light w-96 p-2"
-                placeholder="How much SLP do you expect"
+                placeholder="How much SLP do you expect per day"
                 type="text"
                 id="slp"
               />
@@ -230,7 +230,7 @@ const AxieForm = ({ axieImages, showForm }) => {
             </div>
 
             <div className="flex flex-col">
-              <p className="text-white select-none">Paymenet schedule</p>
+              <p className="text-white select-none">Payment schedule</p>
               <div className="grid w-96 grid-cols-3 space-x-2 rounded-xl bg-white p-2">
                 <div>
                   <input
@@ -370,4 +370,4 @@ const AxieForm = ({ axieImages, showForm }) => {
   );
 };
 
-export default AxieForm;
+export default ManagerForm;
