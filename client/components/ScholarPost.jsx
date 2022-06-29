@@ -77,7 +77,7 @@ export default function ScholarPost({ postData }) {
             <ManagerPostInfo text={`${peakMMR} MMR`}>
               <AiFillTrophy className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
-            <ManagerPostInfo text={`${slpQuota} SLP`}>
+            <ManagerPostInfo text={`${slpQuota} SLP per day`}>
               <GiHealthPotion className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
             <ManagerPostInfo text={`${slpSplit}% for Scholar`}>

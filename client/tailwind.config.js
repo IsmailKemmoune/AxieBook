@@ -57,6 +57,7 @@ module.exports = {
         post: "64rem",
       },
       screens: {
+        homesm: {max: "700px"},
         feedsm: {max: "1100px"},
         feedmd: {max: "1800px"},
       },

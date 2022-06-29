@@ -4,34 +4,36 @@ import FeatureScholarCard from "../components/FeatureScholarCard";
 import ReasonsCards from "../components/ReasonsCards";
 import Footer from "../components/Footer";
 import FeaturesCards from "../components/FeaturesCards";
+import { RiMenu4Fill } from "react-icons/ri";
+import { useState } from "react";
 
 const glassmorphism = {
-  display: "flex",
+  // display: "flex",
   alignItems: "center",
   justifyContent: "center",
   padding: "25px 0px",
-  position: "sticky",
+  // position: "sticky",
   width: "100%",
-  top: "-0.5px",
+  // top: "-0.5px",
   zIndex: "1",
   color: "white",
   fontSize: "16px",
   fontWeight: "600",
   backgroundColor: "rgba(0, 0, 0, 0.6)",
   backdropFilter: "saturate(180%) blur(5px)",
-  // backdropFilter: "blur(12px)",
-  //   borderBottom: "solid 1px #545267",
 };
 
 export default function Home() {
+  const [isBurger, setIsBurger] = useState(false);
+
   return (
     <div className="bg-black w-full flex flex-col items-center text-white ">
-      <nav style={glassmorphism} className="flex ">
+      <nav style={glassmorphism} className="flex sticky top-[-0.5px] ">
         <div className="max-w-[1400px] w-[90%] flex justify-around">
           <div>
             <h1 className="font-logo text-3xl">AxieBook</h1>
           </div>
-          <ul className="flex">
+          <ul className="flex homesm:hidden">
             <Link href="/manager-post-creation">
               <li className="mr-14 font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
                 Find scholar
@@ -43,12 +45,37 @@ export default function Home() {
               </li>
             </Link>
           </ul>
+          <button
+            className="hidden homesm:block"
+            onClick={() => setIsBurger((prevState) => !prevState)}
+          >
+            <RiMenu4Fill className="text-3xl" />
+          </button>
         </div>
       </nav>
+      {isBurger && (
+        <nav
+          style={glassmorphism}
+          className="fixed top-[85px] h-[30px] border-y-[0.5px] border-shades-200 hidden homesm:flex"
+        >
+          <ul className="flex w-full justify-around">
+            <Link href="/manager-post-creation">
+              <li className="font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
+                Find scholar
+              </li>
+            </Link>
+            <Link href="/manager-post-creation">
+              <li className="font-light cursor-pointer border-2 border-transparent hover:border-b-2 hover:border-b-white">
+                Find manager
+              </li>
+            </Link>
+          </ul>
+        </nav>
+      )}
       <main className="flex flex-col items-center">
         {/* hero */}
         <section className="flex flex-col items-center py-20 px-30 max-w-[1400px] w-full">
-          <div className="flex flex-col justify-center items-center py-5">
+          <div className="flex flex-col justify-center items-center p-5">
             <h1 className="text-7xl">The bridge between</h1>
             <h1 className="text-7xl">scholars and managers</h1>
           </div>
