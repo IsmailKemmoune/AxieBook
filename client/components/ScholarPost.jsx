@@ -8,9 +8,21 @@ import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import ManagerPostInfo from "./ManagerPostInfo";
 import { useState } from "react";
 
-export default function ScholarPost() {
+export default function ScholarPost({ postData }) {
   // const [postToggle, setPostToggle] = useState(true);
   const [bookmark, setBookmark] = useState(false);
+
+  const {
+    title,
+    peakMMR,
+    device,
+    description,
+    createdAt,
+    slpQuota,
+    slpSplit,
+    updatedAt,
+  } = postData;
+
   return (
     <div
       // onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}
@@ -20,9 +32,7 @@ export default function ScholarPost() {
         <div className="flex">
           <div className="bg-white rounded-full h-12 w-12 mr-4"></div>
           <div>
-            <h1 className="text-white text-lg">
-              High MMR player looking for scholar
-            </h1>
+            <h1 className="text-white text-lg">{title}</h1>
             <p className="text-white text-sm italic font-extralight">2H ago</p>
           </div>
         </div>
@@ -54,31 +64,23 @@ export default function ScholarPost() {
       <div className="border-l-8 border-scholar flex flex-col p-10">
         <div className="pb-10">
           <h2 className="text-secondary text-xl pb-3">Description</h2>
-          <p className="text-white font-light">
-            Vestibulum scelerisque tristique quam sed condimentum. Vestibulum
-            porttitor justo a ornare dapibus. Suspendisse potenti. Proin
-            tincidunt aliquam eros, at tincidunt risus euismod nec. Cras vel
-            justo eget orci tempor scelerisque. Vivamus hendrerit facilisis leo,
-            eget sollicitudin nibh malesuada ut. Sed interdum nibh eu sapien
-            imperdiet, et vulputate mauris tempus. Mauris maximus et felis at
-            sollicitudin. Suspendisse id ante massa.
-          </p>
+          <p className="text-white font-light">{description}</p>
         </div>
         <div className="w-full">
           <h2 className="text-secondary text-xl relative top-[8px]">
             Offer infos
           </h2>
           <div className="grid grid-cols-2 gap-x-5 grid-rows-2 items-center">
-            <ManagerPostInfo text="Laptop">
+            <ManagerPostInfo text={device}>
               <BiDevices className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
-            <ManagerPostInfo text="2030 MMR">
+            <ManagerPostInfo text={`${peakMMR} MMR`}>
               <AiFillTrophy className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
-            <ManagerPostInfo text="60 - 70 SLP">
+            <ManagerPostInfo text={`${slpQuota} SLP`}>
               <GiHealthPotion className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
-            <ManagerPostInfo text="60 / 40">
+            <ManagerPostInfo text={`${slpSplit}% for Scholar`}>
               <FiPercent className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>
           </div>

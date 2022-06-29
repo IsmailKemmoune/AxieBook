@@ -9,6 +9,7 @@ import "allotment/dist/style.css";
 
 export default function Feed() {
   const [modalOn, setModalOn] = useState(false);
+  const [managerPosts, setManagerPosts] = useState([]);
   const [scholarPosts, setScholarPosts] = useState([]);
   const [modalAxie, setModalAxie] = useState([]);
   const [windowSize, setWindowSize] = useState({
@@ -17,18 +18,32 @@ export default function Feed() {
   });
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3080/api/manager-post")
-      .then((response) => setScholarPosts(response.data));
+    const managerPostURL = "http://localhost:3080/api/manager-post";
+    const scholarPostURL = "http://localhost:3080/api/scholar-post";
+
+    const managerPostPromise = axios.get(managerPostURL);
+    const scholarPostPromise = axios.get(scholarPostURL);
+    Promise.all([managerPostPromise, scholarPostPromise]).then((response) => {
+      setManagerPosts(response[0].data);
+      setScholarPosts(response[1].data);
+    });
+
+    // axios
+    //   .get("http://localhost:3080/api/manager-post")
+    //   .then((response) => setScholarPosts(response.data));
   }, []);
 
-  const scholarPostsEl = scholarPosts.map((scholarPost) => (
+  const managerPostsEl = managerPosts.map((managerPost) => (
     <ManagerPost
-      key={scholarPost._id}
+      key={managerPost._id}
       setModalOn={setModalOn}
-      postData={scholarPost}
+      postData={managerPost}
       setModalAxie={setModalAxie}
     />
+  ));
+
+  const scholarPostsEl = scholarPosts.map((scholarPost) => (
+    <ScholarPost key={scholarPost._id} postData={scholarPost} />
   ));
 
   useEffect(() => {
@@ -62,18 +77,10 @@ export default function Feed() {
 
       <div className="grid grid-cols-2 relative top-[-80px] w-fit testsm:grid-cols-0 testsm:flex testsm:flex-col">
         <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200">
-          <div className="mt-[130px]">{scholarPostsEl}</div>
+          <div className="mt-[130px]">{managerPostsEl}</div>
         </div>
         <div className="scroll-div max-h-screen overflow-y-auto">
-          <div className="mt-[130px]">
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
-            <ScholarPost />
-          </div>
+          <div className="mt-[130px]">{scholarPostsEl}</div>
         </div>
       </div>
 
