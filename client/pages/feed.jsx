@@ -3,7 +3,7 @@ import ManagerPost from "../components/ManagerPost";
 import ScholarPost from "../components/ScholarPost";
 import BodyPartModal from "../components/BodyPartModal";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Allotment } from "allotment";
 import "allotment/dist/style.css";
 
@@ -12,10 +12,13 @@ export default function Feed() {
   const [managerPosts, setManagerPosts] = useState([]);
   const [scholarPosts, setScholarPosts] = useState([]);
   const [modalAxie, setModalAxie] = useState([]);
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
+
+  const feedPosts = useMemo(() => {
+    const posts = [...managerPosts, ...scholarPosts];
+    return posts.sort((a, b) => {
+      return new Date(a.createdAt) - new Date(b.createdAt);
+    });
+  }, [managerPosts, scholarPosts]);
 
   useEffect(() => {
     const managerPostURL = "http://localhost:3080/api/manager-post";
@@ -27,11 +30,20 @@ export default function Feed() {
       setManagerPosts(response[0].data);
       setScholarPosts(response[1].data);
     });
-
-    // axios
-    //   .get("http://localhost:3080/api/manager-post")
-    //   .then((response) => setScholarPosts(response.data));
   }, []);
+
+  const feedPostsEl = feedPosts.map((feedPost) =>
+    feedPost.axies ? (
+      <ManagerPost
+        key={feedPost._id}
+        setModalOn={setModalOn}
+        postData={feedPost}
+        setModalAxie={setModalAxie}
+      />
+    ) : (
+      <ScholarPost key={feedPost._id} postData={feedPost} />
+    )
+  );
 
   const managerPostsEl = managerPosts.map((managerPost) => (
     <ManagerPost
@@ -46,24 +58,6 @@ export default function Feed() {
     <ScholarPost key={scholarPost._id} postData={scholarPost} />
   ));
 
-  useEffect(() => {
-    // only execute all the code below in client side
-    if (typeof window !== "undefined") {
-      function handleResize() {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      }
-      // Add event listener
-      window.addEventListener("resize", handleResize);
-      // Call handler right away so state gets updated with initial window size
-      handleResize();
-      // Remove event listener on cleanup
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []); // Empty array ensures that effect is only run on mount
-
   return (
     <>
       {modalOn && (
@@ -75,54 +69,17 @@ export default function Feed() {
         />
       )}
 
-      <div className="grid grid-cols-2 relative top-[-80px] w-fit testsm:grid-cols-0 testsm:flex testsm:flex-col">
-        <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200">
+      <div className="grid grid-cols-2 relative top-[-80px] w-fit feedmd:grid-cols-0 feedmd:block">
+        <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200 feedmd:hidden">
           <div className="mt-[130px]">{managerPostsEl}</div>
         </div>
-        <div className="scroll-div max-h-screen overflow-y-auto">
+        <div className="scroll-div max-h-screen overflow-y-auto feedmd:hidden">
           <div className="mt-[130px]">{scholarPostsEl}</div>
         </div>
+        <div className="scroll-div max-h-screen overflow-y-auto hidden feedmd:block">
+          <div className="mt-[130px]">{feedPostsEl}</div>
+        </div>
       </div>
-
-      {/* {windowSize.width >= 1800 ? (
-        <div className="grid grid-cols-2 relative top-[-80px] min-w-[1322px]">
-          <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200">
-            <div className="mt-[130px]">
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-            </div>
-          </div>
-          <div className="scroll-div max-h-screen overflow-y-auto">
-            <div className="mt-[130px]">
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
-              <ScholarPost />
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="relative top-[-80px] min-w-[660px]">
-          <div className="scroll-div max-h-screen overflow-y-auto">
-            <div className="mt-[130px]">
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ScholarPost />
-              <ScholarPost />
-              <ManagerPost setModalOn={setModalOn} />
-              <ManagerPost setModalOn={setModalOn} />
-              <ScholarPost />
-              <ManagerPost setModalOn={setModalOn} />
-            </div>
-          </div>
-        </div>
-      )} */}
     </>
   );
 }

@@ -56,7 +56,7 @@ export default function Sidebar() {
           ) : (
             <div className="h-screen min-w-[80px]  flex flex-col items-center justify-between">
               <div className="mt-20">
-                <Link href="/">
+                <Link href="/feed">
                   <button className="flex items-center justify-start p-4 rounded-full hover:bg-primary">
                     <RiHome2Line className="text-white text-3xl" />
                   </button>
