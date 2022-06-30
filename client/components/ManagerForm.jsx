@@ -157,6 +157,7 @@ const ManagerForm = ({ axieImages, showForm }) => {
     <AnimatePresence>
       {showForm && (
         <motion.div
+          key="manager-form"
           initial={{ x: 300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -300, opacity: 0 }}
