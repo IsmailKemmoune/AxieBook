@@ -12,8 +12,6 @@ export default function ManagerPost({ setModalOn, postData, setModalAxie }) {
   // const [postToggle, setPostToggle] = useState(true);
   const [bookmark, setBookmark] = useState(false);
 
-  console.log(postData);
-
   const {
     axies,
     title,
@@ -29,7 +27,7 @@ export default function ManagerPost({ setModalOn, postData, setModalAxie }) {
   return (
     <div
       // onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}
-      className=" bg-shades-200 m-10 hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear max-w-6xl w-[580px] cursor-pointer"
+      className=" bg-shades-200 m-10 shadow:button hover:shadow-post hover:-translate-y-2 hover:translate-x-2 transition duration-200 ease-linear max-w-6xl w-[580px] cursor-pointer"
     >
       <div className="pl-6 py-4 bg-secondary flex justify-between shadow-lg">
         <div className="flex">
