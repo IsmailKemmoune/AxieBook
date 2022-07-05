@@ -12,6 +12,8 @@ export default function ManagerPost({ setModalOn, postData, setModalAxie }) {
   // const [postToggle, setPostToggle] = useState(true);
   const [bookmark, setBookmark] = useState(false);
 
+  console.log(postData);
+
   const {
     axies,
     title,

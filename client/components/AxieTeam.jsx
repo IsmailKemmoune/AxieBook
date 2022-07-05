@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { request } from "graphql-request";
+import { motion } from "framer-motion";
 import query from "../graphqlQuery";
 import AxieImage from "./AxieImage";
 
@@ -84,7 +85,11 @@ export default function AxieTeam({
           setModalOn={setModalOn}
         />
       )} */}
-      <div className="bg-primary flex flex-col items-center justify-center">
+      <motion.div
+        initial={{ x: 300, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        className="bg-primary flex flex-col items-center justify-center"
+      >
         <div className="relative">
           <input
             className="px-14 indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-l-md border-2 border-primary focus:border-expand focus:border-2 outline-none font-light p-2"
@@ -102,7 +107,7 @@ export default function AxieTeam({
           </button>
         </div>
         <div className="flex mt-5">{imagesElement}</div>
-      </div>
+      </motion.div>
     </>
   );
 }

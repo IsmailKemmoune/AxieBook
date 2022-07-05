@@ -16,7 +16,6 @@ passport.use(new GoogleStrategy({
 
 
 passport.serializeUser((user, done) => {
-    
     done(null, {name: user.displayName, id: user.id, emails: user.emails[0].value});
   });
    
