@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.1",
+    "@reduxjs/toolkit": "^1.8.3",
     "allotment": "^1.14.1",
     "axios": "^0.27.2",
     "express": "^4.18.1",
@@ -24,6 +25,7 @@
     "react-dom": "18.1.0",
     "react-hook-form": "^7.32.0",
     "react-icons": "^4.3.1",
+    "react-redux": "^8.0.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {

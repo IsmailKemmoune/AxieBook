@@ -1,6 +1,6 @@
 export default function AvatarCard() {
   return (
-    <div className="bg-secondary w-[90%] p-3 rounded-md shadow-button mb-5">
+    <div className="bg-secondary w-[90%] p-3 rounded-md shadow-button mb-20">
       <div className="flex items-center">
         <div className="w-22 mr-3">
           <div className="rounded-full w-20 h-20 bg-white"></div>

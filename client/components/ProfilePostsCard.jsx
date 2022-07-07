@@ -1,6 +1,5 @@
 import ManagerPost from "./ManagerPost";
 import BodyPartModal from "../components/BodyPartModal";
-import ReviewCard from "../components/ReviewCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -42,12 +41,9 @@ export default function ProfilePostsCard() {
         />
       )}
 
-      <div className="bg-primary w-[90%]">
-        <h1 className="text-white text-2xl">Publications</h1>
-        <div className="grid grid-cols-2">
-          {profilePostsEl}
-          <ReviewCard />
-        </div>
+      <div className="bg-primary w-full mb-10">
+        <h1 className="text-white text-2xl pl-8">Publications</h1>
+        <div className="flex flex-wrap">{profilePostsEl}</div>
       </div>
     </>
   );

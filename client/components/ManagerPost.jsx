@@ -63,7 +63,7 @@ export default function ManagerPost({ setModalOn, postData, setModalAxie }) {
       </div>
 
       <div className="border-l-8 border-manager flex flex-col items-center">
-        <div className="flex justify-evenly pb-10">
+        <div className="flex justify-evenly pb-5">
           <ManagerPostAxieImage
             setModalOn={setModalOn}
             setModalAxie={setModalAxie}
@@ -90,7 +90,7 @@ export default function ManagerPost({ setModalOn, postData, setModalAxie }) {
           <h2 className="text-secondary text-xl relative top-[8px]">
             Offer infos
           </h2>
-          <div className="grid grid-cols-2 gap-x-5 grid-rows-2 pb-10 items-center">
+          <div className="grid grid-cols-2 gap-x-5 grid-rows-2 pb-5 items-center">
             <ManagerPostInfo text={`${energy} Eenergy`}>
               <TiFlash className="text-secondary mr-2 text-3xl" />
             </ManagerPostInfo>

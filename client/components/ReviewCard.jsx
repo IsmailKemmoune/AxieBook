@@ -16,8 +16,8 @@ export default function ReviewCard() {
           <AiFillStar className="text-classes-Beast text-xl" />
           <AiFillStar className="text-classes-Beast text-xl" />
           <AiFillStar className="text-classes-Beast text-xl" />
-          <AiOutlineStar className="text-white text-xl" />
-          <AiOutlineStar className="text-white text-xl" />
+          <AiFillStar className="text-white text-xl" />
+          <AiFillStar className="text-white text-xl" />
         </div>
       </div>
 
