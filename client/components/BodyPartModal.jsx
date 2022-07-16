@@ -1,4 +1,6 @@
 import BodyParts from "./BodyParts";
+import { useAtom } from "jotai";
+import { modalStatusAtom } from "../atoms";
 
 const glassmorphism = {
   display: "flex",
@@ -14,28 +16,18 @@ const glassmorphism = {
   borderBottom: "solid 1px #545267",
 };
 
-export default function BodyPartModal({
-  setModalOn,
-  image,
-  parts,
-  stats,
-  abilities,
-}) {
+export default function BodyPartModal() {
+  const [, setModalStatus] = useAtom(modalStatusAtom);
+
   return (
     <div
       style={glassmorphism}
       onClick={(e) => {
         if (e.target !== e.currentTarget) return;
-        setModalOn(false);
+        setModalStatus(false);
       }}
     >
-      <BodyParts
-        image={image}
-        parts={parts}
-        stats={stats}
-        abilities={abilities}
-        setModalOn={setModalOn}
-      />
+      <BodyParts />
     </div>
   );
 }

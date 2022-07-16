@@ -7,24 +7,31 @@ import { AiFillStar } from "react-icons/ai";
 import { AiFillFire } from "react-icons/ai";
 import Image from "next/image";
 import axieParts from "./axieParts";
+import { useAtom } from "jotai";
+import { modalStatusAtom } from "../atoms";
+import { selectedAxieAtom } from "../atoms";
 import AxieSpine from "./AxieSpine";
 
 const axieLoader = ({ src }) => {
   return src;
 };
 
-export default function BodyParts({ setModalOn, image, parts, stats }) {
+export default function BodyParts() {
+  const [, setModalStatus] = useAtom(modalStatusAtom);
+  const [selectedAxie] = useAtom(selectedAxieAtom);
+  const {
+    axie: { stats, parts, image },
+  } = selectedAxie;
   const { hp, speed, skill, morale } = stats;
   const [eyes, ears, back, mouth, horn, tail] = parts;
 
-  // AxieSpine();
   return (
     <div className="bg-secondary text-white w-[1000px] flex flex-col justify-evenly p-7 rounded-md mt-10 drop-shadow-lg">
       <div className="w-full flex items-center justify-between mb-5">
         <p>BODY PARTS</p>
         <AiOutlineCloseCircle
           className="pointer-cursor text-xl hover:text-delete"
-          onClick={() => setModalOn(false)}
+          onClick={() => setModalStatus(false)}
         />
       </div>
       <hr />

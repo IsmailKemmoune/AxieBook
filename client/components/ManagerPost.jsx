@@ -8,8 +8,7 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { useState } from "react";
 
-export default function ManagerPost({ setModalOn, postData, setModalAxie }) {
-  // const [postToggle, setPostToggle] = useState(true);
+export default function ManagerPost({ postData }) {
   const [bookmark, setBookmark] = useState(false);
 
   const {
@@ -65,22 +64,16 @@ export default function ManagerPost({ setModalOn, postData, setModalAxie }) {
       <div className="border-l-8 border-manager flex flex-col items-center">
         <div className="flex justify-evenly pb-5">
           <ManagerPostAxieImage
-            setModalOn={setModalOn}
-            setModalAxie={setModalAxie}
             image={axies[0].image}
             id={axies[0].id}
             axieClass={axies[0].class}
           />
           <ManagerPostAxieImage
-            setModalOn={setModalOn}
-            setModalAxie={setModalAxie}
             image={axies[1].image}
             id={axies[1].id}
             axieClass={axies[1].class}
           />
           <ManagerPostAxieImage
-            setModalOn={setModalOn}
-            setModalAxie={setModalAxie}
             image={axies[2].image}
             id={axies[2].id}
             axieClass={axies[2].class}

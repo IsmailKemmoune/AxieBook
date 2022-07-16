@@ -76,38 +76,28 @@ export default function AxieTeam({
   ));
 
   return (
-    <>
-      {/* {modalOn && (
-        <BodyPartModal
-          image={modalAxie[0].axie.image}
-          parts={modalAxie[0].axie.parts}
-          stats={modalAxie[0].axie.stats}
-          setModalOn={setModalOn}
-        />
-      )} */}
-      <motion.div
-        initial={{ x: 300, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        className="bg-primary flex flex-col items-center justify-center"
-      >
-        <div className="relative">
-          <input
-            className="px-14 indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-l-md border-2 border-primary focus:border-expand focus:border-2 outline-none font-light p-2"
-            placeholder="Enter Axie ID..."
-            onChange={getInputData}
-            onKeyDown={handleKeyDown}
-            value={axieId}
-          ></input>
+    <motion.div
+      initial={{ x: 300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      className="bg-primary flex flex-col items-center justify-center"
+    >
+      <div className="relative">
+        <input
+          className="px-14 indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-l-md border-2 border-primary focus:border-expand focus:border-2 outline-none font-light p-2"
+          placeholder="Enter Axie ID..."
+          onChange={getInputData}
+          onKeyDown={handleKeyDown}
+          value={axieId}
+        ></input>
 
-          <button
-            onClick={getAxiePicture}
-            className="absolte bottom-0 top-0 right-0 h-max text-white border bg-gray-500 border-gray-500 rounded-r-md px-3 hover:bg-secondary font-extralight transition duration-200 ease-linear cursor-pointer p-2"
-          >
-            Seach Axie
-          </button>
-        </div>
-        <div className="flex mt-5">{imagesElement}</div>
-      </motion.div>
-    </>
+        <button
+          onClick={getAxiePicture}
+          className="absolte bottom-0 top-0 right-0 h-max text-white border bg-gray-500 border-gray-500 rounded-r-md px-3 hover:bg-secondary font-extralight transition duration-200 ease-linear cursor-pointer p-2"
+        >
+          Seach Axie
+        </button>
+      </div>
+      <div className="flex mt-5">{imagesElement}</div>
+    </motion.div>
   );
 }

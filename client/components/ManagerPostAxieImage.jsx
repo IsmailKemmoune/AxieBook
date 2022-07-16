@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { request } from "graphql-request";
 import query from "../graphqlQuery";
 import classesIcons from "./classesIcons";
+import { useAtom } from "jotai";
+import { modalStatusAtom } from "../atoms";
+import { selectedAxieAtom } from "../atoms";
 
 const colors = {
   Plant: "#96CB00",
@@ -15,13 +18,10 @@ const colors = {
   Dawn: "#7183E3",
 };
 
-export default function ManagerPostAxieImage({
-  image,
-  id,
-  axieClass,
-  setModalOn,
-  setModalAxie,
-}) {
+export default function ManagerPostAxieImage({ image, id, axieClass }) {
+  const [, setModalStatus] = useAtom(modalStatusAtom);
+  const [, setSelectedAxie] = useAtom(selectedAxieAtom);
+
   const variables = {
     axieId: id,
   };
@@ -32,8 +32,8 @@ export default function ManagerPostAxieImage({
         query,
         variables
       );
-      setModalAxie(data);
-      setModalOn(true);
+      setSelectedAxie(data);
+      setModalStatus(true);
     } catch (error) {
       console.log(error);
     }

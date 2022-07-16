@@ -4,14 +4,15 @@ import ScholarPost from "../components/ScholarPost";
 import BodyPartModal from "../components/BodyPartModal";
 import axios from "axios";
 import { useState, useEffect, useMemo } from "react";
+import { useAtom } from "jotai";
+import { modalStatusAtom } from "../atoms";
 import { Allotment } from "allotment";
 import "allotment/dist/style.css";
 
 export default function Feed() {
-  const [modalOn, setModalOn] = useState(false);
   const [managerPosts, setManagerPosts] = useState([]);
   const [scholarPosts, setScholarPosts] = useState([]);
-  const [modalAxie, setModalAxie] = useState([]);
+  const [modalStatus] = useAtom(modalStatusAtom);
 
   const feedPosts = useMemo(() => {
     const posts = [...managerPosts, ...scholarPosts];
@@ -34,24 +35,14 @@ export default function Feed() {
 
   const feedPostsEl = feedPosts.map((feedPost) =>
     feedPost.axies ? (
-      <ManagerPost
-        key={feedPost._id}
-        setModalOn={setModalOn}
-        postData={feedPost}
-        setModalAxie={setModalAxie}
-      />
+      <ManagerPost key={feedPost._id} postData={feedPost} />
     ) : (
       <ScholarPost key={feedPost._id} postData={feedPost} />
     )
   );
 
   const managerPostsEl = managerPosts.map((managerPost) => (
-    <ManagerPost
-      key={managerPost._id}
-      setModalOn={setModalOn}
-      postData={managerPost}
-      setModalAxie={setModalAxie}
-    />
+    <ManagerPost key={managerPost._id} postData={managerPost} />
   ));
 
   const scholarPostsEl = scholarPosts.map((scholarPost) => (
@@ -60,14 +51,7 @@ export default function Feed() {
 
   return (
     <>
-      {modalOn && (
-        <BodyPartModal
-          image={modalAxie.axie.image}
-          parts={modalAxie.axie.parts}
-          stats={modalAxie.axie.stats}
-          setModalOn={setModalOn}
-        />
-      )}
+      {modalStatus && <BodyPartModal />}
 
       <div className="grid grid-cols-2 relative top-[-80px] w-fit feedmd:grid-cols-0 feedmd:block">
         <div className="scroll-div max-h-screen overflow-y-auto border-r-[1px] border-shades-200 feedmd:hidden">
