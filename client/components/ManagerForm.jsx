@@ -146,6 +146,7 @@ const ManagerForm = () => {
         },
         body: JSON.stringify(formData),
       });
+      setAxieTeam([]);
     } catch (err) {
       console.log(err);
     }

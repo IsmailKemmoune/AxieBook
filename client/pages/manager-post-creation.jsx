@@ -4,16 +4,9 @@ import AxieTeam from "../components/AxieTeam";
 import BodyPartModal from "../components/BodyPartModal";
 import { useAtom } from "jotai";
 import { modalStatusAtom } from "../atoms";
-import { AxieTeamAtom } from "../atoms";
-import { useEffect } from "react";
 
 export default function ManagerPostCreation() {
   const [modalStatus] = useAtom(modalStatusAtom);
-  const [, setAxieTeam] = useAtom(AxieTeamAtom);
-
-  useEffect(() => {
-    setAxieTeam([]);
-  }, []);
 
   return (
     <>

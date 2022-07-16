@@ -15,7 +15,7 @@ export default function AxieTeam() {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      getAxiePicture();
+      getAxie();
     }
   };
 
