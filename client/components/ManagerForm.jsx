@@ -3,6 +3,9 @@ import { BiErrorCircle } from "react-icons/bi";
 import { useState, useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAtom } from "jotai";
+import { formStatusAtom } from "../atoms";
+import { AxieTeamAtom } from "../atoms";
 import * as yup from "yup";
 
 const schema = yup
@@ -29,10 +32,12 @@ const schema = yup
   })
   .required();
 
-const ManagerForm = ({ axieImages, showForm }) => {
+const ManagerForm = () => {
+  const [formStatus] = useAtom(formStatusAtom);
+  const [axieTeam, setAxieTeam] = useAtom(AxieTeamAtom);
   const [split, setSplit] = useState(100);
 
-  const axiesDataHeader = axieImages.map((axie) => {
+  const axiesDataHeader = axieTeam.map((axie) => {
     return {
       id: axie.axie.id,
       image: axie.axie.image,
@@ -155,7 +160,7 @@ const ManagerForm = ({ axieImages, showForm }) => {
 
   return (
     <AnimatePresence>
-      {showForm && (
+      {formStatus && (
         <motion.div
           key="manager-form"
           initial={{ x: 300, opacity: 0 }}

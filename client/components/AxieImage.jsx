@@ -1,28 +1,43 @@
 import { BiExpandAlt } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
+import { request } from "graphql-request";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAtom } from "jotai";
+import { AxieTeamAtom } from "../atoms";
+import { modalStatusAtom } from "../atoms";
+import { selectedAxieAtom } from "../atoms";
 import Image from "next/image";
+import query from "../graphqlQuery";
 
 const axieLoader = ({ src }) => {
   return `https://assets.axieinfinity.com/axies/${src}/axie/axie-full-transparent.png`;
 };
 
-export default function AxieImage({
-  id,
-  setAxieImages,
-  setModalOn,
-  axieImages,
-  setModalAxie,
-}) {
+export default function AxieImage({ id }) {
+  const [, setAxieTeam] = useAtom(AxieTeamAtom);
+  const [, setModalStatus] = useAtom(modalStatusAtom);
+  const [, setSelectedAxie] = useAtom(selectedAxieAtom);
+
   const deleteAxie = (axieId) => {
-    setAxieImages((prevAxieImages) =>
-      prevAxieImages.filter((img) => img.axie.id != axieId)
+    setAxieTeam((prevAxies) =>
+      prevAxies.filter((axie) => axie.axie.id != axieId)
     );
   };
 
-  const expandAxie = (axieId) => {
-    setModalAxie(axieImages.filter((img) => img.axie.id === axieId));
-    setModalOn(true);
+  const expandAxie = async () => {
+    try {
+      const data = await request(
+        "https://graphql-gateway.axieinfinity.com/graphql",
+        query,
+        {
+          axieId: id,
+        }
+      );
+      setSelectedAxie(data);
+      setModalStatus(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

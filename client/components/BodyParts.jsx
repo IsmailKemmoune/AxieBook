@@ -19,6 +19,7 @@ const axieLoader = ({ src }) => {
 export default function BodyParts() {
   const [, setModalStatus] = useAtom(modalStatusAtom);
   const [selectedAxie] = useAtom(selectedAxieAtom);
+
   const {
     axie: { stats, parts, image },
   } = selectedAxie;
