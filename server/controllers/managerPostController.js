@@ -3,8 +3,10 @@ const mongoose = require('mongoose')
 
 //GET all managers post
 const getAllManagerPosts = async (req, res) => {
+	const page = req.query.page || 0;
+	const limit = req.query.limit || 5;
 	try {
-		const managerPosts = await ManagerPost.find({}).sort({createdAt: -1});
+		const managerPosts = await ManagerPost.find({}).sort({createdAt: -1}).skip(page * limit).limit(limit);
 		res.status(200).json(managerPosts);
 	}
 	catch (error) {

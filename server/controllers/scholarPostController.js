@@ -3,8 +3,10 @@ const mongoose = require('mongoose')
 
 //GET all managers post
 const getAllScholarPosts = async (req, res) => {
+	const page = req.query.page || 0;
+	const limit = req.query.limit;
 	try {
-		const scholarPosts = await ScholarPost.find({}).sort({createdAt: -1});
+		const scholarPosts = await ScholarPost.find({}).sort({createdAt: -1}).skip(page * limit).limit(limit);
 		res.status(200).json(scholarPosts);
 	}
 	catch (error) {
