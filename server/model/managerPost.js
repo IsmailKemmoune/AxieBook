@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 //creating schema
-const managerPost = new Schema({	
+const managerPost = new Schema({
   manager:  String,
   axies: [{
     id: String, 

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useLayoutEffect } from "react";
 import { RiHome2Line } from "react-icons/ri";
 import { IoBookmarkOutline } from "react-icons/io5";
 import { RiUser6Line } from "react-icons/ri";
@@ -7,7 +7,13 @@ import Link from "next/link";
 
 export default function Sidebar() {
   const ref = useRef();
-  let [sidebarWidth, setSidebarWidth] = useState(0);
+  const [sidebarWidth, setSidebarWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    if (ref.current) {
+      setSidebarWidth(ref.current.offsetWidth);
+    }
+  }, []);
 
   useEffect(() => {
     const observer = new ResizeObserver((entries) => {

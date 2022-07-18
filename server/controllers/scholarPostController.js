@@ -1,10 +1,11 @@
 const ScholarPost = require("../model/scholarPost")
+const FeedPost = require("../model/feedPost")
 const mongoose = require('mongoose')
 
 //GET all managers post
 const getAllScholarPosts = async (req, res) => {
 	const page = req.query.page || 0;
-	const limit = req.query.limit;
+	const limit = req.query.limit || 5;
 	try {
 		const scholarPosts = await ScholarPost.find({}).sort({createdAt: -1}).skip(page * limit).limit(limit);
 		res.status(200).json(scholarPosts);

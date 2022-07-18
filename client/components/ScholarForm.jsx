@@ -50,7 +50,6 @@ const ScholarForm = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
     const path = "http://localhost:3080/api/scholar-post";
     try {
       const response = await fetch(path, {

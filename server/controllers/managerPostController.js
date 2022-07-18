@@ -1,4 +1,5 @@
 const ManagerPost = require("../model/managerPost")
+const FeedPost = require("../model/feedPost")
 const mongoose = require('mongoose')
 
 //GET all managers post

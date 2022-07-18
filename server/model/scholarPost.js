@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 //creating schema
-const scholarPost = new Schema({	
+const scholarPost = new Schema({
   scholar:  String,
   title: String, 
   peakMMR: Number,

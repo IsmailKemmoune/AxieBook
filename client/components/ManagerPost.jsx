@@ -22,7 +22,7 @@ export default function ManagerPost({ postData }) {
     slpSplit,
     updatedAt,
   } = postData;
-  // console.log(postData);
+  // console.log(axies[0]);
   return (
     <div
       // onClick={() => setPostToggle((prevValue) => (prevValue = !prevValue))}

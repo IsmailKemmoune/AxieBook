@@ -13,6 +13,9 @@ const {
 	editScholarPost,
 	deleteScholarPost
 } = require('../controllers/scholarPostController')
+const {
+	getAllFeedPosts,
+} = require('../controllers/feedPostController')
 
 //------------------------
 
@@ -47,5 +50,10 @@ router.patch("/scholar-post/:id", editScholarPost)
 
 //DELETE a manager post
 router.delete("/scholar-post/:id", deleteScholarPost)
+
+//------------------------
+
+//GET all feed posts
+router.get("/feed-post", getAllFeedPosts)
 
 module.exports = router
