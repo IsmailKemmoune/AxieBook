@@ -1,13 +1,11 @@
 import ManagerPostSkeleton from "../components/ManagerPostSkeleton";
-import ScholarPostSkeleton from "../components/ScholarPostSkeleton";
 
-export default function LoadingFeed() {
+export default function LoadingManager() {
   return (
     <>
       <ManagerPostSkeleton />
-      <ScholarPostSkeleton />
       <ManagerPostSkeleton />
-      <ScholarPostSkeleton />
+      <ManagerPostSkeleton />
       <ManagerPostSkeleton />
     </>
   );

@@ -4,6 +4,7 @@ import PageEnd from "./PageEnd";
 import axios from "axios";
 import useSWRInfinite from "swr/infinite";
 import InfiniteScroll from "react-swr-infinite-scroll";
+import LoadingManager from "./LoadingManager";
 
 const PAGE_SIZE = 3;
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -15,6 +16,7 @@ export default function InfiniteScholarPostsScroll() {
   };
 
   const managerSwr = useSWRInfinite(getManagerKey, fetcher);
+  //   console.log(managerSwr);
 
   let managerPostsEl = [];
   if (managerSwr.data) {
@@ -26,7 +28,9 @@ export default function InfiniteScholarPostsScroll() {
   return (
     <InfiniteScroll
       swr={managerSwr}
-      loadingIndicator={<LoadingSpinner />}
+      loadingIndicator={
+        managerSwr.size === 1 ? <LoadingManager /> : <LoadingSpinner />
+      }
       endingIndicator={<PageEnd />}
       isReachingEnd={(managerSwr) =>
         managerSwr.data?.[0]?.length === 0 ||

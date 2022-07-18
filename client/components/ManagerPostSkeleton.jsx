@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
+import { nanoid } from "nanoid";
 
-const randomWidth = () => Math.floor(Math.random() * (90 - 40 + 1)) + 40;
-const randomLines = () => Math.floor(Math.random() * (7 - 3 + 1)) + 3;
+const randomWidthGen = () => Math.floor(Math.random() * (90 - 40 + 1)) + 40;
+const randomLinesGen = () => Math.floor(Math.random() * (7 - 3 + 1)) + 3;
 
 export default function ManagerPostSkeleton() {
+  const [titleWidth, setTitleWidth] = useState(undefined);
   const [linesEl, setLinesEl] = useState([]);
 
   useEffect(() => {
-    const lines = [];
-    let count = randomLines();
-    while (count) {
-      lines.push(
-        <div
-          className={`bg-shades-200 h-[15px] rounded-full my-5`}
-          style={{ width: `${randomWidth()}%` }}
-        ></div>
-      );
-      count--;
+    let lineSize = randomLinesGen();
+    let randomWidth = [];
+    for (let i = 0; i < lineSize; i++) {
+      randomWidth.push(randomWidthGen());
     }
+    const lines = randomWidth.map((width) => (
+      <div
+        key={nanoid()}
+        className={`bg-shades-200 h-[15px] rounded-full my-5`}
+        style={{ width: `${width}%` }}
+      ></div>
+    ));
     setLinesEl(lines);
+    setTitleWidth(randomWidthGen());
   }, []);
 
   return (
@@ -28,7 +32,7 @@ export default function ManagerPostSkeleton() {
           <div className="bg-shades-100 rounded-full h-12 w-12 mr-4"></div>
           <div
             className="bg-shades-200 h-[20px] rounded-full"
-            style={{ width: `${randomWidth()}%` }}
+            style={{ width: `${titleWidth}%` }}
           ></div>
         </div>
         <div className="flex justify-evenly py-5">

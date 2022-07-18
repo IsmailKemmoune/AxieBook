@@ -5,7 +5,6 @@ import InfiniteScholarPostsScroll from "../components/InfiniteScholarPostsScroll
 import InfiniteManagerPostsScroll from "../components/InfiniteManagerPostsScroll";
 import { useAtom } from "jotai";
 import { modalStatusAtom } from "../atoms";
-import "allotment/dist/style.css";
 
 export default function Feed() {
   const [modalStatus] = useAtom(modalStatusAtom);

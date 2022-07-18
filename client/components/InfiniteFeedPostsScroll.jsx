@@ -5,6 +5,7 @@ import PageEnd from "../components/PageEnd";
 import axios from "axios";
 import useSWRInfinite from "swr/infinite";
 import InfiniteScroll from "react-swr-infinite-scroll";
+import LoadingFeed from "./LoadingFeed";
 
 const PAGE_SIZE = 3;
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -32,7 +33,9 @@ export default function InfiniteFeedPostsScroll() {
   return (
     <InfiniteScroll
       swr={feedSwr}
-      loadingIndicator={<LoadingSpinner />}
+      loadingIndicator={
+        feedSwr.size === 1 ? <LoadingFeed /> : <LoadingSpinner />
+      }
       endingIndicator={<PageEnd />}
       isReachingEnd={(feedSwr) =>
         feedSwr.data?.[0]?.length === 0 ||
