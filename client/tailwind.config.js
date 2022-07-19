@@ -58,8 +58,13 @@ module.exports = {
       },
       screens: {
         homesm: {max: "700px"},
-        feedsm: {max: "1100px"},
-        feedmd: {max: "1800px"},
+        feedlg: {max: "1800px"},
+        feedmd: {max: "1100px"},
+        feedsm: {max: "740px"},
+        sidebarxl: {max: "2022px"},
+        sidebarlg: {max: "1800px"},
+        sidebarmd: {max: "1350px"},
+        sidebarsm: {max: "740px"},
       },
       boxShadow: {
         post: "#25233b -5px 5px, #211f34 -10px 10px, #1d1b2e -15px 15px",

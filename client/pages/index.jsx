@@ -26,7 +26,7 @@ const glassmorphism = {
 
 export default function Home() {
   const [isBurger, setIsBurger] = useState(false);
-  const [width, setWidth] = useState(0); // default width, detect on server.
+  const [width, setWidth] = useState(0);
 
   const handleResize = () => setWidth(window.innerWidth);
   useEffect(() => {

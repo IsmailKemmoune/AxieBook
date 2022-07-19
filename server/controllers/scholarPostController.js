@@ -1,5 +1,4 @@
 const ScholarPost = require("../model/scholarPost")
-const FeedPost = require("../model/feedPost")
 const mongoose = require('mongoose')
 
 //GET all managers post

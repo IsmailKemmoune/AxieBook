@@ -36,7 +36,7 @@ export default function InfiniteScholarPostsScroll() {
         scholarSwr.data?.[scholarSwr.data?.length - 1]?.length < PAGE_SIZE
       }
     >
-      <div className="mt-[130px]">{scholarPostsEl}</div>
+      <div className="mt-[100px]">{scholarPostsEl}</div>
     </InfiniteScroll>
   );
 }

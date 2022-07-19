@@ -42,7 +42,7 @@ export default function InfiniteFeedPostsScroll() {
         feedSwr.data?.[feedSwr.data?.length - 1]?.length < PAGE_SIZE
       }
     >
-      <div className="mt-[130px]">{feedPostsEl}</div>
+      <div className="mt-[100px]">{feedPostsEl}</div>
     </InfiniteScroll>
   );
 }

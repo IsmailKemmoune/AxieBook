@@ -12,7 +12,7 @@ export default function RightBar() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-black border-l-[1px] border-shades-200 text-white grow-[1] min-w-[400px] feedsm:hidden">
+    <div className="flex flex-col items-center bg-black border-l-[1px] border-shades-200 text-white grow-[1] min-w-[400px] feedmd:hidden">
       {/* <div className="w-full"> */}
       <div className="bg-[#202327] flex w-[70%] h-[50px] border-black border-[1px] hover:border-[1px] hover:border-shades-200 rounded-full mt-5">
         <div className="flex items-center justify-end w-[15%]">
