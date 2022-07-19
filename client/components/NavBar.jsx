@@ -1,17 +1,18 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { RiMenu4Fill } from "react-icons/ri";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { useState, useEffect } from "react";
 
 const glassmorphism = {
   // display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  // alignItems: "center",
+  // justifyContent: "center",
   // padding: "25px 0px",
   // position: "sticky",
   width: "100%",
   // top: "-0.5px",
-  zIndex: "1",
+  zIndex: "10",
   color: "white",
   fontSize: "16px",
   fontWeight: "600",
@@ -51,7 +52,7 @@ export default function NavBar() {
     <>
       <nav
         style={glassmorphism}
-        className="flex sticky top-[-0.5px] p-[25px_0px]"
+        className="flex absolute top-[-0.5px] p-[25px_0px]"
       >
         <ul className="flex feedlg:justify-around space-x-24 justify-center feedsm:hidden w-full">
           <Link href="/manager-post-creation">
@@ -82,7 +83,7 @@ export default function NavBar() {
             // className="hidden feedsm:block"
             onClick={() => setIsBurger((prevState) => !prevState)}
           >
-            <RiMenu4Fill className="text-3xl" />
+            <GiHamburgerMenu className="text-3xl" />
           </motion.button>
         </div>
       </nav>
@@ -92,7 +93,7 @@ export default function NavBar() {
             key="navbar"
             initial={{ x: 300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 300, opacity: 0 }}
+            exit={{ opacity: 0, transition: { duration: 0.5 } }}
             style={glassmorphism}
             className="fixed top-[85px] h-[50px] border-y-[0.5px] border-shades-200 hidden feedsm:block"
           >

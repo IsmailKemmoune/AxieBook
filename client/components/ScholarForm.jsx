@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
 import { BiErrorCircle } from "react-icons/bi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAtom } from "jotai";
+import { scholarFormStatusAtom } from "../atoms";
 import * as yup from "yup";
 
 const schema = yup
@@ -37,6 +39,11 @@ const schema = yup
 
 const ScholarForm = () => {
   const [split, setSplit] = useState(100);
+  const [formStatus, setFormStatus] = useAtom(scholarFormStatusAtom);
+
+  useEffect(() => {
+    setFormStatus(true);
+  }, []);
 
   const {
     register,
@@ -59,6 +66,7 @@ const ScholarForm = () => {
         },
         body: JSON.stringify(data),
       });
+      setFormStatus(false);
     } catch (err) {
       console.log(err);
     }
@@ -73,165 +81,167 @@ const ScholarForm = () => {
 
   return (
     <AnimatePresence>
-      <motion.div
-        key="scholar-form"
-        initial={{ x: 300, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        exit={{ x: -300, opacity: 0 }}
-        className=" flex items-center my-10"
-      >
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-7 items-center"
+      {formStatus && (
+        <motion.div
+          key="scholar-form"
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -300, opacity: 0 }}
+          className=" flex items-center my-10"
         >
-          <div className="flex flex-col">
-            <label htmlFor="slp" className="text-white select-none">
-              Title
-            </label>
-            <input
-              {...register("title")}
-              className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md border-2 border-primary focus:border-expand focus:border-2 outline-none font-light w-96 p-2"
-              placeholder="Title"
-              type="text"
-            />
-            {errors.title && (
-              <div className="flex items-center">
-                <BiErrorCircle className="text-delete mr-2" />
-                <p className="text-delete text-sm">{errors.title?.message}</p>
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="slp" className="text-white select-none">
-              Peak MMR
-            </label>
-            <input
-              {...register("mmr")}
-              className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md border-2 border-primary focus:border-expand focus:border-2 outline-none font-light w-96 p-2"
-              placeholder="What is your peak MMR"
-              type="text"
-            />
-            {errors.mmr && (
-              <div className="flex items-center">
-                <BiErrorCircle className="text-delete mr-2" />
-                <p className="text-delete text-sm">{errors.mmr?.message}</p>
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="slp" className="text-white select-none">
-              SLP quota
-            </label>
-            <input
-              {...register("slp")}
-              className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md border-2 border-primary focus:border-expand focus:border-2  outline-none font-light w-96 p-2"
-              placeholder="How much SLP you can farm per day"
-              type="text"
-              id="slp"
-            />
-            {errors.slp && (
-              <div className="flex items-center">
-                <BiErrorCircle className="text-delete mr-2" />
-                <p className="text-delete text-sm">{errors.slp?.message}</p>
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-col">
-            <div className="w-96 flex items-end">
-              <div className="flex flex-col w-9/12 mr-3">
-                <label htmlFor="slp" className="text-white select-none">
-                  SLP split
-                </label>
-                <input
-                  {...register("split")}
-                  onChange={splitCalc}
-                  className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md  border-2 border-primary focus:border-expand focus:border-2  outline-none font-light p-2"
-                  placeholder="SLP % for the scholar"
-                  type="text"
-                />
-              </div>
-              <div className="bg-white border-slate-400 w-1/2 rounded-md h-[40px] p-2 cursor-not-allowed">
-                <p className="text-slate-400 italic ">{split}% - manager</p>
-              </div>
-            </div>
-            {errors.split && (
-              <div className="flex items-center">
-                <BiErrorCircle className="text-delete mr-2" />
-                <p className="text-delete text-sm">{errors.split?.message}</p>
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-col">
-            <p className="text-white select-none">Payment schedule</p>
-            <div className="grid w-96 grid-cols-2 space-x-2 rounded-xl bg-white p-2">
-              <div>
-                <input
-                  {...register("device")}
-                  type="radio"
-                  id="mobile"
-                  value="Mobile"
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="mobile"
-                  className="block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-secondary peer-checked:font-bold peer-checked:text-white"
-                >
-                  Mobile
-                </label>
-              </div>
-
-              <div>
-                <input
-                  {...register("device")}
-                  type="radio"
-                  id="laptop"
-                  value="Laptop"
-                  className="peer hidden"
-                />
-                <label
-                  htmlFor="laptop"
-                  className="block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-secondary peer-checked:font-bold peer-checked:text-white"
-                >
-                  Laptop
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="description" className="text-white select-none">
-              Description
-            </label>
-            <textarea
-              {...register("description")}
-              id="description"
-              className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md hover:border-red border-2 border-primary focus:border-expand focus:border-2  outline-none font-light w-96"
-              placeholder="Description"
-              rows="7"
-              cols="33"
-            />
-            {errors.description && (
-              <div className="flex items-center">
-                <BiErrorCircle className="text-delete mr-2" />
-                <p className="text-delete text-sm">
-                  {errors.description?.message}
-                </p>
-              </div>
-            )}
-          </div>
-
-          <button
-            type="submit"
-            className="text-white border bg-gray-500 border-gray-500 rounded-md px-3 hover:bg-secondary font-extralight transition duration-200 ease-linear cursor-pointer w-44 p-2 self-center"
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col space-y-7 items-center"
           >
-            Submit
-          </button>
-        </form>
-      </motion.div>
+            <div className="flex flex-col">
+              <label htmlFor="slp" className="text-white select-none">
+                Title
+              </label>
+              <input
+                {...register("title")}
+                className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md border-2 border-primary focus:border-expand focus:border-2 outline-none font-light w-96 p-2"
+                placeholder="Title"
+                type="text"
+              />
+              {errors.title && (
+                <div className="flex items-center">
+                  <BiErrorCircle className="text-delete mr-2" />
+                  <p className="text-delete text-sm">{errors.title?.message}</p>
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="slp" className="text-white select-none">
+                Peak MMR
+              </label>
+              <input
+                {...register("mmr")}
+                className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md border-2 border-primary focus:border-expand focus:border-2 outline-none font-light w-96 p-2"
+                placeholder="What is your peak MMR"
+                type="text"
+              />
+              {errors.mmr && (
+                <div className="flex items-center">
+                  <BiErrorCircle className="text-delete mr-2" />
+                  <p className="text-delete text-sm">{errors.mmr?.message}</p>
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="slp" className="text-white select-none">
+                SLP quota
+              </label>
+              <input
+                {...register("slp")}
+                className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md border-2 border-primary focus:border-expand focus:border-2  outline-none font-light w-96 p-2"
+                placeholder="How much SLP you can farm per day"
+                type="text"
+                id="slp"
+              />
+              {errors.slp && (
+                <div className="flex items-center">
+                  <BiErrorCircle className="text-delete mr-2" />
+                  <p className="text-delete text-sm">{errors.slp?.message}</p>
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-col">
+              <div className="w-96 flex items-end">
+                <div className="flex flex-col w-9/12 mr-3">
+                  <label htmlFor="slp" className="text-white select-none">
+                    SLP split
+                  </label>
+                  <input
+                    {...register("split")}
+                    onChange={splitCalc}
+                    className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md  border-2 border-primary focus:border-expand focus:border-2  outline-none font-light p-2"
+                    placeholder="SLP % for the scholar"
+                    type="text"
+                  />
+                </div>
+                <div className="bg-white border-slate-400 w-1/2 rounded-md h-[40px] p-2 cursor-not-allowed">
+                  <p className="text-slate-400 italic ">{split}% - manager</p>
+                </div>
+              </div>
+              {errors.split && (
+                <div className="flex items-center">
+                  <BiErrorCircle className="text-delete mr-2" />
+                  <p className="text-delete text-sm">{errors.split?.message}</p>
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-col">
+              <p className="text-white select-none">Payment schedule</p>
+              <div className="grid w-96 grid-cols-2 space-x-2 rounded-xl bg-white p-2">
+                <div>
+                  <input
+                    {...register("device")}
+                    type="radio"
+                    id="mobile"
+                    value="Mobile"
+                    className="peer hidden"
+                  />
+                  <label
+                    htmlFor="mobile"
+                    className="block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-secondary peer-checked:font-bold peer-checked:text-white"
+                  >
+                    Mobile
+                  </label>
+                </div>
+
+                <div>
+                  <input
+                    {...register("device")}
+                    type="radio"
+                    id="laptop"
+                    value="Laptop"
+                    className="peer hidden"
+                  />
+                  <label
+                    htmlFor="laptop"
+                    className="block cursor-pointer select-none rounded-xl p-2 text-center peer-checked:bg-secondary peer-checked:font-bold peer-checked:text-white"
+                  >
+                    Laptop
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="description" className="text-white select-none">
+                Description
+              </label>
+              <textarea
+                {...register("description")}
+                id="description"
+                className="indent-3 placeholder:italic placeholder:opacity-50 placeholder:text-slate-400 rounded-md hover:border-red border-2 border-primary focus:border-expand focus:border-2  outline-none font-light w-96"
+                placeholder="Description"
+                rows="7"
+                cols="33"
+              />
+              {errors.description && (
+                <div className="flex items-center">
+                  <BiErrorCircle className="text-delete mr-2" />
+                  <p className="text-delete text-sm">
+                    {errors.description?.message}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="text-white border bg-gray-500 border-gray-500 rounded-md px-3 hover:bg-secondary font-extralight transition duration-200 ease-linear cursor-pointer w-44 p-2 self-center"
+            >
+              Submit
+            </button>
+          </form>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 };

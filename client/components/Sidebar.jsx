@@ -31,7 +31,7 @@ export default function Sidebar() {
       >
         <div className="w-full h-full bg-black flex justify-end ">
           {/* {sidebarWidth >= 300 ? ( */}
-          <div className=" h-screen px-[50px] flex flex-col items-center justify-between sidebarxl:hidden sidebarlg:flex sidebarmd:hidden">
+          <div className=" h-screen px-[50px] flex flex-col items-center justify-between sidebarxl:hidden sidebarlg:flex sidebarmd:hidden sidebarsbase:hidden sidebarbase:flex">
             <div>
               <Link href="/">
                 <h1 className="text-white text-5xl my-6 cursor-pointer font-logo">
@@ -60,7 +60,7 @@ export default function Sidebar() {
             </div>
           </div>
           {/* ) : ( */}
-          <div className="h-screen min-w-[80px] flex-col items-center justify-between hidden sidebarxl:flex sidebarlg:hidden sidebarmd:flex">
+          <div className="h-screen min-w-[80px] flex-col items-center justify-between hidden sidebarxl:flex sidebarlg:hidden sidebarmd:flex sidebarsbase:flex sidebarbase:hidden">
             <div className="mt-20">
               <Link href="/feed">
                 <button className="flex items-center justify-start p-4 rounded-full hover:bg-primary">

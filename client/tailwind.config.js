@@ -64,6 +64,8 @@ module.exports = {
         sidebarxl: {max: "2022px"},
         sidebarlg: {max: "1800px"},
         sidebarmd: {max: "1350px"},
+        sidebarbase: {max: "1100px"},
+        sidebarsbase: {max: "950px"},
         sidebarsm: {max: "740px"},
       },
       boxShadow: {

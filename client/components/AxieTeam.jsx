@@ -3,7 +3,7 @@ import { request } from "graphql-request";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { AxieTeamAtom } from "../atoms";
-import { formStatusAtom } from "../atoms";
+import { managerFormStatusAtom } from "../atoms";
 import query from "../graphqlQuery";
 import AxieImage from "./AxieImage";
 
@@ -11,7 +11,7 @@ export default function AxieTeam() {
   const [isLoading, setIsLoading] = useState(false);
   const [axieId, setAxieId] = useState("");
   const [axieTeam, setAxieTeam] = useAtom(AxieTeamAtom);
-  const [, setFormStatus] = useAtom(formStatusAtom);
+  const [, setFormStatus] = useAtom(managerFormStatusAtom);
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -71,7 +71,7 @@ export default function AxieTeam() {
     <motion.div
       initial={{ x: 300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
-      className="bg-primary flex flex-col items-center justify-center"
+      className="bg-primary flex flex-col items-center justify-center w-full"
     >
       <div className="relative">
         <input

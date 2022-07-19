@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAtom } from "jotai";
-import { formStatusAtom } from "../atoms";
+import { managerFormStatusAtom } from "../atoms";
 import { AxieTeamAtom } from "../atoms";
 import * as yup from "yup";
 
@@ -33,7 +33,7 @@ const schema = yup
   .required();
 
 const ManagerForm = () => {
-  const [formStatus] = useAtom(formStatusAtom);
+  const [formStatus] = useAtom(managerFormStatusAtom);
   const [axieTeam, setAxieTeam] = useAtom(AxieTeamAtom);
   const [split, setSplit] = useState(100);
 
