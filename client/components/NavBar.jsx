@@ -47,7 +47,6 @@ export default function NavBar() {
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
-  console.log(isBurger);
   return (
     <>
       <nav

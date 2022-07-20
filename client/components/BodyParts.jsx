@@ -85,6 +85,7 @@ export default function BodyParts() {
               width="1280px"
               height="960px"
               loader={axieLoader}
+              // unoptimized={true}
               src={image}
               alt="Axie image"
               quality={100}
